@@ -102,10 +102,10 @@
   import regTitle from './../title/Title'
   import regTable from './../table/Table'
   import icon from './../icon/Icon'
+
   export default {
     data (){
       return {
-        timer:'',
         titL_Top: '装备巡检实时统计地图',
         titR_Top: '海域选择',
         titR_Mid: '设备异常清单',
@@ -157,14 +157,6 @@
       let _top = this.$refs.top_list.offsetHeight
       this.$refs.top_list.style.marginTop = -_top/2 + 'px'
       $('#chartPolling > div').height($("#chartPolling").height())
-      this.timer = setInterval(function () {
-        $('.icon_list img').each(function (key,val) {
-          var a = Math.random()*200
-          var b = Math.random()*700
-          $(val).css({"left":b+'px','top':a+'px'})
-        })
-      },2000)
-
 
       var data = [53, 85, 60, 45, 53];
       var xMax = 100;
@@ -284,6 +276,14 @@
       };
       let myChart_1 = echarts.init(document.getElementById('chartPolling'))
       myChart_1.setOption(optionPolling)
+
+      window.timer2 = setInterval(function () {
+        $('.icon_list img').each(function (key, val) {
+          var a = Math.random() * 200
+          var b = Math.random() * 700
+          $(val).css({"left": b + 'px', 'top': a + 'px'})
+        })
+      }, 2000)
     },
     components: {
       'v-title': regTitle,
@@ -291,7 +291,7 @@
       'v-icon': icon
     },
     beforeRouteLeave(to, from, next){
-      clearInterval(this.timer)
+      clearInterval(window.timer2)
       next()
     },
   }

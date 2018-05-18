@@ -94,13 +94,11 @@
 
 </template>
 <script type="es6">
-  import echarts from 'echarts'
-  import normal from  '../normal/Normal'
+  import normal from '../normal/Normal'
 
   export default {
     data (){
       return {
-        timer1:'',
         checkboxGroup: [],
         tableData2: [{
           date: '台站',
@@ -164,7 +162,7 @@
       $('.info_l').height(oceH)
       $('.info_r').height(oceH)
 
-      this.timer1 = setInterval(function () {
+      window.timer1 = setInterval(function () {
         $('.icon_list img').each(function (index,val) {
           var H = Math.random()*500
           var W = Math.random()*700
@@ -183,7 +181,7 @@
     },
     beforeRouteLeave (to, from, next) {
       // clearInterval(this.timer)
-      clearInterval(this.timer1)
+      clearInterval(window.timer1)
       next()
     },
     created(){

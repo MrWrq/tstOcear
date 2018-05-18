@@ -141,7 +141,6 @@
   export default {
     data (){
       return {
-        timer1:'',
         checkboxGroup: [],
         tableData2: [{
           date: '台站',
@@ -339,7 +338,7 @@
 
       myChart2.setOption(option2)
 
-      this.timer1 = setInterval(function () {
+      window.timer3 = setInterval(function () {
         $('.icon_list img').each(function (index,val) {
           var H = Math.random()*500
           var W = Math.random()*700
@@ -350,7 +349,7 @@
     },
     beforeRouteLeave (to, from, next) {
       // clearInterval(this.timer)
-      clearInterval(this.timer1)
+      clearInterval(window.timer3)
       next()
     },
     created(){

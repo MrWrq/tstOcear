@@ -140,6 +140,7 @@
 <script type="es6">
   import regTitle from './../title/Title'
   import regTable from './../table/Table'
+
   export default {
     data (){
       return {
@@ -172,14 +173,13 @@
 
     },
     mounted (){
-      clearInterval(timer)
-      let timer = setInterval(function () {
+      window.timer4 = setInterval(function () {
         $('.icon_list img').each(function (index,val) {
           var a = Math.random()*200
           var b = Math.random()*700
           $(val).css({"left":b+'px','top':a+'px'})
         })
-      },4000)
+      }, 2000)
     },
     created(){
 
@@ -187,7 +187,11 @@
     components: {
       'v-title': regTitle,
       'v-table': regTable
-    }
+    },
+    beforeRouteLeave(to, from, next) {
+      clearInterval(window.timer4)
+      next()
+    },
   }
 </script>
 
