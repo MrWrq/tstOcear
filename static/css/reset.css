@@ -1,0 +1,130 @@
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dd,dt {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "微软雅黑";
+  list-style: none;
+}
+table {
+  border-collapse:collapse;
+  border-spacing: 0;
+}
+i,s,em {
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+}
+input,img {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  outline-style: none;
+  vertical-align: middle;
+}
+button {
+  outline-style: none;
+  border: 0 none;
+}
+a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #000;
+}
+a:hover {
+  color: red;
+}
+input,img {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  outline-style: none;
+  vertical-align: middle;
+}
+.clearfix:after {
+  content:"";
+  height:0;
+  line-height:0;
+  display:block;
+  clear:both;
+  visibility:hidden;
+}
+.clearfix {
+  *zoom:1;
+}
+.w {
+  width: 90%;
+  min-width: 1330px;
+  margin:0 auto;
+}
+.l {
+  float: left;
+}
+.r {
+  float: right;
+}
+.el-input--mini .el-input__inner {
+  height: 24px;
+}
+
+.info_r_mid_tab .has-gutter tr th {
+  text-align: center;
+  color: #fff;
+  background-color: #2a3cba;
+}
+.top_select_tab .has-gutter tr th {
+  text-align: center;
+  color: #fff;
+  background-color: #2a3cba;
+}
+.info_r_mid .el-table td, .el-table th {
+  padding: 2px 0;
+}
+.inspection .has-gutter tr th {
+  text-align: center;
+  color: #fff;
+  background-color: #2a3cba;
+}
+.inspection .el-table__body-wrapper, .el-table__footer-wrapper, .el-table__header-wrapper {
+  width: 101%;
+}
+.inspection .el-table__row td:nth-child(2) div {
+  border-radius: 5px;
+  color: #fff;
+  background-color: #2a3cba;
+}
+.char_r {
+  width: 80%
+}
+.char_r .el-checkbox__input.is-checked+.el-checkbox__label {
+  color: #fff
+}
+.char_r .el-checkbox.is-bordered.el-checkbox--mini {
+  padding: 3px 5px 0px 5px
+}
+
+.region .has-gutter tr th {
+  text-align: center;
+  color: #fff;
+  background-color: #2a3cba;
+}
+
+.region .el-table--striped .el-table__body tr.el-table__row--striped td {
+  background: #e6e6e6;
+}
+.region .el-table__body-wrapper, .el-table__footer-wrapper, .el-table__header-wrapper {
+  width: 101%;
+}
+.region .el-table td, .el-table th.is-leaf {
+  border-right: 1px solid #c2c2c2 ;
+}
+.region .el-table--border td, .el-table--border th {
+  border-right: 1px solid #c2c2c2 ;
+}
+.region .el-table td, .el-table th.is-leaf {
+  border-right: 1px solid #c2c2c2 ;
+}
+.region .el-table--border, .el-table--group {
+  border: 1px solid #c2c2c2;
+}
+
+
