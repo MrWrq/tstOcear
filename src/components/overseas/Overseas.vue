@@ -156,23 +156,17 @@
       },
     },
     mounted (){
-      let screeH = document.documentElement.clientHeight
-      let oceH = screeH*.8
-      $('.overseas').height(oceH)
-      $('.info_l').height(oceH)
-      $('.info_r').height(oceH)
-
       window.timer1 = setInterval(function () {
         $('.icon_list img').each(function (index,val) {
-          var H = Math.random()*500
-          var W = Math.random()*700
+          let H = Math.random() * 500
+          let W = Math.random() * 700
           $(val).css({"left":W+'px','top':H+'px'})
         })
       },2000)
 
       let LocalAPI = 'http://182.18.76.244:8090/otes/shipinfo/getCount/orga'
       this.$http.get(LocalAPI).then((res)=>{
-        console.log(res.data.data.detailNums)
+        // console.log(res.data.data.detailNums)
         this.tableData2 = res.data.data.detailNums
       }, (err) => {
         console.log(err)
@@ -180,7 +174,6 @@
 
     },
     beforeRouteLeave (to, from, next) {
-      // clearInterval(this.timer)
       clearInterval(window.timer1)
       next()
     },
@@ -205,7 +198,7 @@
           width 60%
           height 100%
           background #aac6ee
-          border-radius 10px
+          border-radius 4px
           position relative
           .ocea_info_name
             position absolute
@@ -225,13 +218,13 @@
           .overNormal
             position absolute
             right 20px
-            bottom 50px
+            top 10px
           .info_l_list
             position relative
             ul
               position absolute
               right 20px
-              top 80px
+              top 90px
               &>li
                 width 75px
                 height 70px
@@ -317,7 +310,7 @@
             box-sizing border-box
             overflow hidden
             background-color #fff
-            border-radius 10px
+            border-radius 4px
             .info_r_mid_info
               width 150px
               height 27px

@@ -39,6 +39,7 @@
           {"name": "极地装备", "path": "/region"},
           {"name": "调查船队", "path": "/clippers"},
           {"name": "海外站管理", "path": "/overseas"},
+          // {"name": "综合评估", "path": "/aboutScore"},
         ],
       }
     },
@@ -136,11 +137,10 @@
             height 25px
             width 120px
             background #eee
-
     .manage
       ul
         li
-          border-radius 10px
+          border-radius 4px
           height 86px
           line-height 86px
           float left

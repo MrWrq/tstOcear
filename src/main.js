@@ -7,13 +7,10 @@ import VueRouter from 'vue-router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '../static/css/reset.css'
+// import '../static/js/globalviewer.js'
+// import ol from 'ol'
+// import '../static/js/mapcore.js'
 import axios from 'axios'
-
-Vue.use(VueRouter)
-Vue.use(ElementUI)
-Vue.config.productionTip = false
-Vue.prototype.$http = axios //用axios代替$http进行接口请求
-
 //路由
 import Home from './components/home/Home'
 import About from './components/about/About'
@@ -22,6 +19,13 @@ import Region from './components/region/Region'
 import Infrastructure from './components/infrastructure/Infrastructure'
 import Inspection from './components/inspection/Inspection'
 import Overseas from './components/overseas/Overseas'
+import AboutScore from './components/aboutScore/AboutScore'
+
+Vue.use(VueRouter)
+Vue.use(ElementUI)
+// window.ol = ol
+Vue.config.productionTip = false
+Vue.prototype.$http = axios //用axios代替$http进行接口请求
 
 const routes = [
   {path: '/', redirect: '/home'},
@@ -31,7 +35,8 @@ const routes = [
   {path: '/region', component: Region},
   {path: '/infrastructure', component: Infrastructure},
   {path: '/inspection', component: Inspection},
-  {path: '/overseas', component: Overseas}
+  {path: '/overseas', component: Overseas},
+  {path: '/aboutScore', component: AboutScore}
 ]
 
 const router = new VueRouter({

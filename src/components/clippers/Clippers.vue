@@ -136,6 +136,7 @@
 <script type="es6">
   import echarts from 'echarts'
   import select from '../select/Select'
+
   export default {
     data (){
       return {
@@ -218,18 +219,9 @@
       }
     },
     mounted (){
-      let screeH = document.documentElement.clientHeight
-      let oceH = screeH*.8
-      $('.oceaLarge').height(oceH)
-      $('.info_l').height(oceH)
-      $('.info_r').height(oceH)
-      let infoH = $('.info_r').height()
-      $('.info_r_mid').css('margin-top',infoH*.02)
-      $('.info_r_bot').css('margin-top',infoH*.02)
-      let info_r_botW = $('.info_r_bot_bot').width()
-      let info_r_botH = $('.info_r_bot_bot').height()
-      $(".bot_r").width(info_r_botW - 104 -5-15 -5)
-      $(".bot_r").height(info_r_botH)
+      let oceanHeight = $(".oceans").height() * .8;
+      $('.info_r_mid').css('margin-top', oceanHeight * .02)
+      $('.info_r_bot').css('margin-top', oceanHeight * .02)
       let height_bot = $(".info_r_mid").height()- 37
       $(".info_r_mid_tab").height(height_bot)
       $('.info_r_bot_bot').height(height_bot)
@@ -421,13 +413,17 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .oceaLarge
     margin-top 55px
+    height 80%
+    .w
+      height 100%
     .ocea_info
+      width 100%
       height 100%
       .info_l
         width 60%
         height 100%
         background #7497ce
-        border-radius 10px
+        border-radius 4px
         position relative
         .ocea_info_name
           position absolute
@@ -481,7 +477,7 @@
           box-sizing border-box
           height 32%
           background-color #fff
-          border-radius 10px
+          border-radius 4px
           overflow hidden
           .chart_name
             height 26px
@@ -522,7 +518,7 @@
           box-sizing border-box
           overflow hidden
           background-color #fff
-          border-radius 10px
+          border-radius 4px
           .info_r_mid_info
             width 150px
             height 27px
@@ -535,7 +531,6 @@
             text-align center
           .info_r_mid_tab
             text-align center
-            height 100%
             padding-top 10px
             overflow hidden
             #echart_1
@@ -561,7 +556,7 @@
           padding 5px
           box-sizing border-box
           background-color #fff
-          border-radius 10px
+          border-radius 4px
           .info_r_bot_top
             .info_r_bot_info
               width 150px

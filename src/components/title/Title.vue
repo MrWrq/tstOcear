@@ -23,6 +23,7 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .heading
     position absolute
+    z-index 999
     cursor pointer
     height 27px
     padding 0 5px

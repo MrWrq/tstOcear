@@ -150,10 +150,9 @@
     },
     mounted (){
       //自适应高度
-      let screeH = document.documentElement.clientHeight
-      let _H = screeH*.8*0.02
-      this.$refs.info_r_mid.style.marginTop = _H + 'px'
-      this.$refs.info_r_bot.style.marginTop = _H + 'px'
+      let _H = $(".oceans").height() * .8;
+      this.$refs.info_r_mid.style.marginTop = _H * .02 + 'px'
+      this.$refs.info_r_bot.style.marginTop = _H * .02 + 'px'
       let _top = this.$refs.top_list.offsetHeight
       this.$refs.top_list.style.marginTop = -_top/2 + 'px'
       $('#chartPolling > div').height($("#chartPolling").height())
@@ -279,8 +278,8 @@
 
       window.timer2 = setInterval(function () {
         $('.icon_list img').each(function (key, val) {
-          var a = Math.random() * 200
-          var b = Math.random() * 700
+          let a = Math.random() * 200
+          let b = Math.random() * 700
           $(val).css({"left": b + 'px', 'top': a + 'px'})
         })
       }, 2000)
@@ -314,7 +313,7 @@
             width 100%
             height 100%
             overflow hidden
-            border-radius 10px
+            border-radius 4px
             background #aac6ee
             position relative
             vertical-align middle
@@ -372,7 +371,7 @@
             background #1b6d85
         .region_info_r
           float left
-          border-radius 10px
+          border-radius 4px
           width 39%
           height 100%
           margin-left 1%
@@ -382,7 +381,7 @@
             padding 10px
             overflow hidden
             box-sizing border-box
-            border-radius 10px
+            border-radius 4px
             background-color #e5e8ed
             .round
               height 150px
@@ -422,7 +421,7 @@
             overflow hidden
             padding 10px
             box-sizing border-box
-            border-radius 10px
+            border-radius 4px
             background-color #fff
             .elTable
               margin-top 40px
@@ -441,7 +440,7 @@
             overflow hidden
             padding 10px
             box-sizing border-box
-            border-radius 10px
+            border-radius 4px
             background-color #fff
             position relative
             .bot_chart
