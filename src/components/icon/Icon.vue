@@ -1,7 +1,7 @@
 <template>
   <div class="icon">
     <ul>
-      <li v-for="item in icons" :style="backgroundColor = item.bgColor">
+      <li v-for="item in icons" :style="{background : item.bgColor}">
         <img :src="item.url" alt="">
         <p>{{item.name}}</p>
       </li>
@@ -29,19 +29,19 @@
   .icon
     ul
       li
-        width 75px
-        height 70px
+        width 68px
+        height 60px
         text-align center
         color #fff
         box-sizing border-box
         padding 5px
         border 1px solid #a8a8aa
-        box-shadow 0 0 10px 0 #5c6275
+        box-shadow 0 0 3px 0 #5c6275
         background #666666
         border-radius 5px
         margin-top 2px
         img
-          width 43px
+          width 33px
           transition all 1s
         &:hover
           background-color #0babfe

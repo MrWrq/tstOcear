@@ -76,8 +76,12 @@ input,img {
   color: #fff;
   background-color: #2a3cba;
 }
-.info_r_mid .el-table td, .el-table th {
-  padding: 2px 0;
+
+/*.info_r_mid .el-table td, .el-table th {*/
+/*padding: 2px 0;*/
+/*}*/
+.el-table td, .el-table th {
+  padding: 0 0 !important;
 }
 .inspection .has-gutter tr th {
   text-align: center;
@@ -92,9 +96,6 @@ input,img {
   color: #fff;
   background-color: #2a3cba;
 }
-.char_r {
-  width: 80%
-}
 .char_r .el-checkbox__input.is-checked+.el-checkbox__label {
   color: #fff
 }
@@ -106,6 +107,29 @@ input,img {
   text-align: center;
   color: #fff;
   background-color: #2a3cba;
+}
+
+.spareParts .has-gutter tr th {
+  color: #fff;
+  background-color: #2a3cba;
+}
+
+.calibration .info_r_top .has-gutter tr th {
+  background-color: #fdae1e;
+  color: #fff;
+}
+
+.calibration .info_r_bot .has-gutter tr th {
+  background-color: #fd0200;
+  color: #fff;
+}
+
+.calibration .el-table__body-wrapper, .el-table__footer-wrapper, .el-table__header-wrapper {
+  width: 101%;
+}
+
+.el-table__body-wrapper, .el-table__footer-wrapper, .el-table__header-wrapper {
+  width: 101% !important;
 }
 
 .region .el-table--striped .el-table__body tr.el-table__row--striped td {
@@ -126,5 +150,86 @@ input,img {
 .region .el-table--border, .el-table--group {
   border: 1px solid #c2c2c2;
 }
+
+.about_score .has-gutter tr th {
+  text-align: center;
+  color: #fff;
+  background-color: #2a3cba;
+}
+
+.has-gutter tr th {
+  background-color: #2a3cba;
+  color: #fff;
+}
+
+.el-table .cell, .el-table th div {
+  padding-right: 0px !important;
+}
+
+.el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell {
+  padding-left: 0px !important;
+  line-height: 32px !important;
+}
+
+.weihu .info_l_bot .has-gutter tr th {
+  background: #FFAC1E;
+  color: white;
+}
+
+.weihu .info_r_top .has-gutter tr th {
+  background-color: #6DB820;
+  color: white;
+}
+
+.weihu .info_r_bot .has-gutter tr th {
+  background: red;
+  color: white;
+}
+
+.yearChark .has-gutter tr th {
+  background: blue;
+  color: white;
+}
+
+.dualException .has-gutter tr th {
+  background-color: blue;
+  color: white;
+}
+
+.dualscrap .has-gutter tr th {
+  background-color: blue;
+  color: white;
+}
+
+.el-table .cell, .el-table th div {
+  padding-right: 0px !important;
+}
+
+.el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell {
+  padding-left: 0 !important;
+}
+
+.title_all_bottom_line {
+  border: 1px solid lightgray;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.title_all_bottom_line .title_text {
+  cursor: pointer;
+  height: 27px;
+  padding: 0 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  background-color: #2a3cba;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: left;
+}
+
+
 
 

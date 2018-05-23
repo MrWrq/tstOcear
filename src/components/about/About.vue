@@ -115,7 +115,7 @@
               </div>
             </div>
             <div class="info_r_bot_bot">
-              <div class="bot_l l">
+              <div class="bot_l">
                 <ul class="info_r_bot_icon l">
                   <li><img src="./ocea_01.png" alt=""><p>站台</p></li>
                   <li><img src="./ocea_02.png" alt=""><p>浮标</p></li>
@@ -129,7 +129,7 @@
                   <li><img src="./more.png" alt=""><p>更多</p></li>
                 </ul>
               </div>
-              <div class="bot_r l">
+              <div class="bot_r">
                 <div id="chart2"></div>
               </div>
             </div>
@@ -1237,13 +1237,16 @@
       }
 
       initmap();
-      let oceanHeight = $(".oceans").height() * .8;
+      // let oceanHeight = $(".oceans").height() * .8;
+      let oceanHeight = document.documentElement.clientHeight
+      oceanHeight = oceanHeight < 780 ? 780 * .8 : oceanHeight * .8
       $('.info_r_mid').css('margin-top', oceanHeight * .02)
       $('.info_r_bot').css('margin-top', oceanHeight * .02)
+      $('.info_r_bot_bot').height(oceanHeight * .32 - 37 - 8)
       let info_r_botW = $('.info_r_bot_bot').width()
       let info_r_botH = $('.info_r_bot_bot').height()
 
-      $(".bot_r").width(info_r_botW - 104 -5-15 -5)
+      $(".bot_r").width(info_r_botW - 82 - 5 - 10 - 5)
       $(".bot_r").height(info_r_botH)
 
       let option = {
@@ -1566,40 +1569,49 @@
               line-height 27px
               text-align center
           .info_r_bot_bot
-            height 200px
             margin-top 8px
             margin-left 10px
-            .info_r_bot_icon
-              margin-right 2px
-              li
-                width 48px
-                height 46px
-                background #ccc
-                text-align center
-                border-radius 5px
-                vertical-align middle
-                margin-top 2px
-                &:first-child
-                  margin-top 0px
-                &:nth-child(1)
-                  background-color #0babfe
-                &:nth-child(2)
-                  background-color #79a0ef
-                &:nth-child(3)
-                  background-color #6db821
-                &:nth-child(4)
-                  background-color #5c6275
-                img
-                  width 28px
-                p
-                  color #fff
-                &:hover
-                  cursor pointer
-                  background-color green
-            #chart2
-              width 100%
+            position relative
+            .bot_l
+              position absolute
+              top 50%
+              margin-top -77px
+              .info_r_bot_icon
+                margin-right 2px
+                li
+                  width 39px
+                  height 37px
+                  background #ccc
+                  text-align center
+                  border-radius 5px
+                  vertical-align middle
+                  margin-top 2px
+                  &:first-child
+                    margin-top 0px
+                  &:nth-child(1)
+                    background-color #0babfe
+                  &:nth-child(2)
+                    background-color #79a0ef
+                  &:nth-child(3)
+                    background-color #6db821
+                  &:nth-child(4)
+                    background-color #5c6275
+                  img
+                    width 20px
+                  p
+                    color #fff
+                    font-size 12px
+                  &:hover
+                    cursor pointer
+                    background-color green
+            .bot_r
               height 100%
-              background-color #ccc
+              position absolute
+              margin-left 86px
+              #chart2
+                width 100%
+                height 100%
+                background-color #ccc
 
 
 </style>

@@ -6,6 +6,9 @@
           <div class="home_list">
             <ul>
               <li v-for="item in meaus" :style="{backgroundColor:item.bgColor}">
+                <div class="link_hide">
+                  <router-link class="link_a" :to="item.path"></router-link>
+                </div>
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
                 <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
                 <div class="li_link" @click="showHeader"><router-link :to="item.path" >进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
@@ -16,6 +19,9 @@
           <div class="home_list">
             <ul>
               <li v-for="item in meaus2" :style="{backgroundColor:item.bgColor}">
+                <div class="link_hide">
+                  <router-link class="link_a" :to="item.path"></router-link>
+                </div>
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
                 <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
                 <div class="li_link" @click="showHeader"><router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
@@ -26,6 +32,9 @@
           <div class="home_list">
             <ul>
               <li v-for="item in meaus3" :style="{backgroundColor:item.bgColor}">
+                <div class="link_hide">
+                  <router-link class="link_a" :to="item.path"></router-link>
+                </div>
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
                 <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
                 <div class="li_link" @click="showHeader"><router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
@@ -71,17 +80,40 @@
     },
     methods: {
       showHeader(){
-        $('.tst_top').show()
+        // $('.tst_top').show()
       }
     },
     mounted(){
-
+      let screeH = document.documentElement.clientHeight
+      if (screeH <= 910) {
+        $('.home_list .li_link').hide()
+        $('.link_a').show()
+      } else {
+        $('.home_list .li_link').show()
+        $('.link_a').hide()
+      }
     },
     components :{
 
     },
     watch: {
-
+      // fullHeight (val) {
+      //   if(!this.timer) {
+      //     this.fullHeight = val
+      //     console.log(this.fullHeight)
+      //     $(".oceans").height(this.fullHeight)
+      //     if(this.fullHeight<=780) {
+      //       $('.home_list .li_link').hide()
+      //     } else {
+      //       $('.home_list .li_link').show()
+      //     }
+      //     this.timer = true
+      //     let that = this
+      //     setTimeout(function (){
+      //       that.timer = false
+      //     },400)
+      //   }
+      // }
     }
   }
 </script>
@@ -165,7 +197,33 @@
                 background-color rgba(0,0,0,.1)
                 box-shadow 0 1px 1px 0 #fff
                 box-sizing border-box
-                padding-left 15px
                 a
+                  display block
+                  width 100%
+                  height 100%
+                  padding-left 15px
+                  box-sizing border-box
                   color #fff
+                &:hover
+                  a
+                    color #15ccff
+              .link_hide
+                /*position absolute*/
+                /*top 0*/
+                /*left 0*/
+                /*width 100%*/
+                /*height 100%*/
+                /*z-index 99*/
+                /*cursor pointer*/
+                /*background-color #0babfe*/
+                .link_a
+                  position absolute
+                  display none
+                  top 0
+                  left 0
+                  width 100%
+                  height 100%
+                  z-index 99
+                  cursor pointer
+                  opacity transition
 </style>

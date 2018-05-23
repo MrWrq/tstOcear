@@ -122,7 +122,7 @@
           {name: '浮标'},
           {name: '海床基'},
           {name: '海啸浮标'},
-          {name: '雷达'}
+          // {name: '雷达'}
         ],
         dataTable:[
           {date: '台站',name: '100',address: '23'},
