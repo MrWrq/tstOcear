@@ -50,98 +50,107 @@
               <p>各类大型设备资产构成统计图</p>
             </div>
             <div class="info_r_mid_tab">
-              <!--<el-table-->
-              <!--:data="tableData2"-->
-              <!--style="width: 100%"-->
-              <!--fixed-->
-              <!--stripe-->
-              <!--size="mini"-->
-              <!--header-align="center"-->
-              <!--:row-class-name="tableRowClassName">-->
-              <!--<el-table-column-->
-              <!--prop="value"-->
-              <!--align="center"-->
-              <!--width="75"-->
-              <!--label="序号">-->
-              <!--</el-table-column>-->
-              <!--<el-table-column-->
-              <!--prop="shortSea"-->
-              <!--align="center"-->
-              <!--sortable-->
-              <!--label="名称">-->
-              <!--</el-table-column>-->
-              <!--<el-table-column-->
-              <!--prop="openSea"-->
-              <!--align="center"-->
-              <!--label="型号">-->
-              <!--</el-table-column>-->
-              <!--<el-table-column-->
-              <!--prop="value"-->
-              <!--align="center"-->
-              <!--sortable-->
-              <!--label="使用单位">-->
-              <!--</el-table-column>-->
-              <!--<el-table-column-->
-              <!--prop="value"-->
-              <!--align="center"-->
-              <!--sortable-->
-              <!--label="已使用年限">-->
-              <!--</el-table-column>-->
-              <!--<el-table-column-->
-              <!--prop="value"-->
-              <!--align="center"-->
-              <!--sortable-->
-              <!--label="登记价值">-->
-              <!--</el-table-column>-->
-              <!--<el-table-column-->
-              <!--prop="value"-->
-              <!--align="center"-->
-              <!--sortable-->
-              <!--label="操作">-->
-              <!--</el-table-column>-->
-              <!--</el-table>-->
-              <table>
-                <tr class="thead">
-                  <th>序号</th>
-                  <th>名称</th>
-                  <th>型号</th>
-                  <th>使用单位</th>
-                  <th>已使用年限</th>
-                  <th>登记价值</th>
-                  <th>操作</th>
-                </tr>
-                <tr class="tbody">
-                  <td>1</td>
-                  <td>船舶</td>
-                  <td>B12</td>
-                  <td>东海分局</td>
-                  <td>
-                    <el-progress :percentage="50"></el-progress>
-                  </td>
-                  <td>51900</td>
-                  <td><a href="#">详细信息</a></td>
-                </tr>
-                <tr class="tbody">
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>
-                    <el-progress :percentage="80"></el-progress>
-                  </td>
-                  <td>1</td>
-                  <td>1</td>
-                </tr>
-                <tr class="tbody">
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                </tr>
-              </table>
+              <el-table
+                :data="tableData2"
+                style="width: 100%"
+                fixed
+                stripe
+                size="mini"
+                header-align="center"
+                :row-class-name="tableRowClassName">
+                <el-table-column
+                  prop="num"
+                  align="center"
+                  width="55"
+                  sortable
+                  label="序号">
+                </el-table-column>
+                <el-table-column
+                  prop="name"
+                  align="center"
+                  width="55"
+                  label="名称">
+                </el-table-column>
+                <el-table-column
+                  prop="model"
+                  align="center"
+                  width="55"
+                  label="型号">
+                </el-table-column>
+                <el-table-column
+                  prop="unit"
+                  align="center"
+                  label="使用单位">
+                </el-table-column>
+                <el-table-column
+                  prop="age"
+                  align="center"
+                  sortable
+                  label="已使用年限">
+                  <template slot-scope="scope">
+                    <el-progress :percentage="scope.row.age"></el-progress>
+                  </template>
+                </el-table-column>
+                <el-table-column
+                  prop="register"
+                  align="center"
+                  sortable
+                  label="登记价值">
+                </el-table-column>
+                <el-table-column
+                  prop="value"
+                  align="center"
+                  label="操作">
+                  <template slot-scope="scope">
+                    <el-button @click="handleClick(scope.row.value)" type="text" size="mini"
+                               style="display: inline-block;width: 80%;height: 80%; background-color: #7f8180;color:#fff;">
+                      查看详情
+                    </el-button>
+                  </template>
+                </el-table-column>
+              </el-table>
+              <!--<table>-->
+              <!--<tr class="thead">-->
+              <!--<th>序号</th>-->
+              <!--<th>名称</th>-->
+              <!--<th>型号</th>-->
+              <!--<th>使用单位</th>-->
+              <!--<th>已使用年限</th>-->
+              <!--<th>登记价值</th>-->
+              <!--<th>操作</th>-->
+              <!--</tr>-->
+              <!--<tr class="tbody">-->
+              <!--<td>1</td>-->
+              <!--<td>船舶</td>-->
+              <!--<td>B12</td>-->
+              <!--<td>东海分局</td>-->
+              <!--<td>-->
+              <!--<el-progress :percentage="50"></el-progress>-->
+              <!--</td>-->
+              <!--<td>51900</td>-->
+              <!--<td><a href="#">详细信息</a></td>-->
+              <!--</tr>-->
+              <!--<tr class="tbody">-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--<td>-->
+              <!--<el-progress :percentage="80"></el-progress>-->
+              <!--</td>-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--</tr>-->
+              <!--<tr class="tbody">-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--<td>1</td>-->
+              <!--</tr>-->
+              <!--</table>-->
             </div>
           </div>
 
@@ -159,48 +168,76 @@
       return {
         checkboxGroup: [],
         tableData2: [{
-          date: '台站',
-          name: '100',
-          address: '23',
-          num: '23',
-          all: '115'
+          num: '1',
+          name: '船舶',
+          model: 'B12',
+          unit: '东海分局',
+          age: '7',
+          register: '51800万元',
         }, {
-          date: '台站',
-          name: '100',
-          address: '34',
-          num: '23',
-          all: '115'
+          num: '2',
+          name: '飞机',
+          model: 'B12',
+          unit: '东海分局',
+          age: '7',
+          register: '51800万元',
         }, {
-          date: '雷达',
-          name: '100',
-          address: '53',
-          num: '23',
-          all: '115'
+          num: '3',
+          name: '潜器',
+          model: 'B12',
+          unit: '北海分局',
+          age: '14',
+          register: '51800万元',
         }, {
-          date: '潜标',
-          name: '100',
-          address: '13',
-          num: '23',
-          all: '115'
+          num: '4',
+          name: '船舶',
+          model: 'B12',
+          unit: '东海分局',
+          age: '1',
+          register: '51800万元',
         }, {
-          date: '潜标',
-          name: '100',
-          address: '13',
-          num: '23',
-          all: '115'
+          num: '5',
+          name: '卫星',
+          model: 'B12',
+          unit: '南海分局',
+          age: '8',
+          register: '51800万元',
         }, {
-          date: '潜标',
-          name: '100',
-          address: '13',
-          num: '23',
-          all: '115'
+          num: '6',
+          name: '船舶',
+          model: 'B12',
+          unit: '北海分局',
+          age: '7',
+          register: '51800万元',
         }, {
-          date: '潜标',
-          name: '100',
-          address: '13',
-          num: '23',
-          all: '115'
-        }]
+          num: '7',
+          name: '飞机',
+          model: 'B12',
+          unit: '南海分局',
+          age: '9',
+          register: '51800万元',
+        }, {
+          num: '8',
+          name: '卫星',
+          model: 'B12',
+          unit: '南海分局',
+          age: '8',
+          register: '51800万元',
+        }, {
+          num: '9',
+          name: '卫星',
+          model: 'B12',
+          unit: '南海分局',
+          age: '8',
+          register: '51800万元',
+        }, {
+          num: '10',
+          name: '卫星',
+          model: 'B12',
+          unit: '南海分局',
+          age: '8',
+          register: '51800万元',
+        },]
       }
     },
     methods: {
@@ -227,20 +264,20 @@
         })
       }, 2000)
 
-      let LocalAPI = 'http://182.18.76.244:8090/otes/shipinfo/getCount/orga'
-      this.$http.get(LocalAPI).then((res) => {
-        // console.log(res.data.data.detailNums)
-        this.tableData2 = res.data.data.detailNums
-      }, (err) => {
-        console.log(err)
-      })
+      // let LocalAPI = 'http://182.18.76.244:8090/otes/shipinfo/getCount/orga'
+      // this.$http.get(LocalAPI).then((res) => {
+      //   console.log(res.data.data.detailNums)
+      //   this.tableData2 = res.data.data.detailNums
+      // }, (err) => {
+      //   console.log(err)
+      // })
       var colors = ['#393939', '#f5b031', '#fad797', '#59ccf7', '#c3b4df'];
       let option = {
         tooltip: {
           trigger: 'item',
           formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
-        color: ['#ffac1e', '#a273e7', '#1497ab', '#77a0f0'],
+        color: ['#ffac1e', '#a273e7', '#77a0f0', '#1497ab'],
         // legend: {
         //   orient: 'vertical',
         //   x: 'left',
@@ -253,10 +290,10 @@
             type: 'pie',
             radius: ['40%', '55%'],
             data: [
-              {value: 335, name: '卫星'},
-              {value: 310, name: '潜器'},
-              {value: 234, name: '飞机'},
-              {value: 135, name: '船舶'}
+              {value: 31, name: '卫星'},
+              {value: 30, name: '潜器'},
+              {value: 258, name: '飞机'},
+              {value: 350, name: '船舶'}
             ],
             label: {
               normal: {
@@ -481,12 +518,13 @@
                       width 17%
                     &:nth-child(7)
                       width 16%
-                .tbody
-                  td
-                    line-height 27px
-                    border-bottom 1px solid #f7f7f7
-                    a
-                      color #203aa9
+
+  /*.tbody*/
+  /*td*/
+  /*line-height 27px*/
+  /*border-bottom 1px solid #f7f7f7*/
+  /*a*/
+  /*color #203aa9*/
 
 
 </style>

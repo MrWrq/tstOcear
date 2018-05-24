@@ -21,15 +21,15 @@
               </ul>
 
             </div>
-            <!--<div class="icon_list">-->
-            <!--<img src="./reg_01.png" alt="">-->
-            <!--<img src="./reg_02.png" alt="">-->
-            <!--<img src="./reg_03.png" alt="">-->
-            <!--<img src="./reg_04.png" alt="">-->
-            <!--<img src="./reg_05.png" alt="">-->
-            <!--<img src="./reg_06.png" alt="">-->
-            <!--<img src="./reg_07.png" alt="">-->
-            <!--</div>-->
+            <div class="icon_list">
+              <img src="./reg_01.png" alt="">
+              <img src="./reg_02.png" alt="">
+              <img src="./reg_03.png" alt="">
+              <img src="./reg_04.png" alt="">
+              <img src="./reg_05.png" alt="">
+              <img src="./reg_06.png" alt="">
+              <img src="./reg_07.png" alt="">
+            </div>
             <div id="map" style="width: 100%;height: 100%;z-index:1;"></div>
 
           </div>
@@ -68,15 +68,15 @@
                 header-align="center"
                 :row-class-name="tableRowClassName">
                 <el-table-column
-                  prop="date"
+                  prop="num"
                   align="center"
-                  width="33"
+                  width="55"
+                  sortable
                   label="序号">
                 </el-table-column>
                 <el-table-column
-                  prop="all"
+                  prop="genre"
                   align="center"
-                  sortable
                   label="设备类型">
                 </el-table-column>
                 <el-table-column
@@ -85,31 +85,29 @@
                   label="设备名称">
                 </el-table-column>
                 <el-table-column
-                  prop="address"
+                  prop="status"
                   align="center"
-                  sortable
                   label="运行状态">
                   <template slot-scope="scope">
-                    <i class="el-icon-success"></i>&nbsp;&nbsp;{{scope.row.address}}
+                    <i class="el-icon-success"></i>&nbsp;&nbsp;{{scope.row.status}}
                   </template>
                 </el-table-column>
                 <el-table-column
-                  prop="num"
+                  prop="rate"
                   align="center"
                   sortable
                   label="报到率">
                 </el-table-column>
                 <el-table-column
-                  prop="num"
+                  prop="area"
                   align="center"
                   label="所属区域">
                 </el-table-column>
                 <el-table-column
-                  prop="num"
                   align="center"
-                  label="全部详情">
+                  label="操作">
                   <template slot-scope="scope">
-                    <el-button @click="handleClick(scope.row.num)" type="text" size="mini"
+                    <el-button @click="handleClick" type="text" size="mini"
                                style="display: inline-block;width: 80%;height: 80%; background-color: #7f8180;color:#fff;">
                       查看详情
                     </el-button>
@@ -121,11 +119,11 @@
 
           </div>
           <div class="info_r_bot">
-            <v-title :message="titR_Top"></v-title>
+            <v-title :message="titR_Bot"></v-title>
 
             <div class="elTable">
               <el-table
-                :data="dataTable"
+                :data="dataTable1"
                 style="width: 100%"
                 fixed
                 stripe
@@ -134,44 +132,43 @@
                 header-align="center"
                 :row-class-name="tableRowClassName">
                 <el-table-column
-                  prop="date"
+                  prop="num"
                   align="center"
-                  width="33"
-                  label="序号">
-                </el-table-column>
-                <el-table-column
-                  prop="all"
-                  align="center"
+                  width="55"
                   sortable
-                  label="名称">
+                  label="序号">
                 </el-table-column>
                 <el-table-column
                   prop="name"
                   align="center"
+                  label="名称">
+                </el-table-column>
+                <el-table-column
+                  prop="genre"
+                  align="center"
                   label="类型">
                 </el-table-column>
                 <el-table-column
-                  prop="address"
+                  prop="proportion"
                   align="center"
                   sortable
                   label="面积">
                 </el-table-column>
                 <el-table-column
-                  prop="num"
+                  prop="leader"
                   align="center"
                   label="负责人">
                 </el-table-column>
                 <el-table-column
-                  prop="num"
+                  prop="area"
                   align="center"
                   label="所属区域">
                 </el-table-column>
                 <el-table-column
-                  prop="num"
                   align="center"
-                  label="全部详情">
+                  label="操作">
                   <template slot-scope="scope">
-                    <el-button @click="handleClick(scope.row)" type="text" size="mini"
+                    <el-button @click="handleClick" type="text" size="mini"
                                style="display: inline-block;width: 80%;height: 80%; background-color: #7f8180;color:#fff;">
                       查看详情
                     </el-button>
@@ -189,26 +186,47 @@
 
 </template>
 <script type="es6">
-  import regTitle from './../title/Title'
-  import regTable from './../table/Table'
+  import regTitle from '../title/Title'
+  import regTable from '../table/Table'
   import ol from '../../../static/js/globalviewer'
-  // import layer from '../../../static/layer/layer'
+
   export default {
     data() {
       return {
         titL_Top: '南极装备实时统计地图',
         titL_Bot: '北极装备实时统计地图',
-        titR_Top: '南极装备设备统计表',
-        titR_Bot: '北极装备设备统计表',
+        titR_Top: '南北极装备统计表',
+        titR_Bot: '南北极基建统计表',
         topList_1: ['浮标', '漂流浮标', '智能台站', '海床基'],
         topList_2: ['码头', '房屋', '构筑物'],
         dataTable: [
-          {date: '台站', name: '100', address: '23', num: '23', all: '115', name1: '浮标'},
-          {date: '雷达', name: '100', address: '34', num: '23', all: '115', name1: '浮标1'},
-          {date: '潜标', name: '100', address: '34', num: '23', all: '115', name1: '浮标2'},
-          {date: '台站', name: '100', address: '34', num: '23', all: '115', name1: '浮标3'},
-          {date: '台站', name: '100', address: '34', num: '23', all: '115', name1: '浮标4'}
-        ]
+          {num: '1', genre: '海洋站', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '2', genre: '浮标', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '3', genre: '海啸浮标', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '4', genre: '雷达', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '5', genre: '海洋站', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '6', genre: '海啸浮标', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '7', genre: '浮标', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '8', genre: '海洋站', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '9', genre: '海床基观测系统', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '10', genre: '雷达', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '11', genre: '海洋站', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+          {num: '12', genre: '海啸浮标', name: '海洋站', status: '正常', rate: '100', area: '南极'},
+        ],
+        dataTable1: [
+          {num: '1', genre: '码头', name: '2号码头', proportion: '200平米', leader: '王建国', area: '南极'},
+          {num: '2', genre: '房屋', name: '考察极地', proportion: '500平米', leader: '王建国', area: '北极'},
+          {num: '3', genre: '气象场', name: '2号气象场', proportion: '50平米', leader: '王建国', area: '南极'},
+          {num: '4', genre: '实验场', name: '4号实验场', proportion: '50平米', leader: '王建国', area: '北极'},
+          {num: '5', genre: '码头', name: '2号码头', proportion: '200平米', leader: '王建国', area: '南极'},
+          {num: '6', genre: '房屋', name: '考察极地', proportion: '500平米', leader: '王建国', area: '北极'},
+          {num: '7', genre: '气象场', name: '2号气象场', proportion: '50平米', leader: '王建国', area: '南极'},
+          {num: '8', genre: '实验场', name: '4号实验场', proportion: '50平米', leader: '王建国', area: '北极'},
+          {num: '9', genre: '码头', name: '2号码头', proportion: '200平米', leader: '王建国', area: '南极'},
+          {num: '10', genre: '房屋', name: '考察极地', proportion: '500平米', leader: '王建国', area: '北极'},
+          {num: '11', genre: '气象场', name: '2号气象场', proportion: '50平米', leader: '王建国', area: '南极'},
+          {num: '12', genre: '实验场', name: '4号实验场', proportion: '50平米', leader: '王建国', area: '北极'},
+        ],
       }
     },
     methods: {
@@ -230,9 +248,8 @@
     },
     mounted() {
       var serverip = 'http://127.0.0.1';
-      var tiandituserverip = "http://127.0.0.1:8080";
+      var tiandituserverip = "http://10.0.4.72:81";
       var j;
-      var scale;
       var c;
       var n;
       var r;
@@ -1218,26 +1235,7 @@
         }
       }
 
-      initmap()
-      // let LocalAPI = 'http://182.18.76.244:8090/otes/shipinfo/getCount/orga'
-      // this.$http.get(LocalAPI).then((res)=>{
-      //   // console.log(res.data.data.detailNums)
-      //   this.tableData2 = res.data.data.detailNums
-      // }, (err) => {
-      //   console.log(err)
-      // })
-
-      let LocalAPI = './point.txt'
-      // this.$http.get(LocalAPI).then((res)=>{
-      //   console.log (res.data)
-      //   addpoints('groupa',res.data);
-      // }, (err) => {
-      //   console.log(err)
-      // })
-      addpoints('groupa', LocalAPI);
-      switchoperation('singletargetselection');
-
-
+      initmap();
       // window.timer4 = setInterval(function () {
       //   $('.icon_list img').each(function (index,val) {
       //     let a = Math.random() * 200

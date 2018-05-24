@@ -153,8 +153,8 @@
 
 </template>
 <script type="es6">
-  import regTitle from './../title/Title'
-  import regTable from './../table/Table'
+  import regTitle from '../title/Title'
+  import regTable from '../table/Table'
   import ol from '../../../static/js/globalviewer'
 
   export default {

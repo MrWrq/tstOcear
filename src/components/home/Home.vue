@@ -37,7 +37,9 @@
                 </div>
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
                 <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
-                <div class="li_link" @click="showHeader"><router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
+                <div class="li_link">
+                  <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
+                </div>
                 <div class="num"><p>{{item.num}}</p></div>
               </li>
             </ul>
@@ -52,7 +54,6 @@
   export default {
     data (){
       return {
-        isShow:false,
         meaus:[
           {'num':'01','name':'大型装备管理','detail':'大型装备管理','bgColor':'#17d0ff','path':'/about','imgUrl':'/static/img/1.png'},
           {'num':'02','name':'调查设备管理','detail':'调查设备管理','bgColor':'#4bceaf','path':'/inspection','imgUrl':'/static/img/2.png'},
@@ -78,11 +79,7 @@
         ],
       }
     },
-    methods: {
-      showHeader(){
-        // $('.tst_top').show()
-      }
-    },
+    methods: {},
     mounted(){
       let screeH = document.documentElement.clientHeight
       if (screeH <= 910) {

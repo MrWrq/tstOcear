@@ -57,11 +57,12 @@
           // {"name": "极地装备", "path": "/region"},
           // {"name": "调查船队", "path": "/clippers"},
           // {"name": "海外站管理", "path": "/overseas"},
-          // {"name": "极地综合", "path": "/regionTable"},
+
 
           //极地
           // {"name": "极地首页", "path": "/regionHome"},
-          {"name": "综合管理", "path": "/management"},
+          // {"name": "综合管理", "path": "/management"},
+          {"name": "综合管理", "path": "/regionTable"},
           {"name": "安装验收", "path": "/installation"},
           {"name": "维护保养", "path": "/weihu"},
           {"name": "验定校准", "path": "/calibration"},
@@ -72,9 +73,9 @@
         moreTabs: [
           //极地
           {"name": "备品备件", "path": "/spareParts"},
-          {"name": "统计分析", "path": "/statistic"},
+          // {"name": "统计分析", "path": "/statistic"},
           {"name": "统计分析", "path": "/tongji"},
-          {"name": "年度核查", "path": "/yearCheck"},
+          // {"name": "年度核查", "path": "/yearCheck"},
         ]
       }
     },
@@ -84,10 +85,6 @@
         //   $('.tst_top').hide();
         // }
       },
-      showMore() {
-        console.log($('.moreMeau').find('.active').parent('li'))
-        $('.moreMeau').find('.active').parent('li').css('border-bottom', '1px solid #17cfff')
-      }
     },
     mounted() {
       console.log(window.location.pathname)

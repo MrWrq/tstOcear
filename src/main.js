@@ -32,11 +32,11 @@ import Weihu from './components/weihu/Weihu'
 import DualException from './components/dualexception/DualException'
 import DualScrap from './components/dualScrap/DualScrap'
 import YearCheck from './components/yearcheck/YearCheck'
-
 Vue.use(VueRouter)
 Vue.use(ElementUI)
-Vue.config.productionTip = false
 Vue.prototype.$http = axios //用axios代替$http进行接口请求
+Vue.config.productionTip = false
+
 
 const routes = [
   {path: '/', redirect: '/regionHome'},
