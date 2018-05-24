@@ -11,12 +11,12 @@
             <!--</div>-->
             <div class="top_list">
               <ul>
-                <li v-for="item in topList_1" @click="listChoose($event)"><img src="./fubiao.png" alt="" width="22">{{item}}
+                <li v-for="item in topList_1" @click="listChoose($event)"><img :src="item.url" alt="" width="22">{{item.name}}
                 </li>
               </ul>
               <div class="line"></div>
               <ul>
-                <li v-for="item in topList_2" @click="listChoose($event)"><img src="./fubiao.png" alt="" width="22">{{item}}
+                <li v-for="item in topList_2" @click="listChoose($event)"><img :src="item.url" alt="" width="22">{{item.name}}
                 </li>
               </ul>
 
@@ -41,15 +41,17 @@
             <!--</div>-->
             <div class="top_list">
               <ul>
-                <li v-for="item in topList_1" @click="listChoose($event)"><img src="./fubiao.png" alt="" width="22">{{item}}
+                <li v-for="item in topList_1" @click="listChoose($event)"><img :src="item.url" alt="" width="22">{{item.name}}
                 </li>
               </ul>
               <div class="line"></div>
               <ul>
-                <li v-for="item in topList_2" @click="listChoose($event)"><img src="./fubiao.png" alt="" width="22">{{item}}
+                <li v-for="item in topList_2" @click="listChoose($event)"><img :src="item.url" alt="" width="22">{{item.name}}
                 </li>
               </ul>
             </div>
+
+
           </div>
         </div>
         <div class="region_info_r">
@@ -197,8 +199,17 @@
         titL_Bot: '北极装备实时统计地图',
         titR_Top: '南北极装备统计表',
         titR_Bot: '南北极基建统计表',
-        topList_1: ['浮标', '漂流浮标', '智能台站', '海床基'],
-        topList_2: ['码头', '房屋', '构筑物'],
+        topList_1: [
+          {'name': '浮标', 'url': 'static/regionTableImg/fubiao.png'},
+          {'name': '漂流浮标', 'url': 'static/regionTableImg/piaoliufubiao.png'},
+          {'name': '智能台站', 'url': 'static/regionTableImg/04.png'},
+          {'name': '海床基', 'url': 'static/regionTableImg/haichuangji.png'},
+        ],
+        topList_2: [
+          {'name': '码头', 'url': 'static/regionTableImg/matou.png'},
+          {'name': '房屋', 'url': 'static/regionTableImg/fangwu.png'},
+          {'name': '构筑物', 'url': 'static/regionTableImg/qixiangtai.png'},
+        ],
         dataTable: [
           {num: '1', genre: '海洋站', name: '海洋站', status: '正常', rate: '100', area: '南极'},
           {num: '2', genre: '浮标', name: '海洋站', status: '正常', rate: '100', area: '南极'},
@@ -295,8 +306,8 @@
         return r
       }
 
-      var h = new ol.layer.Tile({source: new ol.source.XYZ({url: serverip + ":8080/Tiles/shandongxin/{z}/{x}/{y}.png"})});
-      var x = new ol.layer.Tile({source: new ol.source.XYZ({url: serverip + ":8080/Tiles/indonesia/{z}/{x}/{y}.png"})});
+      var h = new ol.layer.Tile({source: new ol.source.XYZ({url: serverip + ":8080/static/tiles/shandongxin/{z}/{x}/{y}.png"})});
+      var x = new ol.layer.Tile({source: new ol.source.XYZ({url: serverip + ":8080/static/tiles/indonesia/{z}/{x}/{y}.png"})});
       var S = new ol.layer.Tile({
         source: new ol.source.XYZ({url: tiandituserverip + "/DataServer?T=vec_c&x={x}&y={y}&l={z}"}),
         projection: "EPSG:4326"

@@ -187,17 +187,17 @@ input,img {
 }
 
 .yearChark .has-gutter tr th {
-  background: blue;
+  background: #2a3cba;
   color: white;
 }
 
 .dualException .has-gutter tr th {
-  background-color: blue;
+  background-color: #2a3cba !important;
   color: white;
 }
 
 .dualscrap .has-gutter tr th {
-  background-color: blue;
+  background-color: #2a3cba;
   color: white;
 }
 

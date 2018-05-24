@@ -65,7 +65,7 @@
           {"name": "综合管理", "path": "/regionTable"},
           {"name": "安装验收", "path": "/installation"},
           {"name": "维护保养", "path": "/weihu"},
-          {"name": "验定校准", "path": "/calibration"},
+          {"name": "检定校准", "path": "/calibration"},
           {"name": "故障处置", "path": "/dualException"},
           {"name": "报废处置", "path": "/dualScrap"},
           {"name": "综合评估", "path": "/aboutScore"}
