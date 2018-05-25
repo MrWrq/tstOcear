@@ -99,9 +99,9 @@
 </template>
 <script type="es6">
   import echarts from 'echarts'
-  import regTitle from './../title/Title'
-  import regTable from './../table/Table'
-  import icon from './../icon/Icon'
+  import regTitle from './../minModule/title/Title'
+  import regTable from './../minModule/table/Table'
+  import icon from './../minModule/icon/Icon'
 
   export default {
     data (){
@@ -276,13 +276,13 @@
       let myChart_1 = echarts.init(document.getElementById('chartPolling'))
       myChart_1.setOption(optionPolling)
 
-      window.timer2 = setInterval(function () {
-        $('.icon_list img').each(function (key, val) {
-          let a = Math.random() * 200
-          let b = Math.random() * 700
-          $(val).css({"left": b + 'px', 'top': a + 'px'})
-        })
-      }, 2000)
+      // window.timer2 = setInterval(function () {
+      //   $('.icon_list img').each(function (key, val) {
+      //     let a = Math.random() * 200
+      //     let b = Math.random() * 700
+      //     $(val).css({"left": b + 'px', 'top': a + 'px'})
+      //   })
+      // }, 2000)
     },
     components: {
       'v-title': regTitle,

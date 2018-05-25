@@ -145,7 +145,7 @@
 <script type="es6">
   import echarts from 'echarts'
   import $ from 'jquery'
-  import ol from '../../../static/js/globalviewer.js'
+  import ol from '../../../static/js/globalviewer'
   // import Map from 'ol/map';
   // import View from 'ol/view';
   // import TileLayer from 'ol/layer/tile';
@@ -296,8 +296,8 @@
         return r
       }
 
-      var h = new ol.layer.Tile({source: new ol.source.XYZ({url: serverip + ":8080/Tiles/shandongxin/{z}/{x}/{y}.png"})});
-      var x = new ol.layer.Tile({source: new ol.source.XYZ({url: serverip + ":8080/Tiles/indonesia/{z}/{x}/{y}.png"})});
+      var h = new ol.layer.Tile({source: new ol.source.XYZ({url: serverip + ":8080/static/tiles/shandongxin/{z}/{x}/{y}.png"})});
+      var x = new ol.layer.Tile({source: new ol.source.XYZ({url: serverip + ":8080/static/tiles/indonesia/{z}/{x}/{y}.png"})});
       var S = new ol.layer.Tile({
         source: new ol.source.XYZ({url: tiandituserverip + "/DataServer?T=vec_c&x={x}&y={y}&l={z}"}),
         projection: "EPSG:4326"
@@ -391,7 +391,7 @@
             var o = "C" + w(e[1], 8, 16);
             var t = "R" + w(-e[2] - 1, 8, 16);
             var r = "L" + w(e[0], 2, 10);
-            return serverip + ":8080/Tiles/world" + "/" + r + "/" + t + "/" + o + ".png"
+            return serverip + ":8080/static/tiles/world" + "/" + r + "/" + t + "/" + o + ".png"
           }, projection: "EPSG:3857"
         })
       });

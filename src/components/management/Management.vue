@@ -160,7 +160,7 @@
   </div>
 </template>
 <script type="es6">
-  import normal from '../normal/Normal'
+  import normal from '../minModule/normal/Normal'
   import echarts from 'echarts'
 
   export default {
@@ -256,13 +256,13 @@
       $('.info_r_top .info_r_mid_tab').height(screeH * .8 * .49 - 28)
       $('.info_r_bot .info_r_mid_tab').height(screeH * .8 * .49 - 38)
       $('.info_r_bot').css('margin-top', screeH * .8 * .02 + 'px')
-      window.timer1 = setInterval(function () {
-        $('.icon_list img').each(function (index, val) {
-          let H = Math.random() * 500
-          let W = Math.random() * 700
-          $(val).css({"left": W + 'px', 'top': H + 'px'})
-        })
-      }, 2000)
+      // window.timer1 = setInterval(function () {
+      //   $('.icon_list img').each(function (index, val) {
+      //     let H = Math.random() * 500
+      //     let W = Math.random() * 700
+      //     $(val).css({"left": W + 'px', 'top': H + 'px'})
+      //   })
+      // }, 2000)
 
       // let LocalAPI = 'http://182.18.76.244:8090/otes/shipinfo/getCount/orga'
       // this.$http.get(LocalAPI).then((res) => {

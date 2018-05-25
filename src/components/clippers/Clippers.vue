@@ -135,7 +135,7 @@
 </template>
 <script type="es6">
   import echarts from 'echarts'
-  import select from '../select/Select'
+  import select from '../minModule/select/Select'
 
   export default {
     data (){
