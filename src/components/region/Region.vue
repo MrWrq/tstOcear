@@ -191,7 +191,7 @@
     },
     mounted (){
       var serverip = 'http://127.0.0.1';
-      var tiandituserverip = "http://127.0.0.1:8080";
+      var tiandituserverip = "http://10.0.4.72:81";
       var c;
       var n;
       var r;

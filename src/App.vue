@@ -1,89 +1,32 @@
 <template>
   <div class="oceans">
-    <!--<v-header></v-header>-->
-    <div class="tst_top" ref="tst_top">
-      <div class="w">
-        <div class="l logo">
-          <span> <router-link to="/regionHome">极地智能装备综合管理系统</router-link> </span>
-        </div>
-        <div class="l nav">
-          <div v-for="item in tabs" class="nav_list">
-            <router-link :to="item.path" class="meau">
-              <span>{{item.name}}</span>
-              <i v-if="item.icon" :class="item.icon"></i>
-            </router-link>
+    <v-intHeader></v-intHeader> <!--综合管理-->
+    <v-larHeader></v-larHeader> <!--大型装备-->
+    <v-obsHeader></v-obsHeader> <!--观测系统-->
+    <v-regHeader></v-regHeader> <!--极地智能-->
+    <v-facHeader></v-facHeader> <!--基础设施-->
+    <v-yeaHeader></v-yeaHeader> <!--年度巡检-->
+    <v-oveHeader></v-oveHeader> <!--海外站-->
 
-          </div>
-          <div class="nav_list more">· · ·
-            <div class="moreMeau">
-              <i class="el-icon-caret-bottom"></i>
-              <ul>
-                <li v-for="item in moreTabs">
-                  <router-link :to="item.path" class="meau">
-                    <span>{{item.name}}</span>
-                    <!--<i v-if="item.icon" :class="item.icon"></i>-->
-                  </router-link>
-                </li>
-              </ul>
-
-            </div>
-          </div>
-
-
-          <!--<div class="search_icon">-->
-          <!--<i class="el-icon-more-outline"></i>-->
-          <!--<i class="el-icon-search"></i>-->
-          <!--</div>-->
-        </div>
-        <!--<div class="r manage">-->
-        <!--<ul>-->
-        <!--<li> <div class="man_quan"><i class="el-icon-bell"></i></div> </li>-->
-        <!--<li><i class="el-icon-news"></i></li>-->
-        <!--<li><i class="el-icon-setting"></i></li>-->
-        <!--</ul>-->
-        <!--</div>-->
-      </div>
-    </div>
     <router-view />
   </div>
 </template>
 
 <script>
-  // import header from './components/header/Header'
+  import RegHeader from './components/header/RegHeader'
+  import ObsHeader from './components/header/ObsHeader'
+  import IntHeader from './components/header/IntHeader'
+  import LarHeader from './components/header/LarHeader'
+  import FacHeader from './components/header/FacHeader'
+  import YeaHeader from './components/header/YeaHeader'
+  import OveHeader from './components/header/OveHeader'
+
   import $ from 'jquery'
+
   export default {
     data() {
       return {
         fullHeight: document.documentElement.clientHeight,
-        tabs: [
-          //大型装备
-          // {"name": "首页", "path": "/home"},
-          // {"name": "大型管理装备", "path": "/about","icon":"el-icon-caret-bottom"},
-          // {"name": "装备巡检管理", "path": "/inspection","icon":"el-icon-caret-bottom"},
-          // {"name": "基础设施管理", "path": "/infrastructure","icon":"el-icon-caret-bottom"},
-          // {"name": "极地装备", "path": "/region"},
-          // {"name": "调查船队", "path": "/clippers"},
-          // {"name": "海外站管理", "path": "/overseas"},
-
-
-          //极地
-          // {"name": "极地首页", "path": "/regionHome"},
-          // {"name": "综合管理", "path": "/management"},
-          {"name": "综合管理", "path": "/regionTable"},
-          {"name": "安装验收", "path": "/installation"},
-          {"name": "维护保养", "path": "/weihu"},
-          {"name": "验定校准", "path": "/calibration"},
-          {"name": "故障处置", "path": "/dualException"},
-          {"name": "报废处置", "path": "/dualScrap"},
-          {"name": "综合评估", "path": "/aboutScore"}
-        ],
-        moreTabs: [
-          //极地
-          {"name": "备品备件", "path": "/spareParts"},
-          // {"name": "统计分析", "path": "/statistic"},
-          {"name": "统计分析", "path": "/tongji"},
-          {"name": "年度核查", "path": "/yearCheck"},
-        ]
       }
     },
     methods: {
@@ -101,23 +44,46 @@
         })()
       }
 
-      console.log(window.location.pathname)
-      if (window.location.pathname == "/regionHome" || window.location.pathname == "/") {
-        // this.$refs.tst_top.style.display="none"
-        $(".tst_top").hide()
-      } else {
-        // this.$refs.tst_top.style.display="block"
-        $(".tst_top").show()
+      function fullScreen() {
+
+        var el = document.documentElement;
+
+        var rfs = el.requestFullScreen || el.webkitRequestFullScreen ||
+
+          el.mozRequestFullScreen || el.msRequestFullScreen;
+
+        if (typeof rfs != "undefined" && rfs) {
+
+          rfs.call(el);
+
+        } else if (typeof window.ActiveXObject != "undefined") {
+
+          //for IE，这里其实就是模拟了按下键盘的F11，使浏览器全屏
+
+          var wscript = new ActiveXObject("WScript.Shell");
+
+          if (wscript != null) {
+
+            wscript.SendKeys("{F11}");
+
+          }
+
+        }
       }
-      $('.more').on('mouseenter', function () {
-        $('.moreMeau').show(100)
-      }).stop().mouseleave(function () {
-        $('.moreMeau').hide(100)
-      }).stop()
+
+      // 启动全屏!
+      fullScreen()
 
     },
     components: {
-      // 'v-header': header,
+      'v-obsHeader': ObsHeader,
+      'v-regHeader': RegHeader,
+      'v-intHeader': IntHeader,
+      'v-larHeader': LarHeader,
+      'v-facHeader': FacHeader,
+      'v-yeaHeader': YeaHeader,
+      'v-oveHeader': OveHeader,
+
     },
     created() {
 

@@ -13,10 +13,11 @@
     "axios": "^0.18.0",
     "echarts": "^3.8.5",
     "element-ui": "^2.0.9",
+    "ol": "^4.3.1",
     "stylus": "0.52.4",
     "stylus-loader": "^3.0.1",
-    "ol": "^4.3.1",
     "vue": "^2.5.2",
+    "vue-layer": "^0.9.8",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

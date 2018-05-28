@@ -7,28 +7,53 @@ import VueRouter from 'vue-router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
-//路由
+import layer from 'vue-layer'
+//首页
 import Home from './components/home/Home'
-import About from './components/about/About'
-import Clippers from './components/clippers/Clippers'
-import Region from './components/region/Region'
-import Infrastructure from './components/infrastructure/Infrastructure'
-import Inspection from './components/inspection/Inspection'
-import Overseas from './components/overseas/Overseas'
+//综合管理
+import intAbout from './components/integratedManagement/about/About'
+//大型装备
+// import About from './components/about/About'
+// import Clippers from './components/clippers/Clippers'
+// import Region from './components/region/Region'
+// import Infrastructure from './components/infrastructure/Infrastructure'
+// import Inspection from './components/inspection/Inspection'
+// import Statistic from './components/statistic/Statistic'
+import larManagement from './components/largeMonuments/management/Management'
+//基础设施
+import facBaseInstInfo from './components/facMonuments/baseInstInfo/BaseInstInfo'
+//年度巡检
+import yeaInsHome from './components/yeaInspection/yearHome/YearCheck'
+//海外站
+import oveSeasHome from './components/oveManage/overseas/Overseas'
 //极地
-import AboutScore from './components/regionMerge/aboutScore/AboutScore'
-import Management from './components/management/Management'
-import RegionTable from './components/regionMerge/regionTable/RegionTable'
-import RegionHome from './components/regionMerge/RegionHome'
-import Installation from './components/regionMerge/installation/Installation'
-import Calibration from './components/regionMerge/calibration/Calibration'
-import SpareParts from './components/regionMerge/spareParts/SpareParts'
-import Statistic from './components/statistic/Statistic'
-import Tongji from './components/regionMerge/tongji/Tongji'
-import Weihu from './components/regionMerge/weihu/Weihu'
-import DualException from './components/regionMerge/dualexception/DualException'
-import DualScrap from './components/regionMerge/dualScrap/DualScrap'
-import YearCheck from './components/regionMerge/yearcheck/YearCheck'
+import regAboutScore from './components/regionMerge/aboutScore/AboutScore'
+import regRegionTable from './components/regionMerge/regionTable/RegionTable'
+import regRegionHome from './components/regionMerge/RegionHome'
+import regCalibration from './components/regionMerge/calibration/Calibration'
+import regSpareParts from './components/regionMerge/spareParts/SpareParts'
+import regTongji from './components/regionMerge/tongji/Tongji'
+import regWeihu from './components/regionMerge/weihu/Weihu'
+import regDualException from './components/regionMerge/dualexception/DualException'
+import regDualScrap from './components/regionMerge/dualScrap/DualScrap'
+import regYearCheck from './components/regionMerge/yearcheck/YearCheck'
+import regInstallation from './components/regionMerge/installation/Installation'
+//观测
+import ObsAboutScore from './components/observationMerge/aboutScore/AboutScore'
+import ObsRegionTable from './components/observationMerge/regionTable/RegionTable'
+import ObsRegionHome from './components/observationMerge/ObsRegionHome'
+import ObsCalibration from './components/observationMerge/calibration/Calibration'
+import ObsSpareParts from './components/observationMerge/spareParts/SpareParts'
+import ObsTongji from './components/observationMerge/tongji/Tongji'
+import ObsWeihu from './components/observationMerge/weihu/Weihu'
+import ObsDualException from './components/observationMerge/dualexception/DualException'
+import ObsDualScrap from './components/observationMerge/dualScrap/DualScrap'
+import ObsYearCheck from './components/observationMerge/yearcheck/YearCheck'
+import ObsInstallation from './components/observationMerge/installation/Installation'
+
+Vue.prototype.$layer = layer(Vue);
+// import ol from '../static/js/globalviewer.js'
+// Vue.prototype.$ol = ol;
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
@@ -37,27 +62,52 @@ Vue.config.productionTip = false
 
 
 const routes = [
-  {path: '/', redirect: '/regionHome'},
+  //首页
+  {path: '/', redirect: '/home'},
   {path: '/home', component: Home},
-  {path: '/about', component: About},
-  {path: '/clippers', component: Clippers},
-  {path: '/region', component: Region},
-  {path: '/infrastructure', component: Infrastructure},
-  {path: '/inspection', component: Inspection},
-  {path: '/overseas', component: Overseas},
-  {path: '/aboutScore', component: AboutScore},
-  {path: '/management', component: Management},
-  {path: '/regionTable', component: RegionTable},
-  {path: '/regionHome', component: RegionHome},
-  {path: '/installation', component: Installation},
-  {path: '/calibration', component: Calibration},
-  {path: '/spareParts', component: SpareParts},
-  {path: '/statistic', component: Statistic},
-  {path: '/tongji', component: Tongji},
-  {path: '/weihu', component: Weihu},
-  {path: '/dualException', component: DualException},
-  {path: '/dualScrap', component: DualScrap},
-  {path: '/yearCheck', component: YearCheck}
+  //综合管理
+  {path: '/intAbout', component: intAbout},
+  //大型
+  {path: '/larManagement', component: larManagement},
+  //基础设施
+  {path: '/facBaseInstInfo', component: facBaseInstInfo},
+  //年度巡检
+  {path: '/yeaInsHome', component: yeaInsHome},
+
+  //海外站
+  {path: '/oveSeasHome', component: oveSeasHome},
+
+  // {path: '/about', component: About},
+  // {path: '/regClippers', component: Clippers},
+  // {path: '/region', component: Region},
+  // {path: '/regInfrastructure', component: Infrastructure},
+  // {path: '/regInspection', component: Inspection},
+  // {path: '/regOverseas', component: Overseas},
+  //极地
+  {path: '/regionHome', component: regRegionHome},
+  {path: '/regAboutScore', component: regAboutScore},
+  {path: '/regRegionTable', component: regRegionTable},
+  {path: '/regInstallation', component: regInstallation},
+  {path: '/regCalibration', component: regCalibration},
+  {path: '/regSpareParts', component: regSpareParts},
+  {path: '/regTongji', component: regTongji},
+  {path: '/regWeihu', component: regWeihu},
+  {path: '/regDualException', component: regDualException},
+  {path: '/regDualScrap', component: regDualScrap},
+  {path: '/regYearCheck', component: regYearCheck},
+  //观测
+  {path: '/obsRegionHome', component: ObsRegionHome},
+  {path: '/obsAboutScore', component: ObsAboutScore},
+  {path: '/obsRegionTable', component: ObsRegionTable},
+  {path: '/obsCalibration', component: ObsCalibration},
+  {path: '/obsSpareParts', component: ObsSpareParts},
+  {path: '/obsTongji', component: ObsTongji},
+  {path: '/obsWeihu', component: ObsWeihu},
+  {path: '/obsDualException', component: ObsDualException},
+  {path: '/obsDualScrap', component: ObsDualScrap},
+  {path: '/obsYearCheck', component: ObsYearCheck},
+  {path: '/obsInstallation', component: ObsInstallation},
+
 ]
 
 const router = new VueRouter({
@@ -69,11 +119,68 @@ const router = new VueRouter({
 // 跳转后返回顶部
 router.afterEach((to,from,next) => {
   window.scrollTo(0,0);
-  if (to.path == '/regionHome' || to.path == '/') {
-    $(".tst_top").hide()
-  } else {
-    $(".tst_top").show()
+  var strPath = to.path
+  if (strPath == '/home' || strPath == '/regionHome' || strPath == '/obsRegionHome' || strPath == '/') {
+    $(".reg_top").hide();
+    $(".obs_top").hide();
+    $(".int_top").hide();
+    $(".lar_top").hide();
+    $(".fac_top").hide();
+    $(".yea_top").hide();
+    $(".ove_top").hide();
   }
+  if (strPath.substring(0, 4) == '/obs' && strPath != '/obsRegionHome') {
+    $(".obs_top").show();
+  }
+  if (strPath.substring(0, 4) == '/reg' && strPath != '/regionHome') {
+    $(".reg_top").show();
+  }
+  if (strPath.substring(0, 4) == '/int') {
+    $(".int_top").show();
+  }
+  if (strPath.substring(0, 4) == '/lar') {
+    $(".lar_top").show();
+  }
+  if (strPath.substring(0, 4) == '/fac') {
+    $(".fac_top").show();
+  }
+  if (strPath.substring(0, 4) == '/yea') {
+    $(".yea_top").show();
+  }
+  if (strPath.substring(0, 4) == '/ove') {
+    $(".ove_top").show();
+  }
+
+
+  function fullScreen() {
+
+    var el = document.documentElement;
+
+    var rfs = el.requestFullScreen || el.webkitRequestFullScreen ||
+
+      el.mozRequestFullScreen || el.msRequestFullScreen;
+
+    if (typeof rfs != "undefined" && rfs) {
+
+      rfs.call(el);
+
+    } else if (typeof window.ActiveXObject != "undefined") {
+
+      //for IE，这里其实就是模拟了按下键盘的F11，使浏览器全屏
+
+      var wscript = new ActiveXObject("WScript.Shell");
+
+      if (wscript != null) {
+
+        wscript.SendKeys("{F11}");
+
+      }
+
+    }
+  }
+
+  // 启动全屏!
+  fullScreen()
 })
 
 /* eslint-disable no-new */

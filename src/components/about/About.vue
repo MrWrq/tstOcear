@@ -208,49 +208,10 @@
         }
         return '';
       },
-      intiMap() {
-        // new ol.Map({
-        //   layers: [
-        //     new ol.layer.TILE({
-        //       source: new ol.source.OSM()
-        //     })
-        //   ],
-        //   target: 'view',
-        //   view: new ol.View({
-        //     projection: 'EPSG:4326',//'EPSG:3857',
-        //     center: [105.4265, 34.7782],
-        //     zoom: 5,
-        //     minZoom:4,
-        //     maxZoom:6
-        //   })
-        // });
-
-
-        // new Map({
-        //   target: 'map',
-        //   layers: [
-        //     new TileLayer({
-        //       source: new XYZ({
-        //         url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        //       })
-        //     })
-        //   ],
-        //   view: new View({
-        //     center: [111.46357, 40.4885],
-        //     zoom: 5
-        //   })
-        // });
-
-
-        // var map = new ol.Map("view");
-        // var osm = ol.Layer.OSM();
-        // map.addLayer(osm);
-        // map.zoomToMaxExtent();
-      }
     },
     mounted (){
       var serverip = 'http://localhost';
-      var tiandituserverip = "http://localhost:8080";
+      var tiandituserverip = "http://10.0.4.72:81";
       var c;
       var n;
       var r;

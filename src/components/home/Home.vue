@@ -11,7 +11,9 @@
                 </div>
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
                 <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
-                <div class="li_link" @click="showHeader"><router-link :to="item.path" >进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
+                <div class="li_link">
+                  <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
+                </div>
                 <div class="num"><p>{{item.num}}</p></div>
               </li>
             </ul>
@@ -24,7 +26,9 @@
                 </div>
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
                 <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
-                <div class="li_link" @click="showHeader"><router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
+                <div class="li_link">
+                  <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
+                </div>
                 <div class="num"><p>{{item.num}}</p></div>
               </li>
             </ul>
@@ -55,32 +59,162 @@
     data (){
       return {
         meaus:[
-          {'num':'01','name':'大型装备管理','detail':'大型装备管理','bgColor':'#17d0ff','path':'/about','imgUrl':'/static/img/1.png'},
-          {'num':'02','name':'调查设备管理','detail':'调查设备管理','bgColor':'#4bceaf','path':'/inspection','imgUrl':'/static/img/2.png'},
-          {'num':'03','name':'基础设施管理','detail':'大型装备管理','bgColor':'#626b8a','path':'/about','imgUrl':'/static/img/3.png'},
-          {'num':'04','name':'装备巡查管理','detail':'调查设备管理','bgColor':'#17d0ff','path':'/about','imgUrl':'/static/img/4.png'},
-          {'num':'05','name':'运行状态监控','detail':'大型装备管理','bgColor':'#4bceaf','path':'/about','imgUrl':'/static/img/5.png'},
-          {'num':'06','name':'备品备件管理','detail':'调查设备管理','bgColor':'#ffad1e','path':'/about','imgUrl':'/static/img/6.png'},
-          {'num':'07','name':'装备测试评估','detail':'大型装备管理','bgColor':'#4bceaf','path':'/about','imgUrl':'/static/img/7.png'},
+          //共四个图标
+          {
+            'num': '01',
+            'name': '综合管理',
+            'detail': '大型装备管理',
+            'bgColor': '#14c9ff',
+            'path': '/intAbout',
+            'imgUrl': 'static/regionImg/10.png'
+          },
+          {
+            'num': '02',
+            'name': '大型装备管理',
+            'detail': '调查设备管理',
+            'bgColor': '#14c9ff',
+            'path': '/larManagement',
+            'imgUrl': 'static/img/3.png'
+          },
+          {
+            'num': '03',
+            'name': '无人机管理',
+            'detail': '大型装备管理',
+            'bgColor': '#14c9ff',
+            'path': '/#',
+            'imgUrl': 'static/img/2.png'
+          },
+          {
+            'num': '04',
+            'name': '监控指挥车管理',
+            'detail': '调查设备管理',
+            'bgColor': '#14c9ff',
+            'path': '/#',
+            'imgUrl': 'static/img/9.png'
+          },
+          {
+            'num': '05',
+            'name': '视频监控管理',
+            'detail': '大型装备管理',
+            'bgColor': '#14c9ff',
+            'path': '/#',
+            'imgUrl': 'static/img/1.png'
+          },
+          {
+            'num': '06',
+            'name': '调查设备管理',
+            'detail': '调查设备管理',
+            'bgColor': '#14c9ff',
+            'path': '/#',
+            'imgUrl': 'static/img/4.png'
+          },
+          {
+            'num': '07',
+            'name': '备品备件管理',
+            'detail': '大型装备管理',
+            'bgColor': '#14c9ff',
+            'path': '/#',
+            'imgUrl': 'static/img/7.png'
+          },
         ],
         meaus2:[
-          {'num':'08','name':'基建项目管理','detail':'大型装备管理','bgColor':'#4bceaf','path':'/about','imgUrl':'/static/img/8.png'},
-          {'num':'09','name':'重大专项装备','detail':'调查设备管理','bgColor':'#4bceaf','path':'/about','imgUrl':'/static/img/9.png'},
-          {'num':'10','name':'大洋调查管理','detail':'大型装备管理','bgColor':'#626b8a','path':'/about','imgUrl':'/static/img/10.png'},
-          {'num':'11','name':'调查船队管理','detail':'调查设备管理','bgColor':'#f1637e','path':'/about','imgUrl':'/static/img/11.png'},
-          {'num':'12','name':'大型装备管理','detail':'大型装备管理','bgColor':'#a360fe','path':'/about','imgUrl':'/static/img/12.png'},
-          {'num':'13','name':'调查设备管理','detail':'调查设备管理','bgColor':'#ffad1e','path':'/about','imgUrl':'/static/img/13.png'},
-          {'num':'14','name':'大型装备管理','detail':'大型装备管理','bgColor':'#4bceaf','path':'/about','imgUrl':'/static/img/14.png'},
+          {
+            'num': '08',
+            'name': '运行状态监控',
+            'detail': '大型装备管理',
+            'bgColor': '#4bceaf',
+            'path': '/#',
+            'imgUrl': 'static/img/8.png'
+          },
+          {
+            'num': '09',
+            'name': '年度巡检管理',
+            'detail': '调查设备管理',
+            'bgColor': '#4bceaf',
+            'path': '/yeaInsHome',
+            'imgUrl': 'static/img/6.png'
+          },
+          {
+            'num': '10',
+            'name': '观测装备管理',
+            'detail': '大型装备管理',
+            'bgColor': '#ffac1e',
+            'path': '/obsRegionHome',
+            'imgUrl': 'static/img/10.png'
+          },
+          {
+            'num': '11',
+            'name': '极地装备管理',
+            'detail': '调查设备管理',
+            'bgColor': '#ffac1e',
+            'path': '/regionHome',
+            'imgUrl': 'static/img/14.png'
+          },
+          {
+            'num': '12',
+            'name': '调查船队管理',
+            'detail': '大型装备管理',
+            'bgColor': '#ffac1e',
+            'path': '/#',
+            'imgUrl': 'static/img/17.png'
+          },
+          {
+            'num': '13',
+            'name': '大洋调查管理',
+            'detail': '调查设备管理',
+            'bgColor': '#ffac1e',
+            'path': '/#',
+            'imgUrl': 'static/img/13.png'
+          },
+          {
+            'num': '14',
+            'name': '海外站管理',
+            'detail': '大型装备管理',
+            'bgColor': '#ffac1e',
+            'path': '/oveSeasHome',
+            'imgUrl': 'static/img/15.png'
+          },
         ],
         meaus3:[
-          {'num':'15','name':'大型装备管理','detail':'大型装备管理','bgColor':'#17d0ff','path':'/about','imgUrl':'/static/img/15.png'},
-          {'num':'16','name':'辅助决策分析','detail':'调查设备管理','bgColor':'#4bceaf','path':'/about','imgUrl':'/static/img/16.png'},
-          {'num':'17','name':'大型装备管理','detail':'大型装备管理','bgColor':'#626b8a','path':'/about','imgUrl':'/static/img/17.png'},
+          {
+            'num': '15',
+            'name': '基础设施管理',
+            'detail': '大型装备管理',
+            'bgColor': '#a360fe',
+            'path': '/facBaseInstInfo',
+            'imgUrl': 'static/img/11.png'
+          },
+          {
+            'num': '16',
+            'name': '重大专项管理',
+            'detail': '调查设备管理',
+            'bgColor': '#a360fe',
+            'path': '/#',
+            'imgUrl': 'static/img/12.png'
+          },
+          {
+            'num': '17',
+            'name': '基建项目管理',
+            'detail': '大型装备管理',
+            'bgColor': '#a360fe',
+            'path': '/#',
+            'imgUrl': 'static/img/17.png'
+          },
+          {
+            'num': '18',
+            'name': '知识库',
+            'detail': '大型装备管理',
+            'bgColor': '#f2637f',
+            'path': '/#',
+            'imgUrl': 'static/img/16.png'
+          },
         ],
       }
     },
     methods: {},
     mounted(){
+
+
       let screeH = document.documentElement.clientHeight
       if (screeH <= 910) {
         $('.home_list .li_link').hide()
@@ -156,7 +290,7 @@
                 position relative
                 h2
                   display inline-block
-                  font-size 22px
+                  font-size 18px
                   padding-left 10px
                   color #fff
                 p
