@@ -66,7 +66,7 @@
             'detail': '大型装备管理',
             'bgColor': '#14c9ff',
             'path': '/intAbout',
-            'imgUrl': 'static/regionImg/10.png'
+            'imgUrl': 'static/homeIcon/10.png'
           },
           {
             'num': '02',
@@ -74,7 +74,7 @@
             'detail': '调查设备管理',
             'bgColor': '#14c9ff',
             'path': '/larManagement',
-            'imgUrl': 'static/img/3.png'
+            'imgUrl': 'static/homeIcon/3.png'
           },
           {
             'num': '03',
@@ -82,7 +82,7 @@
             'detail': '大型装备管理',
             'bgColor': '#14c9ff',
             'path': '/#',
-            'imgUrl': 'static/img/2.png'
+            'imgUrl': 'static/homeIcon/2.png'
           },
           {
             'num': '04',
@@ -90,7 +90,7 @@
             'detail': '调查设备管理',
             'bgColor': '#14c9ff',
             'path': '/#',
-            'imgUrl': 'static/img/9.png'
+            'imgUrl': 'static/homeIcon/9.png'
           },
           {
             'num': '05',
@@ -98,7 +98,7 @@
             'detail': '大型装备管理',
             'bgColor': '#14c9ff',
             'path': '/#',
-            'imgUrl': 'static/img/1.png'
+            'imgUrl': 'static/homeIcon/1.png'
           },
           {
             'num': '06',
@@ -106,7 +106,7 @@
             'detail': '调查设备管理',
             'bgColor': '#14c9ff',
             'path': '/#',
-            'imgUrl': 'static/img/4.png'
+            'imgUrl': 'static/homeIcon/4.png'
           },
           {
             'num': '07',
@@ -114,7 +114,7 @@
             'detail': '大型装备管理',
             'bgColor': '#14c9ff',
             'path': '/#',
-            'imgUrl': 'static/img/7.png'
+            'imgUrl': 'static/homeIcon/7.png'
           },
         ],
         meaus2:[
@@ -124,7 +124,7 @@
             'detail': '大型装备管理',
             'bgColor': '#4bceaf',
             'path': '/#',
-            'imgUrl': 'static/img/8.png'
+            'imgUrl': 'static/homeIcon/8.png'
           },
           {
             'num': '09',
@@ -132,7 +132,7 @@
             'detail': '调查设备管理',
             'bgColor': '#4bceaf',
             'path': '/yeaInsHome',
-            'imgUrl': 'static/img/6.png'
+            'imgUrl': 'static/homeIcon/6.png'
           },
           {
             'num': '10',
@@ -140,7 +140,7 @@
             'detail': '大型装备管理',
             'bgColor': '#ffac1e',
             'path': '/obsRegionHome',
-            'imgUrl': 'static/img/10.png'
+            'imgUrl': 'static/homeIcon/10.png'
           },
           {
             'num': '11',
@@ -148,7 +148,7 @@
             'detail': '调查设备管理',
             'bgColor': '#ffac1e',
             'path': '/regionHome',
-            'imgUrl': 'static/img/14.png'
+            'imgUrl': 'static/homeIcon/14.png'
           },
           {
             'num': '12',
@@ -156,7 +156,7 @@
             'detail': '大型装备管理',
             'bgColor': '#ffac1e',
             'path': '/#',
-            'imgUrl': 'static/img/17.png'
+            'imgUrl': 'static/homeIcon/17.png'
           },
           {
             'num': '13',
@@ -164,7 +164,7 @@
             'detail': '调查设备管理',
             'bgColor': '#ffac1e',
             'path': '/#',
-            'imgUrl': 'static/img/13.png'
+            'imgUrl': 'static/homeIcon/13.png'
           },
           {
             'num': '14',
@@ -172,7 +172,7 @@
             'detail': '大型装备管理',
             'bgColor': '#ffac1e',
             'path': '/oveSeasHome',
-            'imgUrl': 'static/img/15.png'
+            'imgUrl': 'static/homeIcon/15.png'
           },
         ],
         meaus3:[
@@ -182,7 +182,7 @@
             'detail': '大型装备管理',
             'bgColor': '#a360fe',
             'path': '/facBaseInstInfo',
-            'imgUrl': 'static/img/11.png'
+            'imgUrl': 'static/homeIcon/11.png'
           },
           {
             'num': '16',
@@ -190,7 +190,7 @@
             'detail': '调查设备管理',
             'bgColor': '#a360fe',
             'path': '/#',
-            'imgUrl': 'static/img/12.png'
+            'imgUrl': 'static/homeIcon/12.png'
           },
           {
             'num': '17',
@@ -198,7 +198,7 @@
             'detail': '大型装备管理',
             'bgColor': '#a360fe',
             'path': '/#',
-            'imgUrl': 'static/img/17.png'
+            'imgUrl': 'static/homeIcon/17.png'
           },
           {
             'num': '18',
@@ -206,7 +206,7 @@
             'detail': '大型装备管理',
             'bgColor': '#f2637f',
             'path': '/#',
-            'imgUrl': 'static/img/16.png'
+            'imgUrl': 'static/homeIcon/16.png'
           },
         ],
       }
@@ -216,7 +216,7 @@
 
 
       let screeH = document.documentElement.clientHeight
-      if (screeH <= 910) {
+      if (screeH <= 800) {
         $('.home_list .li_link').hide()
         $('.link_a').show()
       } else {
@@ -226,25 +226,6 @@
     },
     components :{
 
-    },
-    watch: {
-      // fullHeight (val) {
-      //   if(!this.timer) {
-      //     this.fullHeight = val
-      //     console.log(this.fullHeight)
-      //     $(".oceans").height(this.fullHeight)
-      //     if(this.fullHeight<=780) {
-      //       $('.home_list .li_link').hide()
-      //     } else {
-      //       $('.home_list .li_link').show()
-      //     }
-      //     this.timer = true
-      //     let that = this
-      //     setTimeout(function (){
-      //       that.timer = false
-      //     },400)
-      //   }
-      // }
     }
   }
 </script>
@@ -307,7 +288,7 @@
                   border-radius 50%
                   background-color #bdede2
               .li_img
-                padding-bottom 15px
+                padding-bottom 18px
                 img
                   width 50px
                   height 50px
@@ -321,8 +302,8 @@
                   font-weight 700
               .li_link
                 width 70%
-                height 38px
-                line-height 38px
+                height 32px
+                line-height 32px
                 margin-top 20px
                 border-bottom 1px solid #fff
                 background-color rgba(0,0,0,.1)

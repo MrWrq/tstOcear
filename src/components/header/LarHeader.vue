@@ -51,7 +51,7 @@
         tabs: [
           //大型装备
           {"name": "综合管理", "path": "/larManagement"},
-          // {"name": "大型管理装备", "path": "/about","icon":"el-icon-caret-bottom"},
+          // {"name": "大型管理装备", "path": "/intAbout","icon":"el-icon-caret-bottom"},
           // {"name": "装备巡检管理", "path": "/inspection","icon":"el-icon-caret-bottom"},
           // {"name": "基础设施管理", "path": "/infrastructure","icon":"el-icon-caret-bottom"},
           // {"name": "极地装备", "path": "/region"},

@@ -11,12 +11,12 @@ import layer from 'vue-layer'
 //首页
 import Home from './components/home/Home'
 //综合管理
-import intAbout from './components/integratedManagement/about/About'
+import intAbout from './components/integratedManagement/intAbout/IntAbout'
 //大型装备
-// import About from './components/about/About'
+// import About from './components/intAbout/About'
 // import Clippers from './components/clippers/Clippers'
 // import Region from './components/region/Region'
-// import Infrastructure from './components/infrastructure/Infrastructure'
+import Infrastructure from './components/infrastructure/Infrastructure'
 // import Inspection from './components/inspection/Inspection'
 // import Statistic from './components/statistic/Statistic'
 import larManagement from './components/largeMonuments/management/Management'
@@ -77,10 +77,10 @@ const routes = [
   //海外站
   {path: '/oveSeasHome', component: oveSeasHome},
 
-  // {path: '/about', component: About},
+  // {path: '/intAbout', component: About},
   // {path: '/regClippers', component: Clippers},
   // {path: '/region', component: Region},
-  // {path: '/regInfrastructure', component: Infrastructure},
+  {path: '/regInfrastructure', component: Infrastructure},
   // {path: '/regInspection', component: Inspection},
   // {path: '/regOverseas', component: Overseas},
   //极地

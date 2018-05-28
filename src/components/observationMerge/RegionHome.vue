@@ -87,7 +87,7 @@
     },
     mounted(){
       let screeH = document.documentElement.clientHeight
-      if(screeH<=910) {
+      if (screeH <= 800) {
         $('.home_list .li_link').hide()
         $('.link_a').show()
       }else {
@@ -217,8 +217,8 @@
                   font-weight 700
               .li_link
                 width 70%
-                height 38px
-                line-height 38px
+                height 32px
+                line-height 32px
                 margin-top 30px
                 border-bottom 1px solid #fff
                 background-color rgba(0,0,0,.1)

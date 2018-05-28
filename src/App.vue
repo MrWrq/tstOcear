@@ -93,7 +93,7 @@
         if (!this.timer) {
           this.fullHeight = val
           $(".oceans").height(this.fullHeight)
-          if (this.fullHeight <= 910) {
+          if (this.fullHeight <= 800) {
             $('.home_list .li_link').hide()
             $('.link_a').show()
           } else {

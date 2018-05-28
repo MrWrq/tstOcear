@@ -43,7 +43,8 @@
                 </div>
                 <div class="char_r r">
                   <el-checkbox-group v-model="checkboxGroup" size="mini">
-                    <el-checkbox label="站台" border style="background-color: #0babfe; color: #fff;margin-left: 0px;"></el-checkbox>
+                    <el-checkbox label="台站" border
+                                 style="background-color: #0babfe; color: #fff;margin-left: 0px;"></el-checkbox>
                     <el-checkbox label="雷达" border style="background-color: #4bceaf; color: #fff;margin-left: 0px;"></el-checkbox>
                     <el-checkbox label="浮标" border style="background-color: #5c6275; color: #fff;margin-left: 0px;"></el-checkbox>
                     <el-checkbox label="潜标" border style="background-color: #6db821; color: #fff;margin-left: 0px;"></el-checkbox>
@@ -111,7 +112,7 @@
                 <p>大型装备状态统计<i class="el-icon-caret-right"></i></p>
               </div>
               <div class="info_r_bot_r r">
-                <span class="">站台</span>
+                <span class="">台站</span>
               </div>
             </div>
             <div class="info_r_bot_bot">
@@ -225,7 +226,7 @@
       oceanHeight = oceanHeight < 780 ? 780 : oceanHeight
       $('.info_r_mid').css('margin-top', oceanHeight * 0.8*.02)
       $('.info_r_bot').css('margin-top', oceanHeight * 0.8*.02)
-      $('.info_r_bot_bot').height(oceanHeight * .32 - 37 - 8)
+      $('.info_r_bot_bot').height(oceanHeight * .8 * .32 - 37 - 8)
       let info_r_botW = $('.info_r_bot_bot').width()
       let info_r_botH = $('.info_r_bot_bot').height()
 
@@ -234,6 +235,17 @@
 
       let option = {
         color: ['#3398DB'],
+        title: {
+          'text': '北海 设备总计：25', x: '19%', y: '90%', backgroundColor: '#ccc', borderRadius: 7, textStyle: {
+            fontStyle: 'normal',
+            fontWeight: '400',
+            //字体系列
+            fontFamily: 'sans-serif',
+            //字体大小
+            fontSize: 13,
+
+          }
+        },
         tooltip : {
           trigger: 'axis',
           axisPointer : {            // 坐标轴指示器，坐标轴触发有效
@@ -246,14 +258,15 @@
         grid: {
           left: '3%',
           right: '1%',
-          bottom: '1%',
-          top: '4%',
+          bottom: '4%',
+          top: '0%',
           containLabel: true
         },
         xAxis : [
           {
             type : 'category',
             data : ['在建', '在库', '在用', '待检', '送检', '待报废'],
+            show: false,
             axisTick: {
               alignWithLabel: true
             }
@@ -364,7 +377,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .oceaLarge
-    margin-top 55px
+    margin-top 45px
     height 80%
     .w
       height 100%
@@ -487,7 +500,7 @@
                 padding 3px 5px 0px 5px
           &>div
             width 100%
-            height 80%
+            height 84%
             #chart_1
               height 100%
               float left

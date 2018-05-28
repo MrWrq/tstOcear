@@ -11806,7 +11806,7 @@
 
   function To(a) {
     var b = Al(a, !1).trim();
-    return a.baseURI && "about:blank" !== a.baseURI ? (new URL(b, a.baseURI)).href : b
+    return a.baseURI && "intAbout:blank" !== a.baseURI ? (new URL(b, a.baseURI)).href : b
   }
 
   function Uo(a) {
@@ -12113,11 +12113,11 @@
   };
   k.Wp = function (a, b) {
     var c = a.getAttribute("id");
-    null !== c && (b = ip(a, b)) && (a = a.baseURI && "about:blank" !== a.baseURI ? (new URL("#" + c, a.baseURI)).href : "#" + c, this.b[a] = b)
+    null !== c && (b = ip(a, b)) && (a = a.baseURI && "intAbout:blank" !== a.baseURI ? (new URL("#" + c, a.baseURI)).href : "#" + c, this.b[a] = b)
   };
   k.Vp = function (a, b) {
     var c = a.getAttribute("id");
-    null !== c && (b = L(void 0, Cp, a, b)) && (a = a.baseURI && "about:blank" !== a.baseURI ? (new URL("#" + c, a.baseURI)).href : "#" + c, this.b[a] = b)
+    null !== c && (b = L(void 0, Cp, a, b)) && (a = a.baseURI && "intAbout:blank" !== a.baseURI ? (new URL("#" + c, a.baseURI)).href : "#" + c, this.b[a] = b)
   };
   k.Fg = function (a, b) {
     return ha(Mo, a.namespaceURI) ? (a = this.Lg(a, [Ul(this, a, b)])) ? a : null : null
