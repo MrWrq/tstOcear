@@ -16,18 +16,21 @@ import intAbout from './components/integratedManagement/intAbout/IntAbout'
 // import About from './components/intAbout/About'
 // import Clippers from './components/clippers/Clippers'
 // import Region from './components/region/Region'
-import Infrastructure from './components/infrastructure/Infrastructure'
 // import Inspection from './components/inspection/Inspection'
 // import Statistic from './components/statistic/Statistic'
 import larManagement from './components/largeMonuments/management/Management'
+
+
 //基础设施
-import facBaseInstInfo from './components/facMonuments/baseInstInfo/BaseInstInfo'
+// import Infrastructure from './components/infrastructure/Infrastructure'
+
+import facBaseInstInfo from './components/facMonuments/infrastructure/Infrastructure'
 //年度巡检
 import yeaInsHome from './components/yeaInspection/yearHome/YearCheck'
 //海外站
 import oveSeasHome from './components/oveManage/overseas/Overseas'
 //极地
-import regAboutScore from './components/regionMerge/aboutScore/AboutScore'
+// import regAboutScore from './components/regionMerge/aboutScore/AboutScore'
 import regRegionTable from './components/regionMerge/regionTable/RegionTable'
 import regRegionHome from './components/regionMerge/RegionHome'
 import regCalibration from './components/regionMerge/calibration/Calibration'
@@ -52,8 +55,6 @@ import ObsYearCheck from './components/observationMerge/yearcheck/YearCheck'
 import ObsInstallation from './components/observationMerge/installation/Installation'
 
 Vue.prototype.$layer = layer(Vue);
-// import ol from '../static/js/globalviewer.js'
-// Vue.prototype.$ol = ol;
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
@@ -71,6 +72,8 @@ const routes = [
   {path: '/larManagement', component: larManagement},
   //基础设施
   {path: '/facBaseInstInfo', component: facBaseInstInfo},
+  // {path: '/regInfrastructure', component: Infrastructure},
+
   //年度巡检
   {path: '/yeaInsHome', component: yeaInsHome},
 
@@ -80,12 +83,11 @@ const routes = [
   // {path: '/intAbout', component: About},
   // {path: '/regClippers', component: Clippers},
   // {path: '/region', component: Region},
-  {path: '/regInfrastructure', component: Infrastructure},
   // {path: '/regInspection', component: Inspection},
   // {path: '/regOverseas', component: Overseas},
   //极地
   {path: '/regionHome', component: regRegionHome},
-  {path: '/regAboutScore', component: regAboutScore},
+  // {path: '/regAboutScore', component: regAboutScore},
   {path: '/regRegionTable', component: regRegionTable},
   {path: '/regInstallation', component: regInstallation},
   {path: '/regCalibration', component: regCalibration},
@@ -180,7 +182,7 @@ router.afterEach((to,from,next) => {
   }
 
   // 启动全屏!
-  fullScreen()
+  // fullScreen()
 })
 
 /* eslint-disable no-new */

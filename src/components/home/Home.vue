@@ -90,7 +90,7 @@
             'detail': '调查设备管理',
             'bgColor': '#14c9ff',
             'path': '/#',
-            'imgUrl': 'static/homeIcon/9.png'
+            'imgUrl': 'static/homeIcon/23.png'
           },
           {
             'num': '05',
@@ -124,7 +124,7 @@
             'detail': '大型装备管理',
             'bgColor': '#4bceaf',
             'path': '/#',
-            'imgUrl': 'static/homeIcon/8.png'
+            'imgUrl': 'static/homeIcon/21.png'
           },
           {
             'num': '09',
@@ -140,7 +140,7 @@
             'detail': '大型装备管理',
             'bgColor': '#ffac1e',
             'path': '/obsRegionHome',
-            'imgUrl': 'static/homeIcon/10.png'
+            'imgUrl': 'static/homeIcon/20.png'
           },
           {
             'num': '11',
@@ -198,7 +198,7 @@
             'detail': '大型装备管理',
             'bgColor': '#a360fe',
             'path': '/#',
-            'imgUrl': 'static/homeIcon/17.png'
+            'imgUrl': 'static/homeIcon/22.png'
           },
           {
             'num': '18',

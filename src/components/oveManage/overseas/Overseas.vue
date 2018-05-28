@@ -3,40 +3,26 @@
     <div class="w">
       <div class="ocea_info">
         <div class="l info_l">
-          <div class="ocea_info_name">
-            <p>大型装备实时统计地图<i class="el-icon-caret-right"></i></p>
-          </div>
+
           <div class="info_l_list">
             <ul>
-              <li><img src="./ocea_01.png" alt=""><p>台站</p></li>
+              <li><img src="./ocea_01.png" alt=""><p>海洋站</p></li>
               <li><img src="./ocea_02.png" alt=""><p>浮标</p></li>
-              <li><img src="./ocea_03.png" alt=""><p>飞机</p></li>
-              <li><img src="./ocea_04.png" alt=""><p>雷达</p></li>
-              <li><img src="./ocea_05.png" alt=""><p>潜器</p></li>
-              <li><img src="./ocea_06.png" alt=""><p>船舶</p></li>
-              <li class="info_more"><img src="./more.png" alt="">
-                <p>更多</p>
-                <div>
-                  <ul class="info_hidde">
-                    <li><img src="./ocea_01.png" alt=""><p>台站</p></li>
-                    <li><img src="./ocea_02.png" alt=""><p>浮标</p></li>
-                    <li><img src="./ocea_03.png" alt=""><p>飞机</p></li>
-                    <li><img src="./ocea_04.png" alt=""><p>雷达</p></li>
-                    <li><img src="./ocea_05.png" alt=""><p>潜器</p></li>
-                    <li><img src="./ocea_06.png" alt=""><p>船舶</p></li>
-                  </ul>
-                </div>
-              </li>
+              <li><img src="./ocea_03.png" alt=""><p>海床基</p></li>
+              <li><img src="./ocea_04.png" alt=""><p>海啸浮标</p></li>
+              <li><img src="./ocea_05.png" alt=""><p>雷达</p></li>
               <!--<li></li>-->
             </ul>
           </div>
           <div id="map" style="width: 100%;height: 100%;z-index:1;"></div>
-
+          <div class="norm">
+            <v-normal></v-normal>
+          </div>
         </div>
         <div class="l info_r clearfix">
           <div class="info_r_top">
             <div class="info_r_top_info">
-              <p>大型装备状态统计<i class="el-icon-caret-right"></i></p>
+              <p>各大型设备资产构成统计图</p>
             </div>
             <div class="info_r_top_tab">
               <el-table
@@ -92,6 +78,7 @@
 <script type="es6">
   import echarts from 'echarts'
   import ol from '../../../../static/js/globalviewer'
+  import normal from '../../minModule/normal/Normal'
 
   export default {
     data (){
@@ -231,6 +218,9 @@
       g_core.switchoperation('singletargetselection');
     },
     created(){
+    },
+    components : {
+      'v-normal' : normal
     }
   }
 </script>
@@ -247,8 +237,12 @@
           width 60%
           height 100%
           background #aac6ee
-          border-radius 10px
+          border-radius 4px
           position relative
+          .norm
+            position absolute
+            right 20px
+            bottom 90px
           .ocea_info_name
             position absolute
             left 20px
@@ -335,17 +329,19 @@
             box-sizing border-box
             overflow hidden
             background-color #fff
-            border-radius 10px
+            border-radius 4px
             .info_r_top_info
-              width 150px
-              height 27px
+              width 180px
+              height 14px
+              padding-left 10px
               margin-left 10px
-              background-color #2a3cba
-              color #fff
-              font-size 14px
+              margin-top 10px
+              background-color #fff
+              border-left 3px solid #2a3cba
+              /*color #2a3cba*/
+              font-size 18px
               font-weight 700
-              line-height 27px
-              text-align center
+              line-height 14px
             .info_r_top_tab
               text-align center
               height 100%

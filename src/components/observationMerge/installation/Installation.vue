@@ -167,7 +167,7 @@
 
     },
     mounted (){
-      let screeH = document.documentElement.clientHeight>780?document.documentElement.clientHeight:780
+      let screeH = document.documentElement.clientHeight>800?document.documentElement.clientHeight:800
       $('.region_info_bot').css('margin-top',screeH*.8*.02)
 
       let option_l = {

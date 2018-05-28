@@ -211,7 +211,7 @@
       },
     },
     mounted() {
-      let screeH = document.documentElement.clientHeight >= 780 ? document.documentElement.clientHeight : 780
+      let screeH = document.documentElement.clientHeight >= 800 ? document.documentElement.clientHeight : 800
       $('.info_l_list').css('margin-top', -$('.info_l_list').height() / 2 + 'px')
       $('.info_r_top .info_r_mid_tab').height(screeH * .8 * .49 - 28)
       $('.info_r_bot .info_r_mid_tab').height(screeH * .8 * .49 - 38)

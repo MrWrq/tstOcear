@@ -1200,7 +1200,7 @@
       initmap();
       // let oceanHeight = $(".oceans").height() * .8;
       let oceanHeight = document.documentElement.clientHeight
-      oceanHeight = oceanHeight < 780 ? 780 * .8 : oceanHeight * .8
+      oceanHeight = oceanHeight < 800 ? 800 * .8 : oceanHeight * .8
       $('.info_r_mid').css('margin-top', oceanHeight * .02)
       $('.info_r_bot').css('margin-top', oceanHeight * .02)
       $('.info_r_bot_bot').height(oceanHeight * .32 - 37 - 8)

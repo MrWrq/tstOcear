@@ -4,7 +4,7 @@
       <div class="ocea_info">
         <div class="l info_l">
           <div class="ocea_info_name">
-            <p>大型装备实时统计地图<i class="el-icon-caret-right"></i></p>
+            <p>基础设施实时统计地图<i class="el-icon-caret-right"></i></p>
           </div>
           <div class="info_l_list">
             <ul>
@@ -35,7 +35,7 @@
         <div class="l info_r clearfix">
           <div class="info_r_top">
             <div class="info_r_top_info">
-              <p>大型装备状态统计<i class="el-icon-caret-right"></i></p>
+              <p>基础设施数据统计表<i class="el-icon-caret-right"></i></p>
             </div>
             <div class="info_r_top_tab">
               <el-table
@@ -79,7 +79,7 @@
           </div>
           <div class="info_r_mid">
             <div class="info_r_mid_info">
-              <p>大型装备状态统计<i class="el-icon-caret-right"></i></p>
+              <p>基础设施面积变化趋势<i class="el-icon-caret-right"></i></p>
             </div>
             <div class="info_r_mid_tab">
               <DIV id="info_r_mid_chart"></DIV>
@@ -184,7 +184,7 @@
 
     },
     mounted (){
-      let screeH = document.documentElement.clientHeight >= 780 ? document.documentElement.clientHeight : 780
+      let screeH = document.documentElement.clientHeight >= 768 ? document.documentElement.clientHeight : 768
       let oceanHeight = screeH*.8;
       $('.info_r_mid').css('margin-top',oceanHeight*.02)
       $('.info_r_bot').css('margin-top',oceanHeight*.02)

@@ -34,7 +34,7 @@
     },
     mounted(){
       let screeH = document.documentElement.clientHeight
-      screeH = screeH <= 780 ? 780 : screeH
+      screeH = screeH <= 800 ? 800 : screeH
       $('.oceans').height(screeH)
       const that = this
       window.onresize = () => {
@@ -114,7 +114,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .oceans
     width 100%
-    min-height 780px
+    min-height 800px
     background #1a2575
     .tst_top
       /*position: fixed;*/

@@ -281,11 +281,12 @@
             name: '南极',
             type: 'pie',
             radius : '55%',
+            selectedMode: 'single',
             center: ['30%', '40%'],
             data:[
               {value:20, name:'已响应'},
               {value:5, name:'未响应'},
-              {value:15, name:'已修复'},
+              {value:15, name:'已修复',selected:true},
             ],
             label: {
               normal: {
@@ -312,11 +313,12 @@
             name: '北极',
             type: 'pie',
             radius: '55%',
+            selectedMode: 'single',
             center: ['70%', '40%'],
             data: [
-              {value:20, name:'已响应'},
-              {value:5, name:'未响应'},
-              {value:15, name:'已修复'},
+              {value:15, name:'已响应',selected:true},
+              {value:20, name:'未响应'},
+              {value:5, name:'已修复'},
             ],
             label: {
               normal: {
@@ -347,7 +349,7 @@
       };
       let bottom_left_chart = echarts.init(document.getElementById('top_pie_chart'))
       bottom_left_chart.setOption(bottom_left_option);
-      let screeH = document.documentElement.clientHeight>780?document.documentElement.clientHeight:780
+      let screeH = document.documentElement.clientHeight>800?document.documentElement.clientHeight:800
       $('.info_r_bot').css('margin-top',screeH*.8*.02)
       // window.timer2 = setInterval(function () {
       //   $('.icon_list img').each(function (key, val) {

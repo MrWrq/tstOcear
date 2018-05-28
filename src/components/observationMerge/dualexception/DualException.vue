@@ -347,7 +347,7 @@
       };
       let bottom_left_chart = echarts.init(document.getElementById('top_pie_chart'))
       bottom_left_chart.setOption(bottom_left_option);
-      let screeH = document.documentElement.clientHeight>780?document.documentElement.clientHeight:780
+      let screeH = document.documentElement.clientHeight>800?document.documentElement.clientHeight:800
       $('.info_r_bot').css('margin-top',screeH*.8*.02)
       // window.timer2 = setInterval(function () {
       //   $('.icon_list img').each(function (key, val) {

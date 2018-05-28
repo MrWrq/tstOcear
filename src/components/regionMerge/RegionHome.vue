@@ -61,11 +61,11 @@
         isShow:false,
         meaus:[
           {'num':'01','name':'综合管理','detail':'大型装备管理','bgColor':'#00bbfe','path':'/regRegionTable','imgUrl':'static/regionImg/10.png'},
-          {'num':'02','name':'装备信息','detail':'调查设备管理','bgColor':'#00bbfe','path':'/','imgUrl':'static/regionImg/14.png'},//no
-          {'num':'03','name':'基建信息','detail':'大型装备管理','bgColor':'#00bbfe','path':'/','imgUrl':'static/regionImg/6.png'},//no
+          {'num':'02','name':'装备信息','detail':'调查设备管理','bgColor':'#00bbfe','path':'/regionHome','imgUrl':'static/regionImg/14.png'},//no
+          {'num':'03','name':'基建信息','detail':'大型装备管理','bgColor':'#00bbfe','path':'/regionHome','imgUrl':'static/regionImg/6.png'},//no
           {'num':'04','name':'备品备件','detail':'调查设备管理','bgColor':'#00bbfe','path':'/regSpareParts','imgUrl':'static/regionImg/7.png'},
           {'num':'','name':' ','detail':' ','bgColor':'','path':'','imgUrl':''},
-          {'num':'05','name':'测试评估','detail':'大型装备管理','bgColor':'#4ccdaf','path':'/','imgUrl':'static/regionImg/13.png'},//no
+          {'num':'05','name':'测试评估','detail':'大型装备管理','bgColor':'#4ccdaf','path':'/regionHome','imgUrl':'static/regionImg/13.png'},//no
           {'num':'06','name':'安装验收','detail':'调查设备管理','bgColor':'#4ccdaf','path':'/regInstallation','imgUrl':'static/regionImg/8.png'},
         ],
         meaus2:[
@@ -74,12 +74,12 @@
           {'num':'09','name':'故障处置','detail':'调查设备管理','bgColor':'#4bceaf','path':'/regDualException','imgUrl':'static/regionImg/5.png'},
           {'num':'10','name':'报废处置','detail':'大型装备管理','bgColor':'#4bceaf','path':'/regDualScrap','imgUrl':'static/regionImg/9.png'},
           {'num':'','name':' ','detail':' ','bgColor':'','path':'','imgUrl':''},
-          {'num':'11','name':'设备巡检','detail':'调查设备管理','bgColor':'#ffac1e','path':'/','imgUrl':'static/regionImg/11.png'}, //no
+          {'num':'11','name':'设备巡检','detail':'调查设备管理','bgColor':'#ffac1e','path':'/regionHome','imgUrl':'static/regionImg/11.png'}, //no
           {'num':'12','name':'年度核查','detail':'大型装备管理','bgColor':'#ffac1e','path':'/regYearCheck','imgUrl':'static/regionImg/12.png'},
         ],
         meaus3:[
           {'num':'13','name':'统计分析','detail':'调查设备管理','bgColor':'#a360fe','path':'/regTongji','imgUrl':'static/regionImg/2.png'},
-          {'num':'14','name':'综合评估','detail':'大型装备管理','bgColor':'#a360fe','path':'/regAboutScore','imgUrl':'static/regionImg/3.png'},
+          {'num':'14','name':'综合评估','detail':'大型装备管理','bgColor':'#a360fe','path':'/regionHome','imgUrl':'static/regionImg/3.png'},
         ],
       }
     },
@@ -106,7 +106,7 @@
       //     this.fullHeight = val
       //     console.log(this.fullHeight)
       //     $(".oceans").height(this.fullHeight)
-      //     if(this.fullHeight<=780) {
+      //     if(this.fullHeight<=800) {
       //       $('.home_list .li_link').hide()
       //     } else {
       //       $('.home_list .li_link').show()

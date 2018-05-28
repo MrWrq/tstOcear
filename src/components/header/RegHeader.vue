@@ -55,10 +55,10 @@
           {"name": "检定校准", "path": "/regCalibration"},
           {"name": "故障处置", "path": "/regDualException"},
           {"name": "报废处置", "path": "/regDualScrap"},
-          {"name": "综合评估", "path": "/regAboutScore"}
+          // {"name": "综合评估", "path": "/regAboutScore"}
+          {"name": "备品备件", "path": "/regSpareParts"},
         ],
         moreTabs: [
-          {"name": "备品备件", "path": "/regSpareParts"},
           {"name": "统计分析", "path": "/regTongji"},
           {"name": "年度核查", "path": "/regYearCheck"},
         ]

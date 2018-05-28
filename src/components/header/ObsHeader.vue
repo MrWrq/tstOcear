@@ -52,21 +52,20 @@
 
           //极地
           // {"name": "极地首页", "path": "/obsRegionHome"},
-          {"name": "综合管理", "path": "/ObsRegionTable"},
-          {"name": "安装验收", "path": "/installation"},
-          {"name": "维护保养", "path": "/ObsWeihu"},
-          {"name": "检定校准", "path": "/ObsCalibration"},
-          {"name": "故障处置", "path": "/ObsDualException"},
-          {"name": "报废处置", "path": "/obsDualScrap"},
-          {"name": "综合评估", "path": "/obsAboutScore"}
+          {"name": "综合管理", "path": "/obsRegionTable"},
+          // {"name": "安装验收", "path": "/#"},
+          // {"name": "维护保养", "path": "/#"},
+          // {"name": "检定校准", "path": "/#"},
+          // {"name": "故障处置", "path": "/#"},
+          // {"name": "报废处置", "path": "/#"},
+          // {"name": "综合评估", "path": "/#"}
         ],
-        moreTabs: [
-          //极地
-          {"name": "备品备件", "path": "/ObsSpareParts"},
-          {"name": "备品备件", "path": "/obsInstallation"},
-          {"name": "统计分析", "path": "/ObsTongji"},
-          {"name": "年度核查", "path": "/obsYearCheck"},
-        ]
+        // moreTabs: [
+        //   //极地
+        //   {"name": "备品备件", "path": "/#"},
+        //   {"name": "统计分析", "path": "/#"},
+        //   {"name": "年度核查", "path": "/#"},
+        // ]
       }
     },
     methods: {
@@ -82,7 +81,7 @@
       if (pathName == "/obsRegionHome" || pathName == "/home" || pathName == "/") {
         $(".obs_top").hide()
       }
-      if (pathName.substring(0, 4) == '/obs') {
+      if (pathName.substring(0, 4) == '/obs'&&pathName!=="/obsRegionHome" ) {
         $(".obs_top").show()
       }
       $('.more').on('mouseenter', function () {

@@ -223,7 +223,7 @@
       g_core.switchoperation('singletargetselection');
 
       let oceanHeight = document.documentElement.clientHeight
-      oceanHeight = oceanHeight < 780 ? 780 : oceanHeight
+      oceanHeight = oceanHeight < 800 ? 800 : oceanHeight
       $('.info_r_mid').css('margin-top', oceanHeight * 0.8*.02)
       $('.info_r_bot').css('margin-top', oceanHeight * 0.8*.02)
       $('.info_r_bot_bot').height(oceanHeight * .8 * .32 - 37 - 8)
@@ -236,7 +236,7 @@
       let option = {
         color: ['#3398DB'],
         title: {
-          'text': '北海 设备总计：25', x: '19%', y: '90%', backgroundColor: '#ccc', borderRadius: 7, textStyle: {
+          'text': '北海 设备总计：25', x: '19%', y: '85%', backgroundColor: '#ccc', borderRadius: 7, textStyle: {
             fontStyle: 'normal',
             fontWeight: '400',
             //字体系列
@@ -256,11 +256,11 @@
         //   data:['台站','雷达','浮标','潜标','船舶']
         // },
         grid: {
-          left: '3%',
-          right: '1%',
-          bottom: '4%',
-          top: '0%',
-          containLabel: true
+          // left: '3%',
+          // right: '1%',
+          bottom: '20%',
+          top: '1%',
+          // containLabel: true
         },
         xAxis : [
           {

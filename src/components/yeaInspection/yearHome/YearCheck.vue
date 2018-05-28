@@ -30,6 +30,15 @@
               <!--<li></li>-->
             </ul>
           </div>
+          <div class="icon_list">
+            <img src="./reg_01.png" alt="">
+            <img src="./reg_02.png" alt="">
+            <img src="./reg_03.png" alt="">
+            <img src="./reg_04.png" alt="">
+            <img src="./reg_05.png" alt="">
+            <img src="./reg_06.png" alt="">
+            <img src="./reg_07.png" alt="">
+          </div>
           <div id="map" style="width: 100%;height: 100%;z-index:1;"></div>
 
         </div>
@@ -44,7 +53,7 @@
           </div>
           <div class="info_r_mid">
             <div class="info_r_mid_info">
-              <p><i class="el-icon-caret-right"></i>设备异常清单</p>
+              <p>设备异常清单 <i class="el-icon-caret-right"></i></p>
             </div>
             <div class="info_r_mid_tab">
               <el-table
@@ -90,7 +99,7 @@
               <div class="bot_chart_r">
                 <div class="title_all_bottom_line" align="left" style="width: 0px">
                   <div class="title_text" style="margin-left: -167px">
-                    南北极故障处置数据
+                    大型装备巡检状态
                     <i class="el-icon-caret-right"/>
                   </div>
                 </div>
@@ -139,7 +148,7 @@
           num: '4'
         }],
         iconsChart: [
-          {name: '海洋站'},
+          {name: '海床基观测系统'},
           {name: '浮标'},
           {name: '海床基'},
           {name: '海啸浮标'},
@@ -468,6 +477,31 @@
           border-radius 4px
           overflow hidden
           position relative
+          .icon_list
+            img
+              position absolute
+              z-index 999
+              &:nth-child(1)
+                left 50px
+                top 100px
+              &:nth-child(2)
+                left 150px
+                top 80px
+              &:nth-child(3)
+                left 320px
+                top 100px
+              &:nth-child(4)
+                left 33px
+                top 64px
+              &:nth-child(5)
+                left 170px
+                top 222px
+              &:nth-child(6)
+                left 450px
+                top 400px
+              &:nth-child(7)
+                left 210px
+                top 300px
           .ocea_info_name
             position absolute
             left 20px
@@ -644,7 +678,7 @@
                 margin-left 3px
                 #chartPolling
                   width 100%
-                  height 100%
+                  height 80%
                   div
                     height 100%
                 .chartTitle
