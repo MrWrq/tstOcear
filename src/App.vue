@@ -7,6 +7,7 @@
     <v-facHeader></v-facHeader> <!--基础设施-->
     <v-yeaHeader></v-yeaHeader> <!--年度巡检-->
     <v-oveHeader></v-oveHeader> <!--海外站-->
+    <v-resHeader></v-resHeader> <!--调查船-->
 
     <router-view />
   </div>
@@ -20,6 +21,7 @@
   import FacHeader from './components/header/FacHeader'
   import YeaHeader from './components/header/YeaHeader'
   import OveHeader from './components/header/OveHeader'
+  import ResHeader from './components/header/ResHeader'
 
   import $ from 'jquery'
 
@@ -83,7 +85,7 @@
       'v-facHeader': FacHeader,
       'v-yeaHeader': YeaHeader,
       'v-oveHeader': OveHeader,
-
+      'v-resHeader': ResHeader,
     },
     created() {
 
@@ -93,7 +95,7 @@
         if (!this.timer) {
           this.fullHeight = val
           $(".oceans").height(this.fullHeight)
-          if (this.fullHeight <= 800) {
+          if (this.fullHeight <= 870) {
             $('.home_list .li_link').hide()
             $('.link_a').show()
           } else {
@@ -114,8 +116,9 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .oceans
     width 100%
-    min-height 800px
-    background #1a2575
+    min-height 810px
+    background url("/static/homeIcon/bg.jpg") no-repeat center top
+    background-size cover
     .tst_top
       /*position: fixed;*/
       width 100%
@@ -123,7 +126,7 @@
       top 0px
       left 0px
       height 86px
-      background-color #1a2575
+      /*background-color #1a2575*/
       z-index 99999
       .logo
         margin-right 130px

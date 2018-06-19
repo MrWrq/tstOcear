@@ -7,11 +7,9 @@
             <ul>
               <li class="active"><a href="#"><span>海洋站</span></a></li>
               <li><a href="#"><span>船舶</span></a></li>
-              <li><a href="#"><span>潜艇</span></a></li>
+              <li><a href="#"><span>潜标</span></a></li>
               <li><a href="#"><span>雷达</span></a></li>
               <li><a href="#"><span>浮标</span></a></li>
-              <li><a href="#"><span>潜艇</span></a></li>
-              <li><a href="#"><span>飞机</span></a></li>
             </ul>
           </div>
         </div>
@@ -99,11 +97,9 @@
                 <ul>
                   <li><i style="background-color:#0BABFE"></i><span>海洋站</span></li>
                   <li><i style="background-color:#79A0EF"></i><span>船舶</span></li>
-                  <li><i style="background-color:#A360FE"></i><span>潜艇</span></li>
+                  <li><i style="background-color:#A360FE"></i><span>潜标</span></li>
                   <li><i style="background-color:#4BCEAF"></i><span>雷达</span></li>
                   <li><i style="background-color:#5C6175"></i><span>浮标</span></li>
-                  <li><i style="background-color:#6DB820"></i><span>潜艇</span></li>
-                  <li><i  style="background-color:#FFAC1E"></i><span>飞机</span></li>
                 </ul>
               </div>
             </div>
@@ -126,10 +122,10 @@
         //titL_Bot: '北极装备实时统计地图',
         titR_Top: '各类装备构成统计',
         titR_Bot: '北极装备设备统计表',
-        titBot_Left:  '极地数量分布',
+        titBot_Left: '海区分布数量',
         titBot_Mid: '装备子系统占比',
         titBot_Right: '近五年来总数量年底趋势图',
-        topList: ['海洋站','船舶','潜艇','雷达','浮标','潜标','飞机'],
+        topList: ['海洋站', '船舶', '潜标', '雷达', '浮标'],
         iconsChart: [
           {name: '海洋站'},
           {name: '浮标'},
@@ -138,11 +134,11 @@
           {name: '雷达'}
         ],
         dataTable:[
-          {date: '台站',name: '100',address: '23',num: '23',all: '115',name1:'浮标'},
-          {date: '雷达',name: '100',address: '34',num: '23',all: '115',name1:'浮标1'},
-          {date: '潜标',name: '100',address: '34',num: '23',all: '115',name1:'浮标2'},
-          {date: '台站',name: '100',address: '34',num: '23',all: '115',name1:'浮标3'},
-          {date: '台站',name: '100',address: '34',num: '23',all: '115',name1:'浮标4'}
+          {date: '1', name: '100', address: '23', num: '23', all: '海洋站', name1: '浮标'},
+          {date: '2', name: '100', address: '34', num: '23', all: '船舶', name1: '浮标1'},
+          {date: '3', name: '100', address: '34', num: '23', all: '潜标', name1: '浮标2'},
+          {date: '4', name: '100', address: '34', num: '23', all: '雷达', name1: '浮标3'},
+          {date: '5', name: '100', address: '34', num: '23', all: '浮标', name1: '浮标4'},
         ]
       }
     },
@@ -161,7 +157,7 @@
 
     },
     mounted (){
-      var data = [290, 413, 248, 305, 180,143,346];
+      var data = [290, 413, 248, 305, 180];
       var xMax = 500;
       let optionPolling = {
         tooltip: {
@@ -169,7 +165,7 @@
           formatter: "{b} <br> {c}百万"
         },
         grid: {
-          x:-10,
+          x: 15,
           y:40,
           x2:13,
           y2:10,
@@ -195,7 +191,7 @@
         }],
         yAxis: [{
           type: 'category',
-          data: ['海洋站','船舶', '潜艇', '雷达', '潜标', '浮标','飞机'],
+          data: ['海洋站', '船舶', '潜标', '雷达', '浮标'],
           boundaryGap: [0, 0.01],
           name: '名称',
           axisLabel:{
@@ -274,18 +270,7 @@
             itemStyle: {
               normal:{color:'#6DB820',barBorderRadius:[0,10,10,0],}
             }
-          },{
-
-            value: 143,
-            itemStyle: {
-              normal:{color:'#5C6175',barBorderRadius:[0,10,10,0],}
-            }
-          },
-            { value: 346,
-              itemStyle: {
-                normal:{color:'#FFAC1E',barBorderRadius:[0,10,10,0],}
-              }
-            },]
+          }]
         }]
       }
       let myChart_1 = echarts.init(document.getElementById('chartPolling'))
@@ -301,7 +286,7 @@
         legend: {
           orient : 'vertical',
           x : 'left',
-          data:['南极','北极']
+          data: ['北海', '东海', '南海']
         },
         toolbox: {
           show : false,
@@ -351,14 +336,23 @@
               }
             },
             data:[
-              {value:10886, name:'南极',itemStyle:{
+              {
+                value: 10886, name: '北海', itemStyle: {
                 normal: {
                   color:"#4BCEAF"
                 },
               }},
-              {value:6841, name:'北极',itemStyle:{
+              {
+                value: 6841, name: '东海', itemStyle: {
                   normal: {
                     color:"#0BACFE"
+                  },
+                }
+              },
+              {
+                value: 6444, name: '南海', itemStyle: {
+                  normal: {
+                    color: "#217AFE"
                   },
                 }}
             ]
@@ -378,7 +372,7 @@
           trigger: 'axis'
         },
         legend: {
-          data:['含DNSS','含控制台','含波浪观测']
+          data: ['含GNSS', '含地震台', '含波浪观测']
         },
         toolbox: {
           show : true,
@@ -394,7 +388,7 @@
         xAxis : [
           {
             type : 'category',
-            data : ['含DNSS','含控制台','含波浪观测']
+            data: ['含GNSS', '含地震台', '含波浪观测']
           }
         ],
         yAxis : [

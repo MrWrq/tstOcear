@@ -1,17 +1,26 @@
 <template>
     <div class="ocea_home">
       <div class="w">
-        <div class="home_name"><h1>海洋技术装备管理系统</h1></div>
+        <div class="home_name"><h1>海洋装备综合管理系统</h1></div>
         <div class="home_info">
           <div class="home_list">
             <ul>
               <li v-for="item in meaus" :style="{backgroundColor:item.bgColor}">
-                <div class="link_hide">
+                <div class="link_hide" v-if="item.href">
+                  <a :href="item.href" target="_blank" class="link_a"></a>
+                </div>
+                <div class="link_hide" v-else>
                   <router-link class="link_a" :to="item.path"></router-link>
                 </div>
+
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
-                <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
-                <div class="li_link">
+                <div class="li_p"><span></span>
+                  <h2>{{item.name}}</h2><!--<p>{{item.detail}}</p>--></div>
+
+                <div class="li_link" v-if="item.href">
+                  <a :href="item.href" target="_blank">进入查看<i class="el-icon-caret-right"></i></a>
+                </div>
+                <div class="li_link" v-else>
                   <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
                 </div>
                 <div class="num"><p>{{item.num}}</p></div>
@@ -21,12 +30,19 @@
           <div class="home_list">
             <ul>
               <li v-for="item in meaus2" :style="{backgroundColor:item.bgColor}">
-                <div class="link_hide">
+                <div class="link_hide" v-if="item.href">
+                  <a :href="item.href" target="_blank" class="link_a"></a>
+                </div>
+                <div class="link_hide" v-else>
                   <router-link class="link_a" :to="item.path"></router-link>
                 </div>
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
-                <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
-                <div class="li_link">
+                <div class="li_p"><span></span>
+                  <h2>{{item.name}}</h2><!--<p>{{item.detail}}</p>--></div>
+                <div class="li_link" v-if="item.href">
+                  <a :href="item.href" target="_blank">进入查看<i class="el-icon-caret-right"></i></a>
+                </div>
+                <div class="li_link" v-else>
                   <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
                 </div>
                 <div class="num"><p>{{item.num}}</p></div>
@@ -36,12 +52,19 @@
           <div class="home_list">
             <ul>
               <li v-for="item in meaus3" :style="{backgroundColor:item.bgColor}">
-                <div class="link_hide">
+                <div class="link_hide" v-if="item.href">
+                  <a :href="item.href" target="_blank" class="link_a"></a>
+                </div>
+                <div class="link_hide" v-else>
                   <router-link class="link_a" :to="item.path"></router-link>
                 </div>
                 <div class="li_img"><img :src="item.imgUrl" alt=""></div>
-                <div class="li_p"><span></span><h2>{{item.name}}</h2><p>{{item.detail}}</p></div>
-                <div class="li_link">
+                <div class="li_p"><span></span>
+                  <h2>{{item.name}}</h2><!--<p>{{item.detail}}</p>--></div>
+                <div class="li_link" v-if="item.href">
+                  <a :href="item.href" target="_blank">进入查看<i class="el-icon-caret-right"></i></a>
+                </div>
+                <div class="li_link" v-else>
                   <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
                 </div>
                 <div class="num"><p>{{item.num}}</p></div>
@@ -63,7 +86,7 @@
           {
             'num': '01',
             'name': '综合管理',
-            'detail': '大型装备管理',
+            'detail': ' ',
             'bgColor': '#14c9ff',
             'path': '/intAbout',
             'imgUrl': 'static/homeIcon/10.png'
@@ -81,7 +104,7 @@
             'name': '无人机管理',
             'detail': '大型装备管理',
             'bgColor': '#14c9ff',
-            'path': '/#',
+            'href': 'http://10.0.4.183:8989/umms/login.html',
             'imgUrl': 'static/homeIcon/2.png'
           },
           {
@@ -89,7 +112,7 @@
             'name': '监控指挥车管理',
             'detail': '调查设备管理',
             'bgColor': '#14c9ff',
-            'path': '/#',
+            'href': 'http://10.0.4.9:9000',
             'imgUrl': 'static/homeIcon/23.png'
           },
           {
@@ -97,7 +120,7 @@
             'name': '视频监控管理',
             'detail': '大型装备管理',
             'bgColor': '#14c9ff',
-            'path': '/#',
+            'href': 'http://10.0.4.26',
             'imgUrl': 'static/homeIcon/1.png'
           },
           {
@@ -155,7 +178,7 @@
             'name': '调查船队管理',
             'detail': '大型装备管理',
             'bgColor': '#ffac1e',
-            'path': '/#',
+            'path': '/resHome',
             'imgUrl': 'static/homeIcon/17.png'
           },
           {
@@ -213,16 +236,18 @@
     },
     methods: {},
     mounted(){
-
-
       let screeH = document.documentElement.clientHeight
-      if (screeH <= 800) {
+      console.log(screeH)
+      if (screeH <= 870) {
         $('.home_list .li_link').hide()
         $('.link_a').show()
       } else {
         $('.home_list .li_link').show()
         $('.link_a').hide()
       }
+    },
+    computed() {
+
     },
     components :{
 
@@ -304,7 +329,7 @@
                 width 70%
                 height 32px
                 line-height 32px
-                margin-top 20px
+                margin-top 40px
                 border-bottom 1px solid #fff
                 background-color rgba(0,0,0,.1)
                 box-shadow 0 1px 1px 0 #fff

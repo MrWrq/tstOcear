@@ -88,7 +88,7 @@
             <!--提示组件-->
             <div class="title_all_bottom_line" align="left">
               <div class="title_text" style="width: 160px;margin-left: 0px">
-                南北极故障处置数据
+                各海域故障处置数据
                 <i class="el-icon-caret-right"/>
               </div>
             </div>
@@ -258,15 +258,11 @@
       //自适应高度
       //初始化海域数量分布环形图
       let  bottom_left_option = {
-        title : [{
-          text:'南极',
-          x:'27%',
-          y: '80%'
-        },{
-          text:'北极',
-          x:'67%',
-          y: '80%'
-        }],
+        title: [
+          {text: "东海", x: "17%", y: "70%"},
+          {text: "北海", x: "47%", y: "70%"},
+          {text: "南海", x: "77%", y: "70%"}
+        ],
         tooltip : {
           trigger: 'item',
           formatter: "{a} <br/>{b} : {c} ({d})"
@@ -278,45 +274,16 @@
         },
         series : [
           {
-            name: '南极',
+            name: '东海',
             type: 'pie',
+            selectedMode: 'single',
             radius : '55%',
-            center: ['30%', '40%'],
+            center: ['20%', '40%'],
+            //data:[20, 40, 30,10,4,6,6,2],
             data:[
-              {value:20, name:'已响应'},
-              {value:5, name:'未响应'},
-              {value:15, name:'已修复'},
-            ],
-            label: {
-              normal: {
-                show: true,
-                // formatter: '{b} : {c} ({d}%)',
-                formatter: '{c}',
-                position: 'inside'
-              }
-            },
-
-            itemStyle: {
-              normal: {
-                color: function(params) {
-                  // build a color map as your need.
-                  var colorList = [
-                    '#79A0EF','#4BCEAF','#0BABFF'
-                  ];
-                  return colorList[params.dataIndex]
-                },
-              }
-            }
-          },
-          {
-            name: '北极',
-            type: 'pie',
-            radius: '55%',
-            center: ['70%', '40%'],
-            data: [
-              {value:20, name:'已响应'},
-              {value:5, name:'未响应'},
-              {value:15, name:'已修复'},
+              {value: 20, name: '东海'},
+              {value: 15, name: '南海', selected: true},
+              {value: 5, name: "北海"},
             ],
             label: {
               normal: {
@@ -331,12 +298,84 @@
                 color: function(params) {
                   // build a color map as your need.
                   var colorList = [
-                    '#79A0EF','#4BCEAF','#0BABFF'
+                    '#25EFAF', '#16A5FF', '#FF2F2C'
                   ];
                   return colorList[params.dataIndex]
                 },
                 label: {
-                  show: true,
+                  show: false,
+                  position: 'top',
+                  formatter: '{b}\n{c}'
+                }
+              }
+            }
+          },
+          {
+            name: '北海',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '40%'],
+            selectedMode: 'single',
+            data: [
+              {value: 15, name: '东海', selected: true},
+              {value: 20, name: '南海'},
+              {value: 5, name: "北海"},
+            ],
+            label: {
+              normal: {
+                show: true,
+                // formatter: '{b} : {c} ({d}%)',
+                formatter: '{c}',
+                position: 'inside'
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: function(params) {
+                  // build a color map as your need.
+                  var colorList = [
+                    '#25EFAF', '#16A5FF', '#FF2F2C'
+                  ];
+                  return colorList[params.dataIndex]
+                },
+                label: {
+                  show: false,
+                  position: 'top',
+                  formatter: '{b}\n{c}'
+                }
+              }
+            }
+          },
+          {
+            name: '南海',
+            type: 'pie',
+            selectedMode: 'single',
+            radius: '55%',
+            center: ['80%', '40%'],
+            data: [
+              {value: 20, name: '东海'},
+              {value: 5, name: '南海'},
+              {value: 15, name: "北海", selected: true},
+            ],
+            label: {
+              normal: {
+                show: true,
+                // formatter: '{b} : {c} ({d}%)',
+                formatter: '{c}',
+                position: 'inside'
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: function (params) {
+                  // build a color map as your need.
+                  var colorList = [
+                    '#25EFAF', '#16A5FF', '#FF2F2C'
+                  ];
+                  return colorList[params.dataIndex]
+                },
+                label: {
+                  show: false,
                   position: 'top',
                   formatter: '{b}\n{c}'
                 }

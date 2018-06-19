@@ -6,24 +6,30 @@
       </div>
       <div class="l nav">
         <div v-for="item in tabs" class="nav_list" @click="isShowHome($event)">
-          <router-link :to="item.path" class="meau">
+
+          <a :href="item.href" v-if="item.href" target="_blank">
+            <span>{{item.name}}</span>
+            <i v-if="item.icon" :class="item.icon"></i>
+          </a>
+
+          <router-link :to="item.path" class="meau" v-else>
             <span>{{item.name}}</span>
             <i v-if="item.icon" :class="item.icon"></i>
           </router-link>
 
+
         </div>
-        <div class="nav_list more">· · ·
+
+        <div class="nav_list more" v-if="moreTabs.length != '0'">· · ·
           <div class="moreMeau">
             <i class="el-icon-caret-bottom"></i>
             <ul>
-              <li v-if="moreTabs.lenht>0" v-for="item in moreTabs">
+              <li v-for="item in moreTabs">
                 <router-link :to="item.path" class="meau">
                   <span>{{item.name}}</span>
-                  <!--<i v-if="item.icon" :class="item.icon"></i>-->
                 </router-link>
               </li>
             </ul>
-
           </div>
         </div>
 
@@ -51,7 +57,11 @@
         tabs: [
           //大型装备
           {"name": "综合管理", "path": "/larManagement"},
-          // {"name": "大型管理装备", "path": "/intAbout","icon":"el-icon-caret-bottom"},
+          {"name": "统计分析", "path": "/larTongji"},
+          {"name": "年度核查", "path": "/larYearcheck"},
+          {"name": "基础信息", "href": "http://71.0.1.192:8080/otes/#modules/generator/detbuilding.html"},
+
+
           // {"name": "装备巡检管理", "path": "/inspection","icon":"el-icon-caret-bottom"},
           // {"name": "基础设施管理", "path": "/infrastructure","icon":"el-icon-caret-bottom"},
           // {"name": "极地装备", "path": "/region"},
@@ -97,7 +107,7 @@
     top 0px
     left 0px
     height 86px
-    background-color #1a2575
+    /*background-color #1a2575*/
     z-index 99999
     display none
     .logo

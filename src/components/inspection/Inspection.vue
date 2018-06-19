@@ -111,11 +111,11 @@
         titR_Mid: '设备异常清单',
         titR_Bot: '大型装备巡检状态',
         icons: [
-          {name: '海洋站',url: '/static/img/1.png'},
-          {name: '浮标',url: './static/img/2.png'},
-          {name: '海床基',url: '/static/img/3.png'},
-          {name: '海啸浮标',url: '/static/img/4.png'},
-          {name: '雷达',url: '/static/img/5.png'}
+          {name: '海洋站', url: 'static/img/1.png'},
+          {name: '浮标', url: '.static/img/2.png'},
+          {name: '海床基', url: 'static/img/3.png'},
+          {name: '海啸浮标', url: 'static/img/4.png'},
+          {name: '雷达', url: 'static/img/5.png'}
         ],
         iconsChart: [
           {name: '海洋站'},

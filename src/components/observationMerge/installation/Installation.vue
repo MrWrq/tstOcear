@@ -11,10 +11,10 @@
                 <el-checkbox label="浮标" border style="background-color: #4bceaf; color: #fff;margin-left: 0px;"></el-checkbox>
                 <el-checkbox label="潜标" border style="background-color: #ffad1e; color: #fff;margin-left: 0px;"></el-checkbox>
                 <el-checkbox label="船舶" border style="background-color: #79a0ef; color: #fff;margin-left: 0px;"></el-checkbox>
-                <el-checkbox label="飞机" border style="background-color: #CE3A41; color: #fff;margin-left: 0px;"></el-checkbox>
-                <el-checkbox label="指挥车" border style="background-color: #4bceaf; color: #fff;margin-left: 0px;"></el-checkbox>
+                <!--<el-checkbox label="飞机" border style="background-color: #CE3A41; color: #fff;margin-left: 0px;"></el-checkbox>-->
+                <!--<el-checkbox label="指挥车" border style="background-color: #4bceaf; color: #fff;margin-left: 0px;"></el-checkbox>-->
                 <el-checkbox label="雷达" border style="background-color: #4C7558; color: #fff;margin-left: 0px;"></el-checkbox>
-                <el-checkbox label="潜器" border style="background-color: #1B67EF; color: #fff;margin-left: 0px;"></el-checkbox>
+                <!--<el-checkbox label="潜器" border style="background-color: #1B67EF; color: #fff;margin-left: 0px;"></el-checkbox>-->
               </el-checkbox-group>
             </div>
             <!--<div class="normal">-->
@@ -33,13 +33,16 @@
             <v-title :message="titL_Bot"></v-title>
             <div class="char_r">
               <el-checkbox-group v-model="checkboxGroup" size="mini">
-                <el-checkbox label="南极" border style="background-color: #0babfe; color: #fff;margin-left: 0px;"></el-checkbox>
-                <el-checkbox label="北极" border style="background-color: #4bceaf; color: #fff;margin-left: 0px;"></el-checkbox>
+                <el-checkbox label="北海" border
+                             style="background-color: #0babfe; color: #fff;margin-left: 0px;"></el-checkbox>
+                <el-checkbox label="东海" border
+                             style="background-color: #4bceaf; color: #fff;margin-left: 0px;"></el-checkbox>
+                <el-checkbox label="南海" border
+                             style="background-color: #24FECB; color: #fff;margin-left: 0px;"></el-checkbox>
               </el-checkbox-group>
             </div>
             <div class="top_r_chart">
-              <div id="chart_r1"></div>
-              <div id="chart_r2"></div>
+              <div id="top_pie_chart"></div>
             </div>
           </div>
         </div>
@@ -127,6 +130,7 @@
   import echarts from 'echarts'
   import regTitle from './../../minModule/title/Title'
   import regTable from './../../minModule/table/Table'
+
   export default {
     data (){
       return {
@@ -196,7 +200,7 @@
         xAxis : [
           {
             type : 'category',
-            data : ['海洋站', '浮标', '潜标', '船舶', '飞机', '指挥车','雷达', '潜器'],
+            data: ['海洋站', '浮标', '潜标', '船舶', '雷达'],
             axisTick: {
               alignWithLabel: true
             }
@@ -213,13 +217,13 @@
             name:'2018',
             type:'bar',
             barWidth: '30%',
-            data:[20, 40, 30, 10, 4, 6,8,2],
+            data: [20, 40, 30, 10, 4],
             itemStyle: {
               //通常情况下：
               normal:{
                 //每个柱子的颜色即为colorList数组里的每一项，如果柱子数目多于colorList的长度，则柱子颜色循环使用该数组
                 color: function (params){
-                  var colorList = ['#5c6275','#4bceaf','#ffad1e','#79a0ef','#CE3A41','#4bceaf','#4C7558','#1B67EF'];
+                  var colorList = ['#5c6275', '#4bceaf', '#ffad1e', '#79a0ef', '#CE3A41'];
                   return colorList[params.dataIndex];
                 }
               },
@@ -238,29 +242,38 @@
       myChart_l.setOption(option_l)
 
 
-
-      let option_r = {
+      let bottom_left_option = {
+        title: [
+          {text: "东海", x: "17%", y: "70%"},
+          {text: "北海", x: "47%", y: "70%"},
+          {text: "南海", x: "77%", y: "70%"}
+        ],
         tooltip : {
           trigger: 'item',
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
+          formatter: "{a} <br/>{b} : {c} ({d})"
         },
-        title : {
-          text: '南极',
-          x:'center',
-          y:'80%'
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+          data: ['已响应', '未响应', '已修复']
         },
         series : [
           {
-            name: '南极',
+            name: '东海',
             type: 'pie',
+            selectedMode: 'single',
             radius : '55%',
-            center: ['50%', '45%'],
+            center: ['20%', '40%'],
+            //data:[20, 40, 30,10,4,6,6,2],
             data:[
-              {value:335, name:'1'},
-              {value:310, name:'2'},
-              {value:234, name:'3'},
-              {value:135, name:'5'},
-              {value:1548, name:'4'}
+              {value: 57, name: '海洋站', selected: true},
+              {value: 40, name: '浮标'},
+              {value: 32, name: "潜标"},
+              {value: 10, name: '船舶'},
+              // {value:24, name:'飞机'},
+              // {value:6, name:'指挥车'},
+              {value: 6, name: '雷达'},
+              // {value:45, name:'潜器'}
             ],
             label: {
               normal: {
@@ -271,38 +284,37 @@
               }
             },
             itemStyle: {
-              emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              normal: {
+                color: function (params) {
+                  // build a color map as your need.
+                  var colorList = [
+                    '#0BABFE', '#5B6275', '#6DB81F', '#79A0EF', '#FFAC1D', '#A360FF', '#4BCEAF', '#68B617'
+                  ];
+                  return colorList[params.dataIndex]
+                },
+                label: {
+                  show: false,
+                  position: 'top',
+                  formatter: '{b}\n{c}'
+                }
               }
             }
-          }
-        ]
-      };
-      let option_r2 = {
-        tooltip : {
-          trigger: 'item',
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        color: ["#ffad1b", "#ef6481", "#fc5d1b", "#49ceb1","#32C7EF","#EFA07C"],
-        title : {
-          text: '北极',
-          x:'center',
-          y:'80%'
-        },
-        series : [
+          },
           {
-            name: '北极',
+            name: '北海',
             type: 'pie',
-            radius : '55%',
-            center: ['50%', '45%'],
+            radius: '55%',
+            selectedMode: 'single',
+            center: ['50%', '40%'],
             data:[
-              {value:335, name:'1'},
-              {value:310, name:'2'},
-              {value:234, name:'3'},
-              {value:135, name:'5'},
-              {value:1548, name:'4'}
+              {value: 20, name: '海洋站'},
+              {value: 56, name: '浮标'},
+              {value: 11, name: "潜标", selected: true},
+              {value: 33, name: '船舶'},
+              // {value:77, name:'飞机'},
+              // {value:23, name:'指挥车'},
+              {value: 8, name: '雷达'},
+              // {value:1, name:'潜器'}
             ],
             label: {
               normal: {
@@ -313,19 +325,67 @@
               }
             },
             itemStyle: {
-              emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              normal: {
+                color: function (params) {
+                  // build a color map as your need.
+                  var colorList = [
+                    '#0BABFE', '#5B6275', '#6DB81F', '#79A0EF', '#FFAC1D'
+                  ];
+                  return colorList[params.dataIndex]
+                },
+                label: {
+                  show: false,
+                  position: 'top',
+                  formatter: '{c}'
+                }
+              }
+            }
+          },
+          {
+            name: '南海',
+            type: 'pie',
+            selectedMode: 'single',
+            radius: '55%',
+            center: ['80%', '40%'],
+            data: [
+              {value: 20, name: '海洋站'},
+              {value: 40, name: '浮标'},
+              {value: 30, name: "潜标", selected: true},
+              {value: 10, name: '船舶'},
+              // {value:4, name:'飞机'},
+              // {value:6, name:'指挥车'},
+              {value: 6, name: '雷达'},
+              // {value:2, name:'潜器'}
+            ],
+            label: {
+              normal: {
+                show: true,
+                // formatter: '{b} : {c} ({d}%)',
+                formatter: '{c}',
+                position: 'inside'
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: function (params) {
+                  // build a color map as your need.
+                  var colorList = [
+                    '#0BABFE', '#5B6275', '#6DB81F', '#79A0EF', '#FFAC1D'
+                  ];
+                  return colorList[params.dataIndex]
+                },
+                label: {
+                  show: false,
+                  position: 'top',
+                  formatter: '{b}\n{c}'
+                }
               }
             }
           }
         ]
       };
-      let myChart_r1 = echarts.init(document.getElementById('chart_r1'));
-      myChart_r1.setOption(option_r)
-      let myChart_r2 = echarts.init(document.getElementById('chart_r2'));
-      myChart_r2.setOption(option_r2)
+      let bottom_left_chart = echarts.init(document.getElementById('top_pie_chart'))
+      bottom_left_chart.setOption(bottom_left_option);
     },
     created(){
 
@@ -389,16 +449,10 @@
               height 100%
               box-sizing border-box
               padding-top 32px
-              #chart_r1
-                width 48%
-                height 100%
-                float left
-              #chart_r2
-                width 48%
-                height 100%
-                float left
-                margin-left 2%
-
+              #top_pie_chart
+                width 100%
+                height 80%
+                margin-top 15px
         .region_info_bot
           width 100%
           height 49%

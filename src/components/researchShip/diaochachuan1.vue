@@ -2,116 +2,276 @@
   <div class="baseInstMainInfo">
     <div class="w">
       <div class="ocea_info">
-        <div class="l info_l">
-          <div class="ocea_info_name">
-            <p>大型装备实时统计地图<i class="el-icon-caret-right"></i></p>
-          </div>
-          <div class="info_l_list">
-            <ul>
-              <li><img src="./ocea_01.png" alt=""><p>台站</p></li>
-              <li><img src="./ocea_02.png" alt=""><p>浮标</p></li>
-              <li><img src="./ocea_03.png" alt=""><p>飞机</p></li>
-              <li><img src="./ocea_04.png" alt=""><p>雷达</p></li>
-              <li><img src="./ocea_05.png" alt=""><p>潜器</p></li>
-              <li><img src="./ocea_06.png" alt=""><p>船舶</p></li>
-              <li class="info_more"><img src="./more.png" alt="">
-                <p>更多</p>
+        <div class="l info_l" style="width:100%;background-color:white;height:85%;padding-left:10px">
+
+          <el-tabs v-model="activeName">
+            <el-tab-pane label="船舶能力表" name="first" style="font-size:12px">
+              <template>
+                级别：
+                <el-select v-model="level" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="一级">一级</el-option>
+                  <el-option value="二级">二级</el-option>
+                  <el-option value="三级">三级</el-option>
+                </el-select>
+                所属单位：
+                <el-select v-model="orga" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="中国极地研究院">中国极地研究院</el-option>
+                  <el-option value="中国海洋局">中国海洋局</el-option>
+                  <el-option value="山东大学">山东大学</el-option>
+                </el-select>
+                母港：
+                <el-select v-model="home" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="天津港">天津港</el-option>
+                  <el-option value="宁波港">宁波港</el-option>
+                  <el-option value="大连港">大连港</el-option>
+                </el-select>
+                吨位：
+                <el-select v-model="minWeight" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="1">1</el-option>
+                  <el-option value="1000">1000</el-option>
+                  <el-option value="10000">10000</el-option>
+                </el-select>
+                至
+                <el-select v-model="maxWeight" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="10">10</el-option>
+                  <el-option value="1500">1500</el-option>
+                  <el-option value="20000">20000</el-option>
+                </el-select>
+                <el-button size="small" style="font-size:12px">重置</el-button>
+                <el-button type="primary" size="small" style="font-size:12px">查询</el-button>
+              </template>
+              <br>
+              <br>
+              <template>
                 <div>
-                  <ul class="info_hidde">
-                    <li><img src="./ocea_01.png" alt=""><p>台站</p></li>
-                    <li><img src="./ocea_02.png" alt=""><p>浮标</p></li>
-                    <li><img src="./ocea_03.png" alt=""><p>飞机</p></li>
-                    <li><img src="./ocea_04.png" alt=""><p>雷达</p></li>
-                    <li><img src="./ocea_05.png" alt=""><p>潜器</p></li>
-                    <li><img src="./ocea_06.png" alt=""><p>船舶</p></li>
-                  </ul>
-                </div>
-              </li>
-              <!--<li></li>-->
-            </ul>
-          </div>
-          <div class="icon_list">
-            <img src="./reg_01.png" alt="">
-            <img src="./reg_02.png" alt="">
-            <img src="./reg_03.png" alt="">
-            <img src="./reg_04.png" alt="">
-            <img src="./reg_05.png" alt="">
-            <img src="./reg_06.png" alt="">
-            <img src="./reg_07.png" alt="">
-          </div>
-          <div id="map" style="width: 100%;height: 100%;z-index:1;"></div>
-
-        </div>
-        <div class="l info_r clearfix">
-          <div class="info_r_top">
-            <div class="info_r_top_info">
-              <p>海域选择<i class="el-icon-caret-right"></i></p>
-            </div>
-            <div class="info_r_top_tab">
-              <DIV id="info_r_top_chart"></DIV>
-            </div>
-          </div>
-          <div class="info_r_mid">
-            <div class="info_r_mid_info">
-              <p>设备异常清单 <i class="el-icon-caret-right"></i></p>
-            </div>
-            <div class="info_r_mid_tab">
-              <el-table
-                :data="tableData2"
-                style="width: 100%"
-                fixed
-                stripe
-                border
-                size="small"
-                header-align="center"
-                :row-class-name="tableRowClassName">
-                <el-table-column
-                  prop="num"
-                  align="center"
-                  sortable
-                  label="序号">
-                </el-table-column>
-                <el-table-column
-                  prop="type"
-                  align="center"
-                  label="类型">
-                  <template slot-scope="scope">
-                    <el-tag size="medium" style="width: 100%;background-color: #2A3CBA;color: #ffffff;">{{ scope.row.type }}</el-tag>
-                  </template>
-                </el-table-column>
-                <el-table-column
-                  prop="num"
-                  align="center"
-                  sortable
-                  label="异常数量">
-
-                </el-table-column>
-              </el-table>
-            </div>
-          </div>
-          <div class="info_r_bot">
-            <div class="bot_chart">
-              <div class="bot_chart_l">
-                <ul>
-                  <li v-for="item in iconsChart">{{item.name}}</li>
-                </ul>
-              </div>
-              <div class="bot_chart_r">
-                <div class="title_all_bottom_line" align="left" style="width: 0px">
-                  <div class="title_text" style="margin-left: -167px">
-                    大型装备巡检状态
-                    <i class="el-icon-caret-right"/>
+                  <el-button type="primary" style="font-size:12px">导出船舶能力表</el-button>
+                  <div style="float:right;margin-right:10px;font-size:12px">
+                    <el-radio v-model="radio" label="1" style="font-size:12px">设计寿命
+                      <img src="./green.png" alt="" width="22"></el-radio>
+                    <el-radio v-model="radio" label="2" style="font-size:12px">超期服役
+                      <img src="./overtime.png" alt="" width="22">
+                    </el-radio>
+                    <el-radio v-model="radio" label="3" style="font-size:12px">退役/退队
+                      <img src="./out.png" alt="" width="22">
+                    </el-radio>
                   </div>
                 </div>
-                <div id="chartPolling"></div>
-                <div class="chartTitle clearfix">
-                  <ul>
-                    <li class="clearfix"><i></i><span>已巡检</span></li>
-                    <li><i></i><span>未巡检</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+              </template>
+              <br>
+              <template>
+                <el-table
+                  :data="tableShipData"
+                  style="width: 100%;font-size:12px"
+                  :span-method="arraySpanMethod"
+                  height="300">
+                  <el-table-column
+                    prop="id"
+                    label="序号"
+                    align="center"
+                    width="100">
+                  </el-table-column>
+                  <el-table-column
+                    prop="level"
+                    label="船舶级别"
+                    align="center"
+                    width="190">
+                  </el-table-column>
+                  <el-table-column
+                    prop="overYear"
+                    label="退役时间"
+                    align="center"
+                    width="120">
+                  </el-table-column>
+                  <el-table-column
+                    prop="buildYear"
+                    label="建造时间"
+                    align="center"
+                    width="120">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2017 "
+                    align="center"
+                    width="70">
+                    <template slot-scope="scope">
+                      <el-progress :percentage="100" :show-text="false" status="success"></el-progress>
+                    </template>
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2018 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2019 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2020 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2021 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2022 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2023 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2024 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2025 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    label=" 2026 "
+                    align="center"
+                    width="70">
+                  </el-table-column>
+                  <el-table-column
+                    prop="shipAge"
+                    label="船领"
+                    align="center"
+                    width="130"
+                    style="padding:5px"
+                  >
+                    <template slot-scope="scope">
+                      <el-button type="success" round style="color:black;" size="small">{{scope.row.shipAge}}
+                      </el-button>
+                    </template>
+                  </el-table-column>
+                </el-table>
+              </template>
+            </el-tab-pane>
+            <el-tab-pane label="船舶基础信息" name="second" style="font-size:12px">
+
+              <template>
+                级别：
+                <el-select v-model="level" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="一级">一级</el-option>
+                  <el-option value="二级">二级</el-option>
+                  <el-option value="三级">三级</el-option>
+                </el-select>
+                所属单位：
+                <el-select v-model="orga" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="中国极地研究院">中国极地研究院</el-option>
+                  <el-option value="中国海洋局">中国海洋局</el-option>
+                  <el-option value="山东大学">山东大学</el-option>
+                </el-select>
+                母港：
+                <el-select v-model="home" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="天津港">天津港</el-option>
+                  <el-option value="宁波港">宁波港</el-option>
+                  <el-option value="大连港">大连港</el-option>
+                </el-select>
+                吨位：
+                <el-select v-model="minWeight" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="1">1</el-option>
+                  <el-option value="1000">1000</el-option>
+                  <el-option value="10000">10000</el-option>
+                </el-select>
+                至
+                <el-select v-model="maxWeight" placehodler="请选择" size="small" style="width:149px">
+                  <el-option value="10">10</el-option>
+                  <el-option value="1500">1500</el-option>
+                  <el-option value="20000">20000</el-option>
+                </el-select>
+                <el-button size="small">重置</el-button>
+                <el-button type="primary" size="small">查询</el-button>
+              </template>
+              <br>
+              <br>
+              <template>
+                <el-table
+                  :data="tableShipInfoData"
+                  style="width: 100%;font-size:12px"
+                  height="250">
+                  <el-table-column
+                    prop="id"
+                    label="序号"
+                    align="center"
+                    width="100">
+                  </el-table-column>
+                  <el-table-column
+                    prop="level"
+                    label="级别"
+                    align="center"
+                    width="120">
+                  </el-table-column>
+                  <el-table-column
+                    prop="shipName"
+                    label="船舶名称"
+                    align="center"
+                    width="180">
+                  </el-table-column>
+
+                  <el-table-column
+                    prop="orga"
+                    label="所属单位"
+                    align="center"
+                    width="330">
+                  </el-table-column>
+                  <el-table-column
+                    prop="home"
+                    label="母港"
+                    align="center"
+                    width="120">
+                  </el-table-column>
+                  <el-table-column
+                    prop="shipAge"
+                    label="船领"
+                    align="center"
+                    width="120">
+                    <template slot-scope="scope">
+                      <el-button type="success" round style="color:black;" size="small">{{scope.row.shipAge}}
+                      </el-button>
+                    </template>
+                  </el-table-column>
+                  <el-table-column
+                    prop="shipLength"
+                    label="船长"
+                    align="center"
+                    width="120">
+                  </el-table-column>
+                  <el-table-column
+                    prop="weight"
+                    label="吨位"
+                    align="center"
+                    width="120">
+                  </el-table-column>
+                  <el-table-column
+                    prop="info"
+                    label="设备信息"
+                    align="center"
+                    width="120">
+                  </el-table-column>
+                </el-table>
+              </template>
+            </el-tab-pane>
+          </el-tabs>
+
+        </div>
+        <div>
+          <div style="color:#ffffff">显示到6行，共100行记录</div>
+          <div style="float:right">
+            <el-pagination
+              background
+              layout="prev, pager, next"
+              :total="170">
+            </el-pagination>
           </div>
         </div>
       </div>
@@ -120,42 +280,142 @@
 </template>
 <script type="es6">
   import echarts from 'echarts'
-  import ol from '../../../../static/js/globalviewer'
 
   export default {
     data (){
       return {
-        checkboxGroup: [],
-        tableData2: [{
-          num: '1',
-          type: '海床基观测系统',
-          num: '5'
+        activeName: "first",
+        levelOptions: [{
+          value: '一级',
+          label: '一级'
         },{
-          num: '2',
-          type: '海啸浮标',
-          num: '3'
+          value: '二级',
+          label: '二级'
         },{
-          num: '3',
-          type: '附表',
-          num: '0'
-        },{
-          num: '4',
-          type: '雷达站',
-          num: '0'
-        },{
-          num: '5',
-          type: '海洋站',
-          num: '4'
+          value: '三级',
+          label: '三级'
         }],
-        iconsChart: [
-          {name: '海床基观测系统'},
-          {name: '浮标'},
-          {name: '海床基'},
-          {name: '海啸浮标'},
-          {name: '雷达'}
-        ]
+        tableShipData: [{
+          id: '1',
+          level: '东方红2号',
+          overYear: '2019',
+          buildYear: '1989',
+          shipAge: '29',
+          year: 65
+        }, {
+          id: '2',
+          level: '东方红3号',
+          overYear: '2020',
+          buildYear: '1990',
+          shipAge: '28',
+          year: 70
+        }, {
+          id: '3',
+          level: '东方红3号',
+          overYear: '2021',
+          buildYear: '1991',
+          shipAge: '27',
+          year: 80
+        }, {
+          id: '4',
+          level: '东方红3号',
+          overYear: '2022',
+          buildYear: '1992',
+          shipAge: '26',
+          year: 90
+        }, {
+          id: '4',
+          level: '东方红3号',
+          overYear: '2023',
+          buildYear: '1993',
+          shipAge: '25',
+          year: 50
+        }, {
+          id: '5',
+          level: '东方红3号',
+          overYear: '2024',
+          buildYear: '1994',
+          shipAge: '24',
+          year: 40
+        }, {
+          id: '6',
+          level: '东方红3号',
+          overYear: '2025',
+          buildYear: '1995',
+          shipAge: '23',
+          year: 90
+        }],
+        tableShipInfoData: [{
+          id: '1',
+          level: '远洋',
+          shipName: '雪龙',
+          orga: '中国极地研究中心',
+          home: '上海港',
+          shipAge: '12',
+          shipLength: 23,
+          weight: 12,
+          info: '详细信息'
+        }, {
+          id: '2',
+          level: '近海',
+          shipName: '大洋一号',
+          orga: '中国极地研究中心',
+          home: '上海港',
+          shipAge: '29',
+          shipLength: 23,
+          weight: 12,
+          info: '详细信息'
+        }, {
+          id: '3',
+          level: '近海',
+          shipName: '大洋一号',
+          orga: '山东大学',
+          home: '上海港',
+          shipAge: '18',
+          shipLength: 23,
+          weight: 14,
+          info: '详细信息'
+        }, {
+          id: '4',
+          level: '近海',
+          shipName: '大洋一号',
+          orga: '中国海洋局北海分局',
+          home: '上海港',
+          shipAge: '29',
+          shipLength: 23,
+          weight: 14,
+          info: '详细信息'
+        }, {
+          id: '5',
+          level: '近海',
+          shipName: '大洋一号',
+          orga: '中国极地研究中心',
+          home: '上海港',
+          shipAge: '20',
+          shipLength: 23,
+          weight: 14,
+          info: '详细信息'
+        }, {
+          id: '6',
+          level: '近海',
+          shipName: '大洋三号',
+          orga: '中国极地研究中心',
+          home: '天津港',
+          shipAge: '19',
+          shipLength: 43,
+          weight: 36,
+          info: '详细信息'
+        }
+        ],
+        radio: '1',
+        level: '',
+        orga: '',
+        home: '',
+        minWeight: '',
+        maxWeight: ''
       }
     },
+
     methods: {
       tableRowClassName({row, rowIndex}) {
         if (rowIndex === 1) {
@@ -165,6 +425,21 @@
         }
         return '';
       },
+      arraySpanMethod({row, column, rowIndex, columnIndex}) {
+        if (columnIndex === 4) {
+          return {
+            rowspan: 1,
+            colspan: rowIndex + 3
+          };
+        } else if (columnIndex > 4 && columnIndex < 7 + rowIndex) {
+          return {
+            rowspan: 0,
+            colspan: 0
+          };
+        }
+
+      },
+
     },
     mounted (){
       let oceanHeight = $(".oceans").height()*.8;
@@ -477,31 +752,6 @@
           border-radius 4px
           overflow hidden
           position relative
-          .icon_list
-            img
-              position absolute
-              z-index 999
-              &:nth-child(1)
-                left 50px
-                top 100px
-              &:nth-child(2)
-                left 150px
-                top 80px
-              &:nth-child(3)
-                left 320px
-                top 100px
-              &:nth-child(4)
-                left 33px
-                top 64px
-              &:nth-child(5)
-                left 170px
-                top 222px
-              &:nth-child(6)
-                left 450px
-                top 400px
-              &:nth-child(7)
-                left 210px
-                top 300px
           .ocea_info_name
             position absolute
             left 20px
@@ -678,7 +928,7 @@
                 margin-left 3px
                 #chartPolling
                   width 100%
-                  height 80%
+                  height 100%
                   div
                     height 100%
                 .chartTitle

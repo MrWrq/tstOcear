@@ -6,24 +6,30 @@
       </div>
       <div class="l nav">
         <div v-for="item in tabs" class="nav_list" @click="isShowHome($event)">
-          <router-link :to="item.path" class="meau">
+
+          <a :href="item.href" v-if="item.href" target="_blank">
+            <span>{{item.name}}</span>
+            <i v-if="item.icon" :class="item.icon"></i>
+          </a>
+
+          <router-link :to="item.path" class="meau" v-else>
             <span>{{item.name}}</span>
             <i v-if="item.icon" :class="item.icon"></i>
           </router-link>
 
+
         </div>
-        <div class="nav_list more">· · ·
+
+        <div class="nav_list more" v-if="moreTabs.length != '0'">· · ·
           <div class="moreMeau">
             <i class="el-icon-caret-bottom"></i>
             <ul>
               <li v-for="item in moreTabs">
                 <router-link :to="item.path" class="meau">
                   <span>{{item.name}}</span>
-                  <!--<i v-if="item.icon" :class="item.icon"></i>-->
                 </router-link>
               </li>
             </ul>
-
           </div>
         </div>
 
@@ -51,22 +57,34 @@
         tabs: [
 
           //极地
-          // {"name": "极地首页", "path": "/obsRegionHome"},
           {"name": "综合管理", "path": "/obsRegionTable"},
-          // {"name": "安装验收", "path": "/#"},
-          // {"name": "维护保养", "path": "/#"},
-          // {"name": "检定校准", "path": "/#"},
-          // {"name": "故障处置", "path": "/#"},
-          // {"name": "报废处置", "path": "/#"},
-          // {"name": "综合评估", "path": "/#"}
+          {"name": "装备信息", "path": "/obsYearCheck"},
+          {"name": "备品备件", "path": "/obsSpareParts"},
+          {"name": "安装验收", "path": "/obsInstallation"},
+          {"name": "维护保养", "path": "/obsWeihu"},
+          {"name": "检定校准", "path": "/obsCalibration"},
+          {"name": "设备巡检", "path": "/obsRegionHome"},
+          {"name": "故障处置", "path": "/obsDualException"},
         ],
-        // moreTabs: [
-        //   //极地
-        //   {"name": "备品备件", "path": "/#"},
-        //   {"name": "统计分析", "path": "/#"},
-        //   {"name": "年度核查", "path": "/#"},
-        // ]
+        moreTabs: [
+          {"name": "报废处置", "path": "/obsDualScrap"},
+          {"name": "统计分析", "path": "/obsTongji"},
+          {"name": "综合评估", "path": "/obsPinggu"},
+          {"name": "推荐型号", "path": "/obsRegionHome"},
+          // {"name": "年度核查", "path": "/obsYearCheck"}
+          //极地
+          // {"name": "年度核查", "path": "/obsYearCheck"},
+        ]
       }
+    },
+    beforeMount() {
+      var width_w = document.documentElement.clientWidth
+      // var obj_1 = {"name": "年度核查", "path": "/obsYearCheck"}
+      // if(width_w >= 1486 ) {
+      //   this.tabs.push(obj_1)
+      // } else {
+      //   this.moreTabs.push(obj_1)
+      // }
     },
     methods: {
       isShowHome(el){
@@ -76,6 +94,7 @@
       },
     },
     mounted() {
+
       console.log(window.location.pathname)
       let pathName = window.location.pathname
       if (pathName == "/obsRegionHome" || pathName == "/home" || pathName == "/") {
@@ -105,7 +124,7 @@
     top 0px
     left 0px
     height 86px
-    background-color #1a2575
+    /*background-color #1a2575*/
     display none
     z-index 99999
     .logo

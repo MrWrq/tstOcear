@@ -91,6 +91,10 @@ input,img {
 .inspection .el-table__body-wrapper, .el-table__footer-wrapper, .el-table__header-wrapper {
   width: 101%;
 }
+
+.baseInstMainInfo .info_r_mid_tab .el-table__body-wrapper, .el-table__footer-wrapper, .el-table__header-wrapper {
+  width: 100%;
+}
 .inspection .el-table__row td:nth-child(2) div {
   border-radius: 5px;
   color: #fff;
@@ -229,6 +233,463 @@ input,img {
   line-height: 27px;
   text-align: left;
 }
+
+.ol-overlaycontainer-stopevent {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.ol-overlaycontainer-stopevent .ol-rotate {
+  display: none;
+}
+
+.ol-overlaycontainer-stopevent .ol-scale-line {
+  display: none;
+}
+
+.overseas .el-radio.is-bordered {
+  padding: 7px 3px 0px 3px !important;
+  height: 28px;
+}
+
+.overseas .larCheck .el-radio.is-bordered .el-radio__label {
+  font-size: 12px;
+  padding-left: 4px !important;
+  padding-right: 2px !important;
+}
+
+.overseas .larCheck .el-radio__input.is-checked + .el-radio__label {
+  color: red;
+}
+
+.zydcgl .info_l_top .el-tabs__header {
+  border: 0px;
+  background-color: #1A2575;
+}
+
+.zydcgl .info_l_top .el-tabs .el-tabs--top .el-tabs--border-card {
+  border: 0px;
+  background-color: #1A2575;
+}
+
+.zydcgl .info_l_top .el-tabs--border-card {
+  border: 0px;
+}
+
+.zydcgl .info_l_top .el-tabs__content {
+  border: 0px;
+  height: 100%;
+}
+
+.zydcgl .info_dialog_info .el-dialog__header {
+  background-color: #0088FE;
+}
+
+.zydcgl .el-dialog {
+  width: 24%;
+  top: 60px;
+  margin-top: 5px;
+  /*font-weight: bold;*/
+}
+
+.zydcgl .el-dialog .el-date-editor {
+  width: 220px;
+}
+
+.zydcgl .el-dialog .el-form-item {
+  height: 40px;
+  margin-top: 0px;
+  margin: 0px;
+  padding-right: 0px;
+}
+
+.zydcgl .el-dialog .el-form-item .el-form-item__content {
+  width: 65%;
+  align: left;
+}
+
+.el-message-box .el-message-box__header {
+  background-color: #1A2575;
+  color: white;
+}
+
+.hcjh .has-gutter tr th {
+  background-color: #2A3CBA;
+  color: white;
+  height: 60px;
+}
+
+.insttrumenttation .has-gutter tr th {
+  background-color: #2A3CBA;
+  color: white;
+  height: 70px;
+}
+
+.insttrumenttation .el-table tr {
+  height: 70px;
+}
+
+.insttrumenttation1 .has-gutter tr th {
+  background-color: #2A3CBA;
+  color: white;
+  height: 70px;
+}
+
+.insttrumenttation1 .el-table tr {
+  height: 70px;
+}
+
+.nowrapnoborder_canuse {
+  padding: 0px;
+  margin: 0px;
+  height: 100px;
+  background-color: #7FC4FB;
+}
+
+.nowrapnoborder_contask {
+  padding: 0px;
+  margin: 0px;
+  height: 100px;
+  background-color: #EE534F;
+}
+
+.nowrapnoborder_othertask {
+  padding: 0px;
+  margin: 0px;
+  height: 100px;
+  background-color: #97A4F3;
+}
+
+.nowrapnoborder_jidongtask {
+  padding: 0px;
+  margin: 0px;
+  height: 100px;
+  background-color: #F4C450;
+}
+
+.nowrapnoborder_stop {
+  padding: 0px;
+  margin: 0px;
+  height: 120px;
+  background-color: #616161;
+}
+
+.hcjh .el-table td {
+  height: 130px;
+}
+
+.tongjifenxi59 .has-gutter tr th {
+  background-color: #2A3CBA;
+  color: white;
+}
+
+.el-rate__text {
+  color: #606266 !important;
+}
+
+.pingGu .el-progress__text {
+  display: none !important;
+}
+
+.pingGu .el-progress-bar {
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-left: 3px;
+}
+
+.pingGu .el-progress-bar__inner {
+  background-color: #39b885;
+}
+
+.pingGu .bx-wrapper {
+  border-radius: 4px !important;
+  width: 100%;
+  max-width: 100% !important;
+  height: 100% !important;
+  margin: 0px !important;
+}
+
+.pingGu .pingGu_top .bx-wrapper .bx-viewport {
+  width: 100%;
+  border: none;
+  height: 100% !important;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.pingGu .bx-pager {
+  display: none;
+}
+
+.pingGu .bx-controls {
+  display: none;
+}
+
+.pingGu .bx-wrapper img {
+  max-width: 100%;
+}
+
+.pingGu .bx-wrapper .bx-prev {
+
+}
+
+.baseInstMainInfo .detail .el-tabs {
+  width: 100%;
+}
+
+.baseInstMainInfo .detail .el-tabs__header .el-tabs__nav-wrap {
+  padding: 0px;
+}
+
+.baseInstMainInfo .detail .el-tabs__header {
+  margin: 0;
+  border: 2px solid #0088fe;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.baseInstMainInfo .detail .el-tabs__nav-wrap {
+  width: 100%;
+}
+
+.baseInstMainInfo .detail .el-tabs__nav-wrap::after {
+  display: none;
+  height: 0px;
+}
+
+.baseInstMainInfo .detail .el-tabs__nav-scroll {
+  width: 100%;
+}
+
+.baseInstMainInfo .detail .el-tabs__nav {
+  width: 100%;
+}
+
+.baseInstMainInfo .detail .el-tabs {
+  margin-top: 20px;
+}
+
+.baseInstMainInfo .detail .el-tabs .el-tabs__content {
+  overflow: visible;
+}
+
+.baseInstMainInfo .detail .el-tabs__header .el-tabs__nav-wrap .el-tabs__nav-prev {
+  display: none;
+}
+
+.baseInstMainInfo .detail .el-tabs__header .el-tabs__nav-wrap .el-tabs__nav-next {
+  display: none;
+}
+
+.baseInstMainInfo .detail .el-tabs__header .el-tabs__active-bar {
+  display: none;
+}
+
+.baseInstMainInfo .detail .el-tabs__header .el-tabs__item {
+  padding: 0;
+  text-align: center;
+  width: 14.28%;
+  line-height: 40px;
+}
+
+.baseInstMainInfo .detail .el-tabs__header .el-tabs__item.is-active {
+  background-color: #0088fe;
+  color: #fff
+}
+
+/*海洋站*/
+.baseInstMainInfo .detail_ocean .el-tabs {
+  width: 100%;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__header .el-tabs__nav-wrap {
+  padding: 0px;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__header {
+  margin: 0;
+  border: 2px solid #0088fe;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__nav-wrap {
+  width: 100%;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__nav-wrap::after {
+  display: none;
+  height: 0px;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__nav-scroll {
+  width: 100%;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__nav {
+  width: 100%;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs {
+  margin-top: 20px;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs .el-tabs__content {
+  overflow: visible;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__header .el-tabs__nav-wrap .el-tabs__nav-prev {
+  display: none;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__header .el-tabs__nav-wrap .el-tabs__nav-next {
+  display: none;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__header .el-tabs__active-bar {
+  display: none;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__header .el-tabs__item {
+  padding: 0;
+  text-align: center;
+  width: 14.28%;
+  line-height: 40px;
+}
+
+.baseInstMainInfo .detail_ocean .el-tabs__header .el-tabs__item.is-active {
+  background-color: #0088fe;
+  color: #fff
+}
+
+/*海洋站 -end*/
+
+.baseInstMainInfo .det_chuanganqi .el-table .has-gutter tr th {
+  background-color: #fff;
+  color: #000;
+}
+
+.baseInstMainInfo .det_chuanganqi .el-table .has-gutter tr th .cell {
+  font-size: 14px !important;
+  font-weight: 700;
+}
+
+.baseInstMainInfo .det_chuanganqi .el-table td, .el-table th.is-leaf {
+  border-bottom: none;
+}
+
+.baseInstMainInfo .det_chuanganqi .el-table td, .el-table th.is-leaf {
+  border-right: none;
+}
+
+.baseInstMainInfo .det_chuanganqi .el-table .el-table__body-wrapper {
+
+}
+
+.baseInstMainInfo .det_chuanganqi .el-table .el-table__row td .cell div, .baseInstMainInfo .det_chuanganqi .el-table .el-table__row td .cell {
+  color: #168ddd;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.baseInstMainInfo .third_count .el-table .has-gutter tr th {
+  background-color: #fff;
+  color: #000;
+}
+
+.baseInstMainInfo .third_count .el-table .has-gutter tr th .cell {
+  font-size: 14px !important;
+  font-weight: 700;
+}
+
+.baseInstMainInfo .third_count .el-table td, .el-table th.is-leaf {
+  border-bottom: none;
+}
+
+.baseInstMainInfo .third_count .el-table td, .el-table th.is-leaf {
+  border-right: none;
+}
+
+.baseInstMainInfo .third_count .el-table .el-table__body-wrapper {
+
+}
+
+.baseInstMainInfo .third_count .el-table .el-table__row td .cell div, .baseInstMainInfo .third_count .el-table .el-table__row td .cell {
+  color: #168ddd;
+  font-weight: 700;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.baseInstMainInfo .third_count .el-table td, .el-table th {
+  padding: 5px 0 !important;
+}
+
+/*overflow hidden*/
+/*text-overflow ellipsis*/
+/*word-break keep-all*/
+/*white-space nowrap*/
+
+.baseInstMainInfo .el-table__body .err {
+  color: #F05658 !important;
+}
+
+.baseInstMainInfo .el-table__body .nor {
+  color: #00ff00 !important;
+}
+
+::-webkit-scrollbar-track-piece {
+  /*background-color:#f8f8f8;*/
+  /*background-color:#CFD5E3;*/
+  background: rgba(255, 255, 255, 0);
+
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dddddd;
+  background: rgba(255, 255, 255, 0);
+  background-clip: padding-box;
+  min-height: 28px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb;
+}
+
+/*.baseInstMainInfo .first_count::-webkit-scrollbar-track-piece {*/
+/*background-color:#f8f8f8;*/
+/*}*/
+/*.baseInstMainInfo .first_count::-webkit-scrollbar {*/
+/*display: none;*/
+/*width:5px;*/
+/*height:5px;*/
+/*}*/
+/*.baseInstMainInfo .first_count::-webkit-scrollbar:hover {*/
+/*display: block;*/
+/*}*/
+/*.baseInstMainInfo .first_count::-webkit-scrollbar-thumb {*/
+/*display: none;*/
+/*background-color:#dddddd;*/
+/*background-clip:padding-box;*/
+/*min-height:28px;*/
+/*}*/
+/*.baseInstMainInfo .first_count::-webkit-scrollbar-thumb:hover {*/
+/*display: block;*/
+/*background-color:#bbb;*/
+/*}*/
+
 
 
 

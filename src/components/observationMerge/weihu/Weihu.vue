@@ -250,7 +250,7 @@
           }
         },
         legend: {
-          data:['超期未保养','临近保养','已保养']
+          data: ['已保养', '临近保养', '超期未保养']
         },
         toolbox: {
           show : true,
@@ -271,7 +271,7 @@
         xAxis : [
           {
             type : 'category',
-            data:['海洋站','浮标','潜标','船舶','飞机','指挥车','雷达','潜器']
+            data: ['海洋站', '浮标', '潜标', '船舶', '雷达']
           }
         ],
         yAxis : [
@@ -281,12 +281,13 @@
         ],
         series : [
           {
-            name:'超期未保养',
+            name: '已保养',
             type:'bar',
             barWidth: 12,
-            data:[320, 332, 301, 334, 390, 330, 320,50],
+            stack: '已保养',
+            data: [320, 332, 301, 334, 390],
             itemStyle: {
-              normal:{color:'#0BABFE'}
+              normal: {color: '#6DB820'}
             }
           },
           {
@@ -294,19 +295,19 @@
             type:'bar',
             barWidth: 12,
             stack: '临近保养',
-            data:[120, 132, 101, 134, 90, 230, 210,50],
+            data: [120, 132, 101, 134, 90],
             itemStyle: {
-              normal:{color:'#79A0EF'}
+              normal: {color: '#FFAC1E'}
             }
           },
           {
-            name:'已保养',
+            name: '超期未保养',
             type:'bar',
             barWidth: 12,
-            stack: '已保养',
-            data:[220, 182, 191, 234, 290, 330, 310,50],
+            stack: '未保养',
+            data: [220, 182, 191, 234, 290],
             itemStyle: {
-              normal:{color:'#A360FE'}
+              normal: {color: 'red'}
             }
           }]
 

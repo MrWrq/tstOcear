@@ -83,10 +83,15 @@
                   label="责任单位">
                 </el-table-column>
                 <el-table-column
-                  prop="eqby"
                   align="center"
                   sortable
                   label="全部详情">
+                  <template slot-scope="scope">
+                    <el-button type="text" size="mini"
+                               style="display: inline-block;width: 80%;height: 80%; background-color: #7f8180;color:#fff;">
+                      查看详情
+                    </el-button>
+                  </template>
                 </el-table-column>
               </el-table>
             </div>
@@ -100,6 +105,7 @@
   import echarts from 'echarts'
   import regTitle from './../../minModule/title/Title'
   import regTable from './../../minModule/table/Table'
+
   export default {
     data (){
       return {
@@ -116,13 +122,17 @@
           {name: '雷达'}
         ],
         dataTable:[
-          {seq: '1',eqtype: '雷达',eqNo: 'X111',validdate: '2019.5.5',eqleader: '王建国',eqby:'1'},
-          {seq: '2',eqtype: '海洋站',eqNo: 'B212',validdate: '2019.5.1',eqleader: '王建国',eqby:'4'},
-          {seq: '3',eqtype: '潜标',eqNo: 'C850',validdate: '2019.5.8',eqleader: '王建国',eqby:'2'},
-          {seq: '4',eqtype: '指挥车',eqNo: 'G741',validdate: '2019.5.12',eqleader: '王建国',eqby:'1'},
-          {seq: '5',eqtype: '雷达',eqNo: 'C888',validdate: '2019.5.20',eqleader: '王建国',eqby:'3'},
-          {seq: '6',eqtype: '雷达',eqNo: 'C838',validdate: '2019.5.20',eqleader: '王建国',eqby:'3'},
-          {seq: '7',eqtype: '雷达',eqNo: 'C238',validdate: '2019.5.20',eqleader: '王建国',eqby:'3'}
+          {seq: '1', eqtype: '雷达', eqNo: 'X111', validdate: '2019.5.5', eqleader: '王建国', eqby: '技术中心'},
+          {seq: '2', eqtype: '海洋站', eqNo: 'B212', validdate: '2019.5.1', eqleader: '王建国', eqby: '北海分局'},
+          {seq: '3', eqtype: '潜标', eqNo: 'C850', validdate: '2019.5.8', eqleader: '王建国', eqby: '技术中心'},
+          {seq: '4', eqtype: '指挥车', eqNo: 'G741', validdate: '2019.5.12', eqleader: '王建国', eqby: '技术中心'},
+          {seq: '5', eqtype: '雷达', eqNo: 'C888', validdate: '2019.5.20', eqleader: '王建国', eqby: '技术中心'},
+          {seq: '6', eqtype: '雷达', eqNo: 'C838', validdate: '2019.5.20', eqleader: '王建国', eqby: '北海分局'},
+          {seq: '7', eqtype: '雷达', eqNo: 'C238', validdate: '2019.5.20', eqleader: '王建国', eqby: '北海分局'},
+          {seq: '8', eqtype: '指挥车', eqNo: 'G741', validdate: '2019.5.12', eqleader: '王建国', eqby: '技术中心'},
+          {seq: '9', eqtype: '雷达', eqNo: 'C888', validdate: '2019.5.20', eqleader: '王建国', eqby: '技术中心'},
+          {seq: '10', eqtype: '雷达', eqNo: 'C838', validdate: '2019.5.20', eqleader: '王建国', eqby: '北海分局'},
+          {seq: '11', eqtype: '雷达', eqNo: 'C238', validdate: '2019.5.20', eqleader: '王建国', eqby: '北海分局'},
         ]
       }
     },

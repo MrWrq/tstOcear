@@ -6,32 +6,82 @@
           <div class="home_list">
             <ul class="list_1">
               <li v-for="item in meaus" :style="{backgroundColor:item.bgColor}">
-                <div class="link_hide"><router-link class="link_a" :to="item.path"></router-link></div>
+                <div class="link_hide" v-if="item.href">
+                  <a :href="item.href" target="_blank" class="link_a"></a>
+                </div>
+                <div class="link_hide" v-else>
+                  <router-link class="link_a" :to="item.path"></router-link>
+                </div>
                 <div class="li_img"><div :style="{backgroundImage:'url('+item.imgUrl+')'}"></div><!--<img :src="item.imgUrl" alt="" width="50">--></div>
                 <div class="li_p"><span></span><h2>{{item.name}}</h2><!--<p>{{item.detail}}</p>--></div>
-                <div class="li_link"><router-link :to="item.path" >进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
-                <div class="num"><p>{{item.num}}</p></div>
-              </li>
-            </ul>
-          </div>
-          <div class="home_list">-
-            <ul class="list_2">
-              <li v-for="item in meaus2" :style="{backgroundColor:item.bgColor}">
-                <div class="link_hide"><router-link class="link_a" :to="item.path"></router-link></div>
-                <div class="li_img">  <div :style="{backgroundImage:'url('+item.imgUrl+')'}"></div>  <!--<p>{{item.detail}}</p>--></div>
-                <div class="li_p"><span></span><h2>{{item.name}}</h2></div>
-                <div class="li_link"><router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
+
+                <div class="li_link" v-if="item.href">
+                  <a :href="item.href" target="_blank">进入查看<i class="el-icon-caret-right"></i></a>
+                </div>
+                <div class="li_link" v-else>
+                  <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
+                </div>
+
                 <div class="num"><p>{{item.num}}</p></div>
               </li>
             </ul>
           </div>
           <div class="home_list">
+            <ul class="list_2">
+              <li v-for="item in meaus2" :style="{backgroundColor:item.bgColor}">
+                <div class="link_hide" v-if="item.href">
+                  <a :href="item.href" target="_blank" class="link_a"></a>
+                </div>
+                <div class="link_hide" v-else>
+                  <router-link class="link_a" :to="item.path"></router-link>
+                </div>
+                <div class="li_img">
+                  <div :style="{backgroundImage:'url('+item.imgUrl+')'}"></div>
+                  <!--<img :src="item.imgUrl" alt="" width="50">--></div>
+                <div class="li_p"><span></span>
+                  <h2>{{item.name}}</h2><!--<p>{{item.detail}}</p>--></div>
+
+                <div class="li_link" v-if="item.href">
+                  <a :href="item.href" target="_blank">进入查看<i class="el-icon-caret-right"></i></a>
+                </div>
+                <div class="li_link" v-else>
+                  <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
+                </div>
+
+                <div class="num"><p>{{item.num}}</p></div>
+              </li>
+
+              <!--<li v-for="item in meaus2" :style="{backgroundColor:item.bgColor}">-->
+              <!--<div class="link_hide"><router-link class="link_a" :to="item.path"></router-link></div>-->
+              <!--<div class="li_img">  <div :style="{backgroundImage:'url('+item.imgUrl+')'}"></div>  &lt;!&ndash;<p>{{item.detail}}</p>&ndash;&gt;</div>-->
+              <!--<div class="li_p"><span></span><h2>{{item.name}}</h2></div>-->
+              <!--<div class="li_link"><router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>-->
+              <!--<div class="num"><p>{{item.num}}</p></div>-->
+              <!--</li>-->
+            </ul>
+          </div>
+          <div class="home_list">
             <ul>
               <li v-for="item in meaus3" :style="{backgroundColor:item.bgColor}">
-                <div class="link_hide"><router-link class="link_a" :to="item.path"></router-link></div>
-                <div class="li_img">  <div :style="{backgroundImage:'url('+item.imgUrl+')'}"></div>  <!--<p>{{item.detail}}</p>--></div>
-                <div class="li_p"><span></span><h2>{{item.name}}</h2></div>
-                <div class="li_link"><router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i> </router-link> </div>
+                <div class="link_hide" v-if="item.href">
+                  <a :href="item.href" target="_blank" class="link_a"></a>
+                </div>
+                <div class="link_hide" v-else>
+                  <router-link class="link_a" :to="item.path"></router-link>
+                </div>
+                <div class="li_img">
+                  <div :style="{backgroundImage:'url('+item.imgUrl+')'}"></div>
+                  <!--<img :src="item.imgUrl" alt="" width="50">--></div>
+                <div class="li_p"><span></span>
+                  <h2>{{item.name}}</h2><!--<p>{{item.detail}}</p>--></div>
+
+                <div class="li_link" v-if="item.href">
+                  <a :href="item.href" target="_blank">进入查看<i class="el-icon-caret-right"></i></a>
+                </div>
+                <div class="li_link" v-else>
+                  <router-link :to="item.path">进入查看 <i class="el-icon-caret-right"></i></router-link>
+                </div>
+
                 <div class="num"><p>{{item.num}}</p></div>
               </li>
             </ul>
@@ -61,8 +111,22 @@
         isShow:false,
         meaus:[
           {'num':'01','name':'综合管理','detail':'大型装备管理','bgColor':'#00bbfe','path':'/regRegionTable','imgUrl':'static/regionImg/10.png'},
-          {'num':'02','name':'装备信息','detail':'调查设备管理','bgColor':'#00bbfe','path':'/regionHome','imgUrl':'static/regionImg/14.png'},//no
-          {'num':'03','name':'基建信息','detail':'大型装备管理','bgColor':'#00bbfe','path':'/regionHome','imgUrl':'static/regionImg/6.png'},//no
+          {
+            'num': '02',
+            'name': '装备信息',
+            'detail': '调查设备管理',
+            'bgColor': '#00bbfe',
+            'href': 'http://71.0.1.192:8080/otes/#modules/generator/marinestationinfo.html',
+            'imgUrl': 'static/regionImg/14.png'
+          },//no
+          {
+            'num': '03',
+            'name': '基建信息',
+            'detail': '大型装备管理',
+            'bgColor': '#00bbfe',
+            'href': 'http://71.0.1.192:8080/otes/#modules/generator/detbuilding.html',
+            'imgUrl': 'static/regionImg/6.png'
+          },//no
           {'num':'04','name':'备品备件','detail':'调查设备管理','bgColor':'#00bbfe','path':'/regSpareParts','imgUrl':'static/regionImg/7.png'},
           {'num':'','name':' ','detail':' ','bgColor':'','path':'','imgUrl':''},
           {'num':'05','name':'测试评估','detail':'大型装备管理','bgColor':'#4ccdaf','path':'/regionHome','imgUrl':'static/regionImg/13.png'},//no
@@ -70,16 +134,44 @@
         ],
         meaus2:[
           {'num':'07','name':'维护保养','detail':'大型装备管理','bgColor':'#4bceaf','path':'/regWeihu','imgUrl':'static/regionImg/1.png'},
-          {'num':'08','name':'验定校准','detail':'大型装备管理','bgColor':'#4bceaf','path':'/regCalibration','imgUrl':'static/regionImg/4.png'},
+          {
+            'num': '08',
+            'name': '检定校准',
+            'detail': '大型装备管理',
+            'bgColor': '#4bceaf',
+            'path': '/regCalibration',
+            'imgUrl': 'static/regionImg/4.png'
+          },
           {'num':'09','name':'故障处置','detail':'调查设备管理','bgColor':'#4bceaf','path':'/regDualException','imgUrl':'static/regionImg/5.png'},
           {'num':'10','name':'报废处置','detail':'大型装备管理','bgColor':'#4bceaf','path':'/regDualScrap','imgUrl':'static/regionImg/9.png'},
           {'num':'','name':' ','detail':' ','bgColor':'','path':'','imgUrl':''},
-          {'num':'11','name':'设备巡检','detail':'调查设备管理','bgColor':'#ffac1e','path':'/regionHome','imgUrl':'static/regionImg/11.png'}, //no
-          {'num':'12','name':'年度核查','detail':'大型装备管理','bgColor':'#ffac1e','path':'/regYearCheck','imgUrl':'static/regionImg/12.png'},
+          {
+            'num': '11',
+            'name': '年度核查',
+            'detail': '大型装备管理',
+            'bgColor': '#ffac1e',
+            'path': '/regYearCheck',
+            'imgUrl': 'static/regionImg/12.png'
+          },
+          {
+            'num': '12',
+            'name': '设备巡检',
+            'detail': '调查设备管理',
+            'bgColor': '#ffac1e',
+            'href': 'http://71.0.1.192:8080/otes/#modules/generator/inspectionbuoyinfo.html',
+            'imgUrl': 'static/regionImg/11.png'
+          }, //no
         ],
         meaus3:[
           {'num':'13','name':'统计分析','detail':'调查设备管理','bgColor':'#a360fe','path':'/regTongji','imgUrl':'static/regionImg/2.png'},
-          {'num':'14','name':'综合评估','detail':'大型装备管理','bgColor':'#a360fe','path':'/regionHome','imgUrl':'static/regionImg/3.png'},
+          {
+            'num': '14',
+            'name': '综合评估',
+            'detail': '大型装备管理',
+            'bgColor': '#a360fe',
+            'path': '/regPinggu',
+            'imgUrl': 'static/regionImg/3.png'
+          },
         ],
       }
     },
@@ -88,7 +180,7 @@
     },
     mounted(){
       let screeH = document.documentElement.clientHeight
-      if(screeH<=910) {
+      if (screeH <= 870) {
         $('.home_list .li_link').hide()
         $('.link_a').show()
       }else {

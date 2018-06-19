@@ -19,17 +19,6 @@
           <div class="info_top_left">
             <v-title :message="titBot_Left"></v-title>
             <div id="bottom_left_chart_panel"></div>
-            <div class="">
-              <ul>
-                <li class="clearfix"><i></i><span>海洋站</span></li>
-                <li><i></i><span>船舶</span></li>
-                <li><i></i><span>潜艇</span></li>
-                <li><i></i><span>雷达</span></li>
-                <li><i></i><span>浮标</span></li>
-                <li><i></i><span>潜艇</span></li>
-                <li><i></i><span>飞机</span></li>
-              </ul>
-            </div>
           </div>
           <div class="info_bottom_mid">
             <v-title :message="titBot_Mid"></v-title>
@@ -138,11 +127,17 @@
           {name: '雷达'}
         ],
         dataTable:[
-          {date: '台站',name: '100',address: '23',num: '23',all: '115',name1:'浮标'},
-          {date: '雷达',name: '100',address: '34',num: '23',all: '115',name1:'浮标1'},
-          {date: '潜标',name: '100',address: '34',num: '23',all: '115',name1:'浮标2'},
-          {date: '台站',name: '100',address: '34',num: '23',all: '115',name1:'浮标3'},
-          {date: '台站',name: '100',address: '34',num: '23',all: '115',name1:'浮标4'}
+          {date: '1', name: '100', address: '23', num: '23', all: '海洋站', name1: '浮标'},
+          {date: '2', name: '100', address: '34', num: '23', all: '船舶', name1: '浮标1'},
+          {date: '3', name: '100', address: '34', num: '23', all: '潜器', name1: '浮标2'},
+          {date: '4', name: '100', address: '34', num: '23', all: '雷达', name1: '浮标3'},
+          {date: '5', name: '100', address: '34', num: '23', all: '浮标', name1: '浮标4'},
+          {date: '6', name: '100', address: '34', num: '23', all: '飞机', name1: '浮标4'},
+          {date: '7', name: '100', address: '34', num: '23', all: '浮标', name1: '浮标4'},
+          {date: '8', name: '100', address: '34', num: '23', all: '潜器', name1: '浮标2'},
+          {date: '9', name: '100', address: '34', num: '23', all: '潜器', name1: '浮标2'},
+
+
         ]
       }
     },
@@ -169,7 +164,7 @@
           formatter: "{b} <br> {c}百万"
         },
         grid: {
-          x:-10,
+          x: 15,
           y:40,
           x2:13,
           y2:10,

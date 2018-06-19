@@ -6,24 +6,30 @@
       </div>
       <div class="l nav">
         <div v-for="item in tabs" class="nav_list" @click="isShowHome($event)">
-          <router-link :to="item.path" class="meau">
+
+          <a :href="item.href" v-if="item.href" target="_blank">
+            <span>{{item.name}}</span>
+            <i v-if="item.icon" :class="item.icon"></i>
+          </a>
+
+          <router-link :to="item.path" class="meau" v-else>
             <span>{{item.name}}</span>
             <i v-if="item.icon" :class="item.icon"></i>
           </router-link>
 
+
         </div>
-        <div class="nav_list more">· · ·
+
+        <div class="nav_list more" v-if="moreTabs.length != '0'">· · ·
           <div class="moreMeau">
             <i class="el-icon-caret-bottom"></i>
             <ul>
               <li v-for="item in moreTabs">
                 <router-link :to="item.path" class="meau">
                   <span>{{item.name}}</span>
-                  <!--<i v-if="item.icon" :class="item.icon"></i>-->
                 </router-link>
               </li>
             </ul>
-
           </div>
         </div>
 
@@ -59,9 +65,30 @@
           {"name": "备品备件", "path": "/regSpareParts"},
         ],
         moreTabs: [
-          {"name": "统计分析", "path": "/regTongji"},
-          {"name": "年度核查", "path": "/regYearCheck"},
+
         ]
+      }
+    },
+    beforeMount() {
+      var width_w = document.documentElement.clientWidth
+      var obj_1 = {"name": "综合评估", "path": "/regPinggu"}
+      var obj_2 = {"name": "统计分析", "path": "/regTongji"}
+      var obj_3 = {"name": "年度核查", "path": "/regYearCheck"}
+
+      if (width_w >= 1536) {
+        this.tabs.push(obj_1)
+      } else {
+        this.moreTabs.push(obj_1)
+      }
+      if (width_w >= 1680) {
+        this.tabs.push(obj_2)
+      } else {
+        this.moreTabs.push(obj_2)
+      }
+      if (width_w >= 1700) {
+        this.tabs.push(obj_3)
+      } else {
+        this.moreTabs.push(obj_3)
       }
     },
     methods: {
@@ -77,7 +104,7 @@
         $(".reg_top").hide()
       }
       if (pathName.substring(0, 4) == '/reg' && pathName != "/regionHome") {
-        $(".obs_top").show()
+        $(".reg_top").show()
       }
 
       $('.more').on('mouseenter', function () {
@@ -101,7 +128,7 @@
     top 0px
     left 0px
     height 86px
-    background-color #1a2575
+    /*background-color #1a2575*/
     z-index 99999
     display none
     .logo

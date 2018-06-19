@@ -8,30 +8,45 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import layer from 'vue-layer'
+import '../static/css/jquery.bxslider.css'
+import '../static/js/jquery.bxslider.js'
 //首页
 import Home from './components/home/Home'
 //综合管理
 import intAbout from './components/integratedManagement/intAbout/IntAbout'
+import intTongji from './components/integratedManagement/intTongji'
 //大型装备
 // import About from './components/intAbout/About'
 // import Clippers from './components/clippers/Clippers'
 // import Region from './components/region/Region'
 // import Inspection from './components/inspection/Inspection'
 // import Statistic from './components/statistic/Statistic'
-import larManagement from './components/largeMonuments/management/Management'
-
-
+import larManagement from './components/largeMonuments/management/larManagement'
+import larTongji from './components/largeMonuments/larTongji'
+import larYearcheck from './components/largeMonuments/larYearcheck'
 //基础设施
 // import Infrastructure from './components/infrastructure/Infrastructure'
-
 import facBaseInstInfo from './components/facMonuments/infrastructure/Infrastructure'
+import facTongji from './components/facMonuments/facTongji'
+/*测试*/
+// import facMtongji from './components/facMonuments/Mtongji'
+// import facMyearcount from './components/facMonuments/Myearcount'
+// import facMyearpatrol from './components/facMonuments/Myearpatrol'
 //年度巡检
-import yeaInsHome from './components/yeaInspection/yearHome/YearCheck'
+import yeaInsHome from './components/yeaInspection/yearHome/YearHome'
+import yeaYearcheck from './components/yeaInspection/yeaYearcheck'
 //海外站
 import oveSeasHome from './components/oveManage/overseas/Overseas'
+//调查船
+import resHome from './components/researchShip/resHome'
+import resInstrumenttation from './components/researchShip/Instrumenttation'
+import resInstrumenttation1 from './components/researchShip/Instrumenttation1'
+import resZydcgl from './components/researchShip/Zydcgl'
+import resHcjh from './components/researchShip/Hcjh'
+import resDiaochachuan from './components/researchShip/diaochachuan1'
 //极地
 // import regAboutScore from './components/regionMerge/aboutScore/AboutScore'
-import regRegionTable from './components/regionMerge/regionTable/RegionTable'
+import regRegionTable from './components/regionMerge/regionTable/RegionTable1'
 import regRegionHome from './components/regionMerge/RegionHome'
 import regCalibration from './components/regionMerge/calibration/Calibration'
 import regSpareParts from './components/regionMerge/spareParts/SpareParts'
@@ -41,9 +56,10 @@ import regDualException from './components/regionMerge/dualexception/DualExcepti
 import regDualScrap from './components/regionMerge/dualScrap/DualScrap'
 import regYearCheck from './components/regionMerge/yearcheck/YearCheck'
 import regInstallation from './components/regionMerge/installation/Installation'
+import regPinggu from './components/regionMerge/regPinggu/regPinggu'
 //观测
 import ObsAboutScore from './components/observationMerge/aboutScore/AboutScore'
-import ObsRegionTable from './components/observationMerge/regionTable/RegionTable'
+import ObsRegionTable from './components/observationMerge/regionTable/guanceMainPage'
 import ObsRegionHome from './components/observationMerge/ObsRegionHome'
 import ObsCalibration from './components/observationMerge/calibration/Calibration'
 import ObsSpareParts from './components/observationMerge/spareParts/SpareParts'
@@ -51,8 +67,9 @@ import ObsTongji from './components/observationMerge/tongji/Tongji'
 import ObsWeihu from './components/observationMerge/weihu/Weihu'
 import ObsDualException from './components/observationMerge/dualexception/DualException'
 import ObsDualScrap from './components/observationMerge/dualScrap/DualScrap'
-import ObsYearCheck from './components/observationMerge/yearcheck/YearCheck'
+import ObsYearCheck from './components/observationMerge/yearcheck/obsYearCheck'
 import ObsInstallation from './components/observationMerge/installation/Installation'
+import ObsPinggu from './components/observationMerge/obsPinggu/obsPinggu'
 
 Vue.prototype.$layer = layer(Vue);
 
@@ -68,17 +85,36 @@ const routes = [
   {path: '/home', component: Home},
   //综合管理
   {path: '/intAbout', component: intAbout},
+  {path: '/intTongji', component: intTongji},
+
   //大型
   {path: '/larManagement', component: larManagement},
+  {path: '/larTongji', component: larTongji},
+  {path: '/larYearcheck', component: larYearcheck},
+
   //基础设施
   {path: '/facBaseInstInfo', component: facBaseInstInfo},
+  {path: '/facTongji', component: facTongji},
+  // {path: '/facMtongji', component: facMtongji},
+  // {path: '/facMyearcount', component: facMyearcount},
+  // {path: '/facMyearpatrol', component: facMyearpatrol},
   // {path: '/regInfrastructure', component: Infrastructure},
 
   //年度巡检
   {path: '/yeaInsHome', component: yeaInsHome},
-
+  {path: '/yeaYearcheck', component: yeaYearcheck},
   //海外站
   {path: '/oveSeasHome', component: oveSeasHome},
+
+  //调查船
+  {path: '/resHome', component: resHome},
+
+  {path: '/resInstrumenttation', component: resInstrumenttation},
+  {path: '/resInstrumenttation1', component: resInstrumenttation1},
+  {path: '/resZydcgl', component: resZydcgl},
+  {path: '/resHcjh', component: resHcjh},
+  {path: '/resDiaochachuan', component: resDiaochachuan},
+
 
   // {path: '/intAbout', component: About},
   // {path: '/regClippers', component: Clippers},
@@ -97,6 +133,8 @@ const routes = [
   {path: '/regDualException', component: regDualException},
   {path: '/regDualScrap', component: regDualScrap},
   {path: '/regYearCheck', component: regYearCheck},
+  {path: '/regPinggu', component: regPinggu},
+
   //观测
   {path: '/obsRegionHome', component: ObsRegionHome},
   {path: '/obsAboutScore', component: ObsAboutScore},
@@ -109,6 +147,7 @@ const routes = [
   {path: '/obsDualScrap', component: ObsDualScrap},
   {path: '/obsYearCheck', component: ObsYearCheck},
   {path: '/obsInstallation', component: ObsInstallation},
+  {path: '/obsPinggu', component: ObsPinggu},
 
 ]
 
@@ -130,6 +169,8 @@ router.afterEach((to,from,next) => {
     $(".fac_top").hide();
     $(".yea_top").hide();
     $(".ove_top").hide();
+    $(".res_top").hide();
+
   }
   if (strPath.substring(0, 4) == '/obs' && strPath != '/obsRegionHome') {
     $(".obs_top").show();
@@ -151,6 +192,9 @@ router.afterEach((to,from,next) => {
   }
   if (strPath.substring(0, 4) == '/ove') {
     $(".ove_top").show();
+  }
+  if (strPath.substring(0, 4) == '/res') {
+    $(".res_top").show();
   }
 
 
@@ -182,7 +226,7 @@ router.afterEach((to,from,next) => {
   }
 
   // 启动全屏!
-  // fullScreen()
+  fullScreen()
 })
 
 /* eslint-disable no-new */
